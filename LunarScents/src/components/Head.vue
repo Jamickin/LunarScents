@@ -2,8 +2,8 @@
 import { RouterLink } from "vue-router"
 </script>
 <template>
-    <div class="absolute w-24 h-[4.5rem] z-50 top-0"> <img src="../assets/images/Logo.png" />
-    </div>
+    <!-- <div class="absolute w-24 h-[4.5rem] z-50 top-0"> <img src="../assets/images/Logo.png" />
+        </div> -->
     <div class="absolute h-[4.5rem] top-0 left-0 w-full px-6 bg-Secondary shadow-md">
         <div class="h-full grid grid-cols-3 justify-center place-items-center">
             <div class="gridItem flex justify-center">
