@@ -2,15 +2,14 @@
 import { RouterLink } from "vue-router"
 </script>
 <template>
-    <div class="absolute w-24 h-[4.5rem] z-50 top-0"> <img src="../assets/images/Logo.png" />
-    </div>
-    <div class="absolute h-[4.5rem] top-0 left-0 w-full px-6 bg-Secondary shadow-md">
+    <div class="absolute h-[4.5rem] top-0 left-0 w-full px-6 bg-TertiaryHL shadow-md">
         <div class="h-full grid grid-cols-3 justify-center place-items-center">
-            <div class="gridItem flex justify-center">
-                <h1>Lunar Scents</h1>
+            <div class="gridItem flex justify-center text-2xl">
+                <h1 class="font-FlyMe">Lunar</h1>
+                <h1 class="font-Delicate">Scents</h1>
             </div>
             <div class="gridItem"></div>
-            <div class="gridItem grid grid-cols-2">
+            <div class="gridItem grid grid-cols-2 border-r-transparent">
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="products">Products</RouterLink>
             </div>
@@ -27,4 +26,6 @@ import { RouterLink } from "vue-router"
     text-align: center;
     place-items: center;
 }
+
+div {}
 </style>

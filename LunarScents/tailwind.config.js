@@ -10,6 +10,10 @@ module.exports = {
         TertiaryHL: "hsl(41,70%,50%)",
         Page: "hsl(0,0%,100%)",
       },
+      fontFamily: {
+        FlyMe: "FlyMeToTheMoon",
+        Delicate: "DelicateSans",
+      },
     },
   },
   plugins: [],
