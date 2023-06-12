@@ -2,24 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: FlyMeToTheMoon;
-  src: url(../src/assets/fonts/PWFlymetothemoon\(1\).ttf);
-}
-
-@font-face {
-  font-family: DelicateSans;
-  src: url(../src/assets/fonts/Delicatesansbold-8YzD\(1\).ttf);
-}
-
 * {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  font-size: large;
-  font-family: DelicateSans;
-}
-
-.text-2xl {
-  font-size: 1.5rem /* 24px */;
-  line-height: 2rem /* 32px */;
 }

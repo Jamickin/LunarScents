@@ -9,6 +9,7 @@ module.exports = {
         Tertiary: "hsl(36,100%,28%)",
         TertiaryHL: "hsl(41,70%,50%)",
         Page: "hsl(0,0%,100%)",
+        Glass: "hsl(0,0%,0%,0.07)",
       },
       fontFamily: {
         FlyMe: "FlyMeToTheMoon",
