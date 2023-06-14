@@ -1,6 +1,7 @@
 <script setup></script>
 <template>
-    <div class="flex flex-col place-items-center px-4 pt-4 h-[24rem] w-full bg-Page shadow-2xl">
+    <div><img src="../assets//images/Logo.png" class="bg-gradient-to-b from-Primary to-Secondary"></div>
+    <div class="flex flex-col place-items-center px-4 pt-4 h-[24rem] w-full bg-Page">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam obcaecati, pariatur fuga rerum facilis, earum
             fugit illum accusantium id quia dignissimos suscipit itaque necessitatibus sapiente autem debitis, ipsam
             officiis voluptatum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur aspernatur ab fuga?
