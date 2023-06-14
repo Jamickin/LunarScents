@@ -8,7 +8,7 @@ import { RouterLink } from "vue-router"
                 <h1></h1>
             </div>
             <div class="gridItem"></div>
-            <div class="gridItem grid grid-cols-2">
+            <div class="gridItem grid grid-cols-2 border-r-none">
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="products">Products</RouterLink>
             </div>
