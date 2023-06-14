@@ -10,7 +10,7 @@ function toggle() {
 
 </script>
 <template>
-    <div id="button" class="fixed left-0 hover:cursor-pointer h-10 w-10">
+    <div id="button" class="fixed left-0 hover:cursor-pointer hover:scale-110 h-10 w-10">
         <img src="../assets/images/MenuIcon.svg" id="button" @click="toggle(event)" />
     </div>
 

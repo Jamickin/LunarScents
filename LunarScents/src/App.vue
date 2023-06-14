@@ -1,16 +1,19 @@
 <script setup>
 import { RouterView } from "vue-router"
-import Head from "./components/Head.vue"
+import SideBar from "./components/SideBar.vue"
 import Footer from "./components/Footer.vue"
+import Checkout from "./components/Checkout.vue"
+
 
 </script>
 
 <template>
-    <Head />
+    <SideBar />
+    <Checkout />
     <main>
         <RouterView />
     </main>
-    <!-- <Footer /> -->
+    <Footer />
 </template>
 
 <style scoped></style>
