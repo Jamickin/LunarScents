@@ -1,9 +1,7 @@
 <script setup>
-import Workbody from "../components/Workbody.vue"
 </script>
-
 <template>
-    <Workbody />
+    <div class="p-4 text-center rounded-2xl shadow-2xl">This is my Store Page!</div>
 </template>
 
 <style></style>

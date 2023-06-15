@@ -1,22 +1,27 @@
 <script setup>
+import { ref } from "vue";
 
+const showSideBar = ref(false)
 
 function toggle() {
-    document.getElementById("checkoutButton").classList.toggle("left-[30rem]");
-    document.getElementById("checkout").classList.toggle("hidden")
+    showSideBar.value = !showSideBar.value;
 }
-
 </script>
+
 <template>
-    <div id="checkoutButton" class="fixed left-0 top-10 hover:cursor-pointer hover:scale-110 h-10 w-10">
-        <img src="../assets/images/CartIcon.svg" id="button" @click="toggle(event)" />
+    <div class="fixed hover:cursor-pointer hover:scale-110 h-10 w-10 transition"
+        :class="showSideBar ? 'right-96' : 'right-0'">
+        <img src="../assets/images/CartIcon.svg" @click="toggle()" />
     </div>
 
-    <div id="checkout"
-        class="hidden fixed top-0 left-0 h-screen w-[30rem] p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center pb-16">
-        <h1 class="text-4xl text-zinc-950 ">This is checkout</h1>
-        <div class="h-full bg-Page rounded-2xl"></div>
-    </div>
+    <Transition>
+        <div v-if="showSideBar" :class="showSideBar ? 'right-0' : '-right-96'"
+            class="fixed h-screen w-96 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar">
+            <h1 class="text-3xl">This is Cart</h1>
+            <div class="h-full w-full rounded-lg hover:shadow-2xl hover:bg-opacity-20 transition ">
+            </div>
+        </div>
+    </Transition>
 </template> 
 
 <style scoped>
@@ -28,5 +33,15 @@ function toggle() {
 .menu-item:hover {
     color: black;
     border-radius: 2rem;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 </style>
