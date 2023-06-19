@@ -1,5 +1,13 @@
-<script setup>
+<script>
 import { ref } from "vue";
+export default {
+    props: {
+        cart: {
+            type: Array,
+            required: true
+        }
+    }
+};
 
 const showSideBar = ref(false)
 
@@ -19,6 +27,9 @@ function toggle() {
             class="fixed h-screen w-96 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar">
             <h1 class="text-3xl">This is Cart</h1>
             <div class="h-full w-full rounded-lg hover:shadow-2xl hover:bg-opacity-20 transition ">
+                <ul>
+                    <li v-for="product in cart" :key="product.id">{{ product.name }}</li>
+                </ul>
             </div>
         </div>
     </Transition>

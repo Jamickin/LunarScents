@@ -5,7 +5,6 @@ import { RouterLink } from "vue-router"
 const showSideBar = ref(false)
 
 function toggle() {
-
     showSideBar.value = !showSideBar.value;
 }
 </script>
@@ -16,7 +15,7 @@ function toggle() {
         <img src="../assets/images/MenuIcon.svg" @click="toggle()" />
     </div>
 
-    <Transition>
+    <Transition name="fade">
         <div v-if="showSideBar" :class="showSideBar ? 'left-0' : '-left-[192px]'"
             class="fixed top-0 h-screen w-48 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar">
             <div class="h-full grid grid-rows-3 justify-center place-items-center">
@@ -39,13 +38,13 @@ function toggle() {
     border-radius: 2rem;
 }
 
-.v-enter-active,
-.v-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     transition: opacity 0.5s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.fade-enter-from,
+.fade-leave-to {
     opacity: 0;
 }
 </style>
