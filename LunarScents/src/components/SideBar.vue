@@ -22,6 +22,7 @@ function toggle() {
                 <RouterLink to="/home" class="menu-item hover:shadow-2xl">HOME</RouterLink>
                 <RouterLink to="/about" class="menu-item hover:shadow-2xl">ABOUT US</RouterLink>
                 <RouterLink to="/store" class="menu-item hover:shadow-2xl">STORE</RouterLink>
+                <RouterLink to="checkout" class="menu-item hover:shadow-2xl">CHECKOUT</RouterLink>
             </div>
         </div>
     </Transition>
@@ -31,6 +32,7 @@ function toggle() {
 .menu-item {
     transition: 400ms;
     padding: 4rem;
+    width: 12rem
 }
 
 .menu-item:hover {

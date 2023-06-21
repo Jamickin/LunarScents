@@ -1,43 +1,9 @@
-
-<script>
-
-export default {
-    data() {
-        return {
-            products: [
-                {
-                    id: 1,
-                    name: 'Stardust Elixir',
-                    description: 'An enchanting blend of celestial florals and musk.',
-                    price: '$49.99',
-                    image: '/images/stardust-elixir.jpg'
-                },
-                {
-                    id: 2,
-                    name: 'Moonbeam Mist',
-                    description: 'A refreshing mist infused with the essence of moonlight.',
-                    price: '$29.99',
-                    image: '/images/moonbeam-mist.jpg'
-                },
-                // Add more products as needed
-            ]
-        };
-    },
-
-    methods: {
-        addToCart(product) {
-            // Add the selected product to the cart array
-            this.cart.push(product);
-            console.log('Product added to cart:', product);
-        }
-    }
-};
-</script>
-
-
 <template>
     <div class="container mx-auto py-10">
         <h1 class="text-3xl font-bold mb-6">Welcome to the Lunar Scents Store!</h1>
+
+        <!-- Display confirmation message -->
+
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Product Cards -->
@@ -50,9 +16,38 @@ export default {
                     @click="addToCart(product)">Add to Cart</button>
             </div>
         </div>
+        <div v-if="showConfirmation" class="mt-6 p-4 bg-green-200 text-green-800 rounded animate-pulse">
+            <p>Product added to cart! Go to the <router-link :to="{ name: 'checkout' }"
+                    class="text-xl animate-pulse">cart</router-link>
+                to complete your
+                purchase.</p>
+        </div>
     </div>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            showConfirmation: false
+        };
+    },
+    methods: {
+        addToCart(product) {
+            // Add the selected product to the cart
+            this.$store.commit('addToCart', product);
+
+            // Show confirmation message
+            this.showConfirmation = true;
+        }
+    },
+    computed: {
+        products() {
+            return this.$store.state.products;
+        }
+    }
+};
+</script>
 
 <style scoped>
 .container {
