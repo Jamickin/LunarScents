@@ -1,8 +1,8 @@
 <template>
-    <!-- <div class="p-4 text-center rounded-2xl shadow-2xl">
+    <div class="p-4 text-center rounded-2xl shadow-2xl">
         <h1 class="text-3xl">Welcome to Lunar Scents</h1>
         <br><br>
-        <p class="text-xl">
+        <p class="text-lg">
             Greetings, fragrance enthusiasts! Welcome to the extraordinary realm of Lunar Scents, where scent becomes a
             celestial symphony and fragrances are crafted with love and cosmic inspiration.
 
@@ -43,7 +43,7 @@
             celestial creations and let them guide you on an aromatic journey of infinite possibilities. Welcome to our
             scented universe, where dreams and fragrances collide in perfect harmony.
         </p>
-    </div> -->
+    </div>
 </template>
 
 <style scoped>

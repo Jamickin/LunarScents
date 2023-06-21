@@ -10,10 +10,15 @@ function toggle() {
 </script>
 
 <template>
-    <div class="fixed hover:cursor-pointer hover:scale-110 h-10 w-10 transition"
-        :class="showSideBar ? 'left-48' : 'left-0'">
-        <img src="../assets/images/MenuIcon.svg" @click="toggle()" />
-    </div>
+    <!-- <div class="fixed hover:cursor-pointer hover:scale-110 h-10 w-10 transition"
+                                                                                                                :class="showSideBar ? 'left-48 animate-pulse' : 'left-0'">
+                                                                                                                <img src="../assets/images/MenuIcon.svg" @click="toggle()" />
+                                                                                                            </div> -->
+
+    <img src="../assets/images/MenuIcon.svg" :class="showSideBar ? 'opacity-0 cursor-not-allowed' : ''"
+        class="absolute left-0" @click="toggle()">
+    <img src="../assets/images/MenuIcon.svg" :class="showSideBar ? '' : 'opacity-0 cursor-not-allowed'"
+        class="absolute left-48" @click="toggle()">
 
     <Transition name="fade">
         <div v-if="showSideBar" :class="showSideBar ? 'left-0' : '-left-[192px]'"
@@ -29,10 +34,18 @@ function toggle() {
 </template> 
 
 <style scoped>
+img {
+    width: 2.7rem;
+    height: auto;
+    cursor: pointer;
+    transition: 600ms;
+}
+
 .menu-item {
     transition: 400ms;
     padding: 4rem;
-    width: 12rem
+    width: 12rem;
+    /* @apply bg-red-100; */
 }
 
 .menu-item:hover {
