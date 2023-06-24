@@ -1,37 +1,37 @@
 <script setup>
-import { ref } from "vue";
-import { RouterLink } from "vue-router"
+import { ref } from 'vue';
+import { RouterLink, useRouter } from 'vue-router';
 
-const showSideBar = ref(false)
+const showSideBar = ref(false);
+const router = useRouter();
 
 function toggle() {
     showSideBar.value = !showSideBar.value;
 }
+
+function closeSidebar() {
+    showSideBar.value = false;
+}
 </script>
 
 <template>
-    <!-- <div class="fixed hover:cursor-pointer hover:scale-110 h-10 w-10 transition"
-                                                                                                                :class="showSideBar ? 'left-48 animate-pulse' : 'left-0'">
-                                                                                                                <img src="../assets/images/MenuIcon.svg" @click="toggle()" />
-                                                                                                            </div> -->
-
-    <img src="../assets/images/MenuIcon.svg" :class="showSideBar ? 'opacity-0 cursor-not-allowed' : ''"
-        class="absolute left-0" @click="toggle()">
+    <img src="../assets/images/MenuIcon.svg" :class="showSideBar ? 'opacity-0 cursor-not-allowed' : ''" class="fixed left-0"
+        @click="toggle()">
     <img src="../assets/images/MenuIcon.svg" :class="showSideBar ? '' : 'opacity-0 cursor-not-allowed'"
-        class="absolute left-48" @click="toggle()">
+        class="fixed left-48" @click="toggle()">
 
     <Transition name="fade">
         <div v-if="showSideBar" :class="showSideBar ? 'left-0' : '-left-[192px]'"
-            class="fixed top-0 h-screen w-48 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar">
+            class="fixed top-0 h-screen w-48 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar z-10">
             <div class="h-full grid grid-rows-3 justify-center place-items-center">
-                <RouterLink to="/home" class="menu-item hover:shadow-2xl">HOME</RouterLink>
-                <RouterLink to="/about" class="menu-item hover:shadow-2xl">ABOUT US</RouterLink>
-                <RouterLink to="/store" class="menu-item hover:shadow-2xl">STORE</RouterLink>
-                <RouterLink to="checkout" class="menu-item hover:shadow-2xl">CHECKOUT</RouterLink>
+                <RouterLink to="/" class="menu-item hover:shadow-2xl" @click="closeSidebar">HOME</RouterLink>
+                <RouterLink to="/about" class="menu-item hover:shadow-2xl" @click="closeSidebar">ABOUT US</RouterLink>
+                <RouterLink to="/store" class="menu-item hover:shadow-2xl" @click="closeSidebar">STORE</RouterLink>
+                <RouterLink to="/checkout" class="menu-item hover:shadow-2xl" @click="closeSidebar">CHECKOUT</RouterLink>
             </div>
         </div>
     </Transition>
-</template> 
+</template>
 
 <style scoped>
 img {
@@ -49,7 +49,7 @@ img {
 }
 
 .menu-item:hover {
-    color: black;
+    @apply text-TertiaryHL;
     border-radius: 2rem;
 }
 

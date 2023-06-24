@@ -1,5 +1,5 @@
 <script setup>
-import Carousel from '../components/carousel.vue';
+import Carousel from '../components/Carousel.vue';
 </script>
 <template>
     <div class="grid justify-items-center place-items-center">

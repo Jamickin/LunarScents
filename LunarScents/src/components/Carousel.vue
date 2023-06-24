@@ -41,7 +41,7 @@ export default {
 </script>
 
 <template>
-    <div class="carousel-container">
+    <div class="carousel-container -z-10">
         <div class="carousel-wrapper" ref="carouselWrapper">
             <div class="carousel-track" :style="{ transform: `translateX(-${currentIndex * slideWidth}px)` }">
                 <div v-for="(slide, index) in slides" :key="index" class="carousel-slide">
