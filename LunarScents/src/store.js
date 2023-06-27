@@ -31,21 +31,24 @@ export default createStore({
         },
         // Add more products as needed
       ],
-      cart: [],
+      cart: JSON.parse(localStorage.getItem("cart")) || [],
     };
   },
   mutations: {
     addToCart(state, product) {
       state.cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     removeFromCart(state, product) {
       const index = state.cart.findIndex((item) => item.id === product.id);
       if (index !== -1) {
         state.cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(state.cart));
       }
     },
     clearCart(state) {
       state.cart = [];
+      localStorage.removeItem("cart");
     },
   },
 });

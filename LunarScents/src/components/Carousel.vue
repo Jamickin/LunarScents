@@ -5,7 +5,7 @@ export default {
         return {
             slides: [
                 {
-                    image: 'https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+                    image: 'images/MoonbeamMist.webp',
                     caption: 'Slide 1',
                     description: 'Description for Slide 1',
                 },
@@ -26,10 +26,21 @@ export default {
     },
     mounted() {
         this.$nextTick(() => {
-            this.slideWidth = this.$refs.carouselWrapper.offsetWidth;
+            this.slideWidth = this.$refs.carouselWrapper.clientWidth;
         });
     },
+    watch: {
+        currentIndex() {
+            this.updateSlidePosition();
+        },
+    },
     methods: {
+        updateSlidePosition() {
+            this.$nextTick(() => {
+                this.slideWidth = this.$refs.carouselWrapper.clientWidth;
+                this.$refs.carouselTrack.style.transform = `translateX(-${this.currentIndex * this.slideWidth}px)`;
+            });
+        },
         previousSlide() {
             this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
         },
@@ -40,8 +51,9 @@ export default {
 };
 </script>
 
+
 <template>
-    <div class="carousel-container -z-10">
+    <div class="carousel-container">
         <div class="carousel-wrapper" ref="carouselWrapper">
             <div class="carousel-track" :style="{ transform: `translateX(-${currentIndex * slideWidth}px)` }">
                 <div v-for="(slide, index) in slides" :key="index" class="carousel-slide">
@@ -109,6 +121,7 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    z-index: 111111;
 }
 
 .carousel-control-btn {

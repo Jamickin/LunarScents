@@ -1,7 +1,8 @@
 <template>
     <div class="stars">
-        <div v-for="star in stars" :key="star.id" :class="['star', star.size]" :style="{ top: star.top, left: star.left }">
-            <img src="../assets/images/star.svg" alt="Star" />
+        <div v-for="star in stars" :key="star.id" class="star-wrapper" :class="{ 'star-hover': star.hovered }"
+            :style="star.style">
+            <img src="../assets/images/star.svg" alt="Star" class="star-image" />
         </div>
     </div>
 </template>
@@ -11,83 +12,114 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 export default {
     name: 'Stars',
-    data() {
-        return {
-            stars: [],
-            animationInterval: null,
-        };
-    },
-    mounted() {
-        this.generateStars();
-        this.animationInterval = setInterval(() => this.updateStars(), 30);
-    },
-    beforeUnmount() {
-        clearInterval(this.animationInterval);
-    },
-    methods: {
-        generateStars() {
-            for (let i = 0; i < 15; i++) { // Reduce the total number of stars to 15
-                const size = this.getRandomSize();
+    setup() {
+        const stars = ref([]);
+        let animationFrameId;
+
+        const generateStars = () => {
+            for (let i = 0; i < 9; i++) {
+                const size = getRandomSize();
                 const star = {
                     id: i,
                     size: `star-${size}`,
-                    top: this.getRandomTop(),
-                    left: this.getRandomLeft(),
-                    speed: this.getRandomSpeed(),
+                    style: {
+                        top: getRandomTop(),
+                        left: getRandomLeft(),
+                        transform: getRandomRotation(),
+                    },
+                    speed: getRandomSpeed(),
+                    rotation: 0,
                 };
-                this.stars.push(star);
+                stars.value.push(star);
             }
-        },
-        getRandomSize() {
+        };
+
+        const getRandomSize = () => {
             const sizes = ['sm', 'md', 'lg'];
             const randomIndex = Math.floor(Math.random() * sizes.length);
             return sizes[randomIndex];
-        },
-        getRandomTop() {
-            return `${Math.floor(Math.random() * 101)}%`;
-        },
-        getRandomLeft() {
-            return `${Math.floor(Math.random() * 101)}%`;
-        },
-        getRandomSpeed() {
-            return Math.random() * 0.8 + 0.2; // Adjust the speed range as desired
-        },
-        updateStars() {
-            for (const star of this.stars) {
-                const currentRotation = star.style.transform.replace(/[^\d.]/g, '');
-                const newRotation = parseFloat(currentRotation) + star.speed;
-                star.style.transform = `rotate(${newRotation}deg)`;
+        };
 
+        const getRandomTop = () => {
+            return `${Math.floor(Math.random() * 101)}%`;
+        };
+
+        const getRandomLeft = () => {
+            return `${Math.random() * 101}%`;
+        };
+
+        const getRandomSpeed = () => {
+            return Math.random() * 0.25 + 0.05;
+        };
+
+        const getRandomRotation = () => {
+            return `rotate(${Math.random() * 360}deg)`;
+        };
+
+        const updateStars = () => {
+            for (const star of stars.value) {
                 star.style.top = parseFloat(star.style.top) + star.speed + '%';
+                star.rotation += star.speed;
                 if (parseFloat(star.style.top) > 100) {
                     star.style.top = '-10%';
-                    star.style.left = this.getRandomLeft();
+                    star.style.left = getRandomLeft();
+                    star.style.transform = getRandomRotation();
                 }
             }
-        },
-    },
+            animationFrameId = requestAnimationFrame(updateStars);
+        };
+
+
+
+        const restartAnimation = () => {
+            stars.value = [];
+            generateStars();
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(updateStars);
+        };
+
+        onMounted(() => {
+            generateStars();
+            animationFrameId = requestAnimationFrame(updateStars);
+        });
+
+        onUnmounted(() => {
+            cancelAnimationFrame(animationFrameId);
+        });
+
+        return {
+            stars,
+            restartAnimation,
+        };
+    }, // Add closing parenthesis here
 };
+
 </script>
 
 <style scoped>
 .stars {
+    z-index: -1;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100%;
-    z-index: -1;
     overflow: hidden;
 }
 
-.star {
+.star-wrapper {
     position: absolute;
     width: 24px;
     height: 24px;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
-    animation: star-fall 10s linear infinite;
-    /* Adjust the animation duration as desired */
+    transition: transform 0.3s;
+    animation: star-fall infinite;
+}
+
+.star-image {
+    width: 100%;
+    height: 100%;
 }
 
 .star-sm {

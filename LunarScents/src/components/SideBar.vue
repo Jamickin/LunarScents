@@ -45,7 +45,6 @@ img {
     transition: 400ms;
     padding: 4rem;
     width: 12rem;
-    /* @apply bg-red-100; */
 }
 
 .menu-item:hover {
