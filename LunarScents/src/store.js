@@ -29,16 +29,21 @@ export default createStore({
           image:
             "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9va3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
         },
-        // Add more products as needed
       ],
       cart: JSON.parse(localStorage.getItem("cart")) || [],
     };
   },
+
   mutations: {
     addToCart(state, product) {
-      state.cart.push(product);
+      state.cart = [...state.cart, product];
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
+
+    setCart(state, cart) {
+      state.cart = cart;
+    },
+
     removeFromCart(state, product) {
       const index = state.cart.findIndex((item) => item.id === product.id);
       if (index !== -1) {
@@ -49,6 +54,27 @@ export default createStore({
     clearCart(state) {
       state.cart = [];
       localStorage.removeItem("cart");
+    },
+    checkout(state) {
+      state.cart = [];
+    },
+  },
+
+  actions: {
+    clearCart({ commit }) {
+      commit("clearCart");
+    },
+  },
+
+  getters: {
+    cartItemCount(state) {
+      return state.cart.length;
+    },
+    cartTotalPrice(state) {
+      return state.cart.reduce(
+        (total, product) => total + parseFloat(product.price),
+        0
+      );
     },
   },
 });

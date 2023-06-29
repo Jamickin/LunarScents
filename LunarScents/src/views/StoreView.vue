@@ -7,10 +7,7 @@ export default {
     },
     methods: {
         addToCart(product) {
-            // Add the selected product to the cart
             this.$store.commit('addToCart', product);
-
-            // Show confirmation message
             this.showConfirmation = true;
         }
     },
@@ -26,12 +23,7 @@ export default {
 <template>
     <div class="container mx-auto py-10">
         <h1 class="text-3xl font-bold mb-6">Welcome to the Lunar Scents Store!</h1>
-
-        <!-- Display confirmation message -->
-
-
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Product Cards -->
             <div v-for="product in products" :key="product.id" class="bg-white rounded-lg shadow-md p-6">
                 <img :src=product.image :alt="product.name" class="mx-auto h-50 mb-4 rounded-lg" />
                 <h2 class="text-xl font-bold">{{ product.name }}</h2>
