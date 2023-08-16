@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import StoreView from "../views/StoreView.vue";
 import CheckoutView from "../views/CheckoutView.vue";
+import ConfirmationView from "../views/ConfirmationView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +31,11 @@ const router = createRouter({
       path: "/checkout",
       name: "checkout",
       component: CheckoutView,
+    },
+    {
+      path: "/confirmation",
+      name: "confirmation",
+      component: ConfirmationView,
     },
   ],
 });

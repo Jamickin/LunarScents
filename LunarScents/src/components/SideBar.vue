@@ -15,22 +15,22 @@ function closeSidebar() {
 </script>
 
 <template>
-    <img src="../assets/images/MenuIcon.svg" :class="showSideBar ? 'opacity-0 cursor-not-allowed' : ''" class="fixed left-0"
+    <img src="../assets/images/MenuIcon.svg" :class="[showSideBar ? 'opacity-0 cursor-not-allowed' : '', 'fixed left-0']"
         @click="toggle()">
-    <img src="../assets/images/MenuIcon.svg" :class="showSideBar ? '' : 'opacity-0 cursor-not-allowed'"
-        class="fixed left-48" @click="toggle()">
+    <img src="../assets/images/MenuIcon.svg" :class="[showSideBar ? '' : 'opacity-0 cursor-not-allowed', 'fixed left-48']"
+        @click="toggle()">
 
-    <Transition name="fade">
-        <div v-if="showSideBar" :class="showSideBar ? 'left-0' : '-left-[192px]'"
-            class="fixed top-0 h-screen w-48 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar z-10">
+    <transition name="fade">
+        <div v-if="showSideBar"
+            :class="[showSideBar ? 'left-0' : '-left-[192px]', 'fixed top-0 h-screen w-48 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar z-10']">
             <div class="h-full grid grid-rows-3 justify-center place-items-center">
-                <RouterLink to="/" class="menu-item hover:shadow-2xl" @click="closeSidebar">HOME</RouterLink>
-                <RouterLink to="/about" class="menu-item hover:shadow-2xl" @click="closeSidebar">ABOUT US</RouterLink>
-                <RouterLink to="/store" class="menu-item hover:shadow-2xl" @click="closeSidebar">STORE</RouterLink>
-                <RouterLink to="/checkout" class="menu-item hover:shadow-2xl" @click="closeSidebar">CHECKOUT</RouterLink>
+                <router-link to="/" class="menu-item hover:shadow-2xl" @click="closeSidebar">HOME</router-link>
+                <router-link to="/about" class="menu-item hover:shadow-2xl" @click="closeSidebar">ABOUT US</router-link>
+                <router-link to="/store" class="menu-item hover:shadow-2xl" @click="closeSidebar">STORE</router-link>
+                <router-link to="/checkout" class="menu-item hover:shadow-2xl" @click="closeSidebar">CHECKOUT</router-link>
             </div>
         </div>
-    </Transition>
+    </transition>
 </template>
 
 <style scoped>
@@ -45,6 +45,9 @@ img {
     transition: 400ms;
     padding: 4rem;
     width: 12rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
 }
 
 .menu-item:hover {

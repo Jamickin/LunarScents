@@ -1,12 +1,12 @@
 <template>
-    <div class="stars">
-        <div v-for="star in stars" :key="star.id" class="star-wrapper" :class="{ 'star-hover': star.hovered }"
-            :style="star.style">
-            <img src="../assets/images/star.svg" alt="Star" class="star-image" />
+    <div class="z-[-1] fixed top-0 left-0 h-screen w-full overflow-hidden">
+        <div v-for="star in stars" :key="star.id"
+            class="absolute w-[24px] h-[24px] opacity-100 pointer-events-none transition-transform animate-star-fall"
+            :style="{ top: star.style.top, left: star.style.left, transform: star.style.transform }">
+            <img src="../assets/images/star.svg" alt="Star" class="w-full h-full" />
         </div>
     </div>
 </template>
-
 <script>
 import { ref, onMounted, onUnmounted } from 'vue';
 
@@ -15,7 +15,6 @@ export default {
     setup() {
         const stars = ref([]);
         let animationFrameId;
-
         const generateStars = () => {
             for (let i = 0; i < 9; i++) {
                 const size = getRandomSize();
@@ -91,47 +90,11 @@ export default {
             stars,
             restartAnimation,
         };
-    }, // Add closing parenthesis here
+    },
 };
-
 </script>
 
 <style scoped>
-.stars {
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.star-wrapper {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    opacity: 1;
-    pointer-events: none;
-    transition: transform 0.3s;
-    animation: star-fall infinite;
-}
-
-.star-image {
-    width: 100%;
-    height: 100%;
-}
-
-.star-sm {
-    width: 16px;
-    height: 16px;
-}
-
-.star-lg {
-    width: 32px;
-    height: 32px;
-}
-
 @keyframes star-fall {
     0% {
         opacity: 0;

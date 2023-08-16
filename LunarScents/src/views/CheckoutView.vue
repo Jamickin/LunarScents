@@ -17,9 +17,9 @@
 
             <button class="mt-6 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark"
                 @click="clearCartAndAdjustContainer">Clear Cart</button>
-
-            <button v-if="!orderPlaced" class="mt-6 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark"
-                @click="placeOrder">Place Order</button>
+            <button v-if="!orderPlaced" id="place-order-button"
+                class="mt-6 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark" @click="placeOrderAndNavigate">
+                Place Order </button>
 
             <div v-if="orderPlaced" class="mt-6 p-4 bg-green-100 text-green-500 rounded">
                 <p>Thank you for your order!</p>
@@ -30,6 +30,9 @@
 
 <script>
 export default {
+    created() {
+        this.scrollToPlaceOrderButton();
+    },
     data() {
         return {
             orderPlaced: false,
@@ -90,6 +93,19 @@ export default {
             this.$store.commit('checkout');
             this.orderPlaced = true;
             this.clearCart();
+        },
+
+        scrollToPlaceOrderButton() {
+            this.$nextTick(() => {
+                const orderButton = document.getElementById('place-order-button');
+                if (orderButton) {
+                    orderButton.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        },
+        placeOrderAndNavigate() {
+            // this.placeOrder();
+            this.$router.push({ name: 'confirmation' });
         },
         adjustContainerHeight() {
             this.$nextTick(() => {

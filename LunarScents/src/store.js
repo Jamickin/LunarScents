@@ -29,6 +29,22 @@ export default createStore({
           image:
             "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9va3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
         },
+        {
+          id: 4,
+          name: "Windy Woes",
+          description: "Second wind. Pep in your step.",
+          price: "$19.99",
+          image:
+            "https://images.unsplash.com/photo-1526649661456-89c7ed4d00b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZzJTIwY29kZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        },
+        {
+          id: 5,
+          name: "Earthy Meadow",
+          description: "Earthy Meadows will bring you back to your roots.",
+          price: "$29.99",
+          image:
+            "https://images.unsplash.com/photo-1570286424717-86d8a0082d0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHZzJTIwY29kZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        },
       ],
       cart: JSON.parse(localStorage.getItem("cart")) || [],
     };
