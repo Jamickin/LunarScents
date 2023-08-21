@@ -1,5 +1,6 @@
 <script>
 import store from "@/store"; // Import your Vuex store
+import { ref, onMounted, onUnmounted } from 'vue';
 
 export default {
     name: 'Carousel',
@@ -51,6 +52,7 @@ export default {
                 price: product.price,
             }));
         },
+
     },
 };
 </script>

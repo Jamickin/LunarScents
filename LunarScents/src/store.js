@@ -49,7 +49,6 @@ export default createStore({
       cart: JSON.parse(localStorage.getItem("cart")) || [],
     };
   },
-
   mutations: {
     addToCart(state, product) {
       state.cart = [...state.cart, product];
