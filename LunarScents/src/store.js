@@ -9,8 +9,7 @@ export default createStore({
           name: "Stardust Elixir",
           description: "An enchanting blend of celestial florals and musk.",
           price: "$49.99",
-          image:
-            "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+          image: "/images/Example.jpg",
         },
         {
           id: 2,
@@ -18,32 +17,28 @@ export default createStore({
           description:
             "A refreshing mist infused with the essence of moonlight.",
           price: "$29.99",
-          image:
-            "https://images.unsplash.com/photo-1558470598-a5dda9640f68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80",
+          image: "/images/SingleSpray.jpg",
         },
         {
           id: 3,
           name: "Sunshine Betwixt",
           description: "A beam of sunlight, raging against your senses.",
           price: "$39.99",
-          image:
-            "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9va3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+          image: "/images/2Spray.jpg",
         },
         {
           id: 4,
           name: "Windy Woes",
           description: "Second wind. Pep in your step.",
           price: "$19.99",
-          image:
-            "https://images.unsplash.com/photo-1526649661456-89c7ed4d00b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZzJTIwY29kZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          image: "/images/InclCandle.jpg",
         },
         {
           id: 5,
           name: "Earthy Meadow",
           description: "Earthy Meadows will bring you back to your roots.",
           price: "$29.99",
-          image:
-            "https://images.unsplash.com/photo-1570286424717-86d8a0082d0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHZzJTIwY29kZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          image: "/images/AllProducts.jpg",
         },
       ],
       cart: JSON.parse(localStorage.getItem("cart")) || [],

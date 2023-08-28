@@ -68,8 +68,6 @@ export default {
             animationFrameId = requestAnimationFrame(updateStars);
         };
 
-
-
         const restartAnimation = () => {
             stars.value = [];
             generateStars();

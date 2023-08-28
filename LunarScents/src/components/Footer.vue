@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
     <div class="grid py-6 grid-cols-3 w-screen -ml-16 px-6 text-center place-items-center justify-center rounded-lg ">
         <div></div>
@@ -10,4 +9,3 @@
         </div>
     </div>
 </template>
-<style scoped></style>

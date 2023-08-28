@@ -1,9 +1,8 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink, useRouter } from 'vue-router';
+import { RouterLink } from 'vue-router';
 
 const showSideBar = ref(false);
-const router = useRouter();
 
 function toggle() {
     showSideBar.value = !showSideBar.value;
@@ -22,12 +21,20 @@ function closeSidebar() {
 
     <transition name="fade">
         <div v-if="showSideBar"
-            :class="[showSideBar ? 'left-0' : '-left-[192px]', 'fixed top-0 h-screen w-48 p-12 shadow-2xl backdrop-blur-sm text-neutral-100 text-center sideBar z-10']">
-            <div class="h-full grid grid-rows-3 justify-center place-items-center">
-                <router-link to="/" class="menu-item hover:shadow-2xl" @click="closeSidebar">HOME</router-link>
-                <router-link to="/about" class="menu-item hover:shadow-2xl" @click="closeSidebar">ABOUT US</router-link>
-                <router-link to="/store" class="menu-item hover:shadow-2xl" @click="closeSidebar">STORE</router-link>
-                <router-link to="/checkout" class="menu-item hover:shadow-2xl" @click="closeSidebar">CHECKOUT</router-link>
+            :class="[showSideBar ? 'left-0' : '-left-[192px]', 'fixed top-0 h-screen w-48 shadow-2xl backdrop-blur-sm z-10']">
+            <div class="h-full w-48 grid grid-rows-4 justify-center place-items-center">
+                <router-link to="/" class="menu-item" @click="closeSidebar">
+                    <p>HOME</p>
+                </router-link>
+                <router-link to="/about" class="menu-item" @click="closeSidebar">
+                    <p>ABOUT US</p>
+                </router-link>
+                <router-link to="/store" class="menu-item" @click="closeSidebar">
+                    <p>STORE</p>
+                </router-link>
+                <router-link to="/checkout" class="menu-item" @click="closeSidebar">
+                    <p>CHECKOUT</p>
+                </router-link>
             </div>
         </div>
     </transition>
@@ -35,24 +42,15 @@ function closeSidebar() {
 
 <style scoped>
 img {
-    width: 2.7rem;
-    height: auto;
-    cursor: pointer;
-    transition: 600ms;
+    @apply w-[2.7rem] cursor-pointer transition-all duration-[600ms];
 }
 
 .menu-item {
-    transition: 400ms;
-    padding: 4rem;
-    width: 12rem;
-    font-weight: bold;
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
+    @apply w-48 flex place-items-center justify-center text-center transition-all duration-300 h-full font-bold text-lg;
 }
 
 .menu-item:hover {
-    @apply text-TertiaryHL;
-    border-radius: 2rem;
+    @apply text-TertiaryHL shadow-2xl rounded-2xl;
 }
 
 .fade-enter-active,
@@ -63,5 +61,9 @@ img {
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+p {
+    @apply w-full
 }
 </style>

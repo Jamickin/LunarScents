@@ -1,6 +1,5 @@
 <script>
-import store from "@/store"; // Import your Vuex store
-import { ref, onMounted, onUnmounted } from 'vue';
+import store from "@/store";
 
 export default {
     name: 'Carousel',
@@ -42,6 +41,7 @@ export default {
         stopAutoScroll() {
             clearInterval(this.autoScrollInterval);
         },
+
     },
     computed: {
         slides() {
@@ -63,9 +63,10 @@ export default {
         <div class="flex flex-nowrap overflow-hidden" ref="carouselWrapper">
             <div ref="carouselTrack" class="flex transition-transform duration-300"
                 :style="{ transform: `translateX(-${currentIndex * slideWidth}px)` }">
-                <div v-for="(slide, index) in slides" :key="index" class="flex-shrink-0 w-full px-0 py-4 text-center">
-                    <div class="max-h-[300px] w-full overflow-hidden rounded-[2rem] shadow-xl">
-                        <img class="w-full h-auto object-fill" :src="slide.image" :alt="slide.caption">
+                <div v-for="(slide, index) in slides" :key="index"
+                    class="flex flex-col place-items-center flex-shrink-0 w-full px-0 py-4 text-center">
+                    <div class="w-1/3 h-72 relative">
+                        <img class="w-full h-full object-fill rounded-2xl" :src="slide.image" :alt="slide.caption">
                     </div>
                     <div class="mt-4">
                         <h2 class="text-3xl font-bold mb-2">{{ slide.caption }}</h2>
