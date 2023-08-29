@@ -2,8 +2,8 @@
 import Carousel from '../components/Carousel.vue';
 </script>
 <template>
-    <div class="grid justify-items-center place-items-center">
-        <img src="../assets/images/Logo.png" class="h-screen -z-20">
+    <div class="grid justify-items-center place-items-center relative h-screen">
+        <img src="../assets/images/Logo.png" class="absolute top-0 h-full -z-20">
     </div>
     <Carousel />
 </template>

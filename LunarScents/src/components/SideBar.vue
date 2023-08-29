@@ -14,14 +14,14 @@ function closeSidebar() {
 </script>
 
 <template>
-    <img src="../assets/images/MenuIcon.svg" :class="[showSideBar ? 'opacity-0 cursor-not-allowed' : '', 'fixed left-0']"
-        @click="toggle()">
-    <img src="../assets/images/MenuIcon.svg" :class="[showSideBar ? '' : 'opacity-0 cursor-not-allowed', 'fixed left-48']"
-        @click="toggle()">
+    <img src="../assets/images/MenuIcon.svg" class="z-10"
+        :class="[showSideBar ? 'opacity-0 cursor-not-allowed' : '', 'fixed left-0']" @click="toggle()">
+    <img src="../assets/images/MenuIcon.svg" class="z-10"
+        :class="[showSideBar ? '' : 'opacity-0 cursor-not-allowed', 'fixed left-48']" @click="toggle()">
 
     <transition name="fade">
         <div v-if="showSideBar"
-            :class="[showSideBar ? 'left-0' : '-left-[192px]', 'fixed top-0 h-screen w-48 shadow-2xl backdrop-blur-sm z-10']">
+            :class="[showSideBar ? 'left-0' : '-left-[192px]', 'fixed top-0 h-screen w-48 shadow-2xl backdrop-blur-sm z-20']">
             <div class="h-full w-48 grid grid-rows-4 justify-center place-items-center">
                 <router-link to="/" class="menu-item" @click="closeSidebar">
                     <p>HOME</p>
@@ -46,11 +46,15 @@ img {
 }
 
 .menu-item {
-    @apply w-48 flex place-items-center justify-center text-center transition-all duration-300 h-full font-bold text-lg;
+    @apply text-slate-600 w-48 flex place-items-center justify-center text-center transition-all duration-300 h-full font-bold text-lg;
 }
 
 .menu-item:hover {
-    @apply text-TertiaryHL shadow-2xl rounded-2xl;
+    @apply text-green-800 shadow-2xl rounded-2xl;
+}
+
+.menu-item:hover p {
+    @apply drop-shadow-lg
 }
 
 .fade-enter-active,
