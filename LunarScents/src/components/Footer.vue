@@ -5,12 +5,16 @@ import { RouterLink } from 'vue-router'
 <template>
     <div class="text-lg font-bold text-slate-500 grid py-6 grid-cols text-center place-items-center justify-center">
         <div>
-            <nav class="my-6">Navigation:
-                <ul class="flex gap-4">
-                    <router-link class="text-slate-600 hover:text-green-800" to="/">Home</router-link>
-                    <router-link class="text-slate-600 hover:text-green-800" to="/about">About</router-link>
-                    <router-link class="text-slate-600 hover:text-green-800" to="/store">Store</router-link>
-                    <router-link class="text-slate-600 hover:text-green-800" to="/checkout">Checkout</router-link>
+            <nav>Navigation:
+                <ul class="flex place-items-center justify-center gap-4 bg-glass shadow-xl px-2 rounded-2xl">
+                    <router-link class="text-slate-600 hover:text-green-600 transition-colors duration-300 ease-in-out"
+                        to="/">Home</router-link>
+                    <router-link class="text-slate-600 hover:text-green-600 transition-colors duration-300 ease-in-out"
+                        to="/about">About</router-link>
+                    <router-link class="text-slate-600 hover:text-green-600 transition-colors duration-300 ease-in-out"
+                        to="/store">Store</router-link>
+                    <router-link class="text-slate-600 hover:text-green-600 transition-colors duration-300 ease-in-out"
+                        to="/checkout">Checkout</router-link>
                 </ul>
             </nav>
         </div>
