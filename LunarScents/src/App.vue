@@ -8,10 +8,12 @@ import Footer from "./components/Footer.vue"
 </script>
 
 <template>
-    <Stars />
     <SideBar />
-    <RouterView />
-    <Footer />
+    <main class="mt-12">
+        <Stars />
+        <RouterView />
+        <Footer />
+    </main>
 </template>
 
 <style scoped></style>

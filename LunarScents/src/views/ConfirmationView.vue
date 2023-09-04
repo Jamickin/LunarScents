@@ -61,8 +61,12 @@ export default {
                 {{ showFullCode ? generatedCode : truncatedCode }}
             </p>
             <button @click="copyToClipboard"
-                class="bg-primary text-TertiaryHL py-2 px-4 rounded hover:bg-primary-dark">Copy</button>
+                class="bg-primary font-extrabold text-TertiaryHL py-2 px-4 rounded hover:bg-primary-dark">Copy
+                Code (Be more descriptive) Follow the link below to send the order</button>
         </div>
-        @Andrea - (Number Here)
+        Go to Gmail
+        Check preferred.
+        Or separate
+
     </div>
 </template>

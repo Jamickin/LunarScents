@@ -8,13 +8,6 @@
   }
 }
 
-@layer utilities {
-  .hover\:red-stroke:hover {
-    path {
-      stroke: red;
-    }
-  }
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

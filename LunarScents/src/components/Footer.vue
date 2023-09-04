@@ -5,7 +5,7 @@ import { RouterLink } from 'vue-router'
 <template>
     <div class="text-lg font-bold text-slate-500 grid py-6 grid-cols text-center place-items-center justify-center">
         <div>
-            <nav>Navigation:
+            <!-- <nav>Navigation:
                 <ul class="flex place-items-center justify-center gap-4 bg-glass shadow-xl px-2 rounded-2xl">
                     <router-link class="text-slate-600 hover:text-green-600 transition-colors duration-300 ease-in-out"
                         to="/">Home</router-link>
@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router'
                     <router-link class="text-slate-600 hover:text-green-600 transition-colors duration-300 ease-in-out"
                         to="/checkout">Checkout</router-link>
                 </ul>
-            </nav>
+            </nav> -->
         </div>
         <div>
             Lunar Scents | Fragrance Inspired by the Cosmos

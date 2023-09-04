@@ -105,7 +105,7 @@ export default {
                 <p class="text-gray-500">{{ product.description }}</p>
                 <p class="mt-4 text-primary font-bold">{{ product.price }}</p>
                 <img :src="product.image" :alt="product.name" class="mx-auto mb-4 rounded-lg" />
-                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+                <button class="mt-2 bg-Primary text-white py-2 px-4 rounded hover:opacity-90"
                     @click="removeFromCart(product)">Remove</button>
             </div>
 

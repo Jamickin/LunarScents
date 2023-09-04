@@ -1,43 +1,22 @@
 <script setup>
-import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
-
-const showSideBar = ref(false);
-
-function toggle() {
-    showSideBar.value = !showSideBar.value;
-}
-
-function closeSidebar() {
-    showSideBar.value = false;
-}
 </script>
 
 <template>
-    <img src="../assets/images/MenuIcon.svg" class="z-10"
-        :class="[showSideBar ? 'opacity-0 cursor-not-allowed' : '', 'fixed left-0']" @click="toggle()">
-    <img src="../assets/images/MenuIcon.svg" class="z-10"
-        :class="[showSideBar ? '' : 'opacity-0 cursor-not-allowed', 'fixed left-48']" @click="toggle()">
-
-    <transition name="fade">
-        <div v-if="showSideBar"
-            :class="[showSideBar ? 'left-0' : '-left-[192px]', 'fixed top-0 h-screen w-48 shadow-2xl backdrop-blur-sm z-20']">
-            <div class="h-full w-48 grid grid-rows-4 justify-center place-items-center">
-                <router-link to="/" class="menu-item" @click="closeSidebar">
-                    <p>HOME</p>
-                </router-link>
-                <router-link to="/about" class="menu-item" @click="closeSidebar">
-                    <p>ABOUT US</p>
-                </router-link>
-                <router-link to="/store" class="menu-item" @click="closeSidebar">
-                    <p>STORE</p>
-                </router-link>
-                <router-link to="/checkout" class="menu-item" @click="closeSidebar">
-                    <p>CHECKOUT</p>
-                </router-link>
-            </div>
-        </div>
-    </transition>
+    <div class="fixed top-0 left-0 h-12 w-full grid grid-cols-4 justify-center place-items-center z-50">
+        <router-link to="/" class="menu-item" @click="closeSidebar">
+            <p>HOME</p>
+        </router-link>
+        <router-link to="/about" class="menu-item" @click="closeSidebar">
+            <p>ABOUT US</p>
+        </router-link>
+        <router-link to="/store" class="menu-item" @click="closeSidebar">
+            <p>STORE</p>
+        </router-link>
+        <router-link to="/checkout" class="menu-item" @click="closeSidebar">
+            <p>CHECKOUT</p>
+        </router-link>
+    </div>
 </template>
 
 <style scoped>

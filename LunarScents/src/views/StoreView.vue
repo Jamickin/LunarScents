@@ -1,4 +1,6 @@
 <script>
+import Carousel from '../components/Carousel.vue';
+
 export default {
     methods: {
         addToCart(product) {
@@ -31,6 +33,7 @@ export default {
                     @click="addToCart(product)">Add to Cart</button>
             </div>
         </div>
+        <Carousel />
         <div v-if="cart.length > 0" class="mt-6 p-4 bg-green-200 text-green-800 rounded animate-pulse">
             <p class="font-bold">Product added to cart! Go to the <router-link :to="{ name: 'checkout' }"
                     class="text-xl animate-pulse">cart</router-link>
