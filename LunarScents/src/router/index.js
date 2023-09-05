@@ -4,6 +4,7 @@ import AboutView from "../views/AboutView.vue";
 import StoreView from "../views/StoreView.vue";
 import CheckoutView from "../views/CheckoutView.vue";
 import ConfirmationView from "../views/ConfirmationView.vue";
+import BuildBoxView from "../views/BuildBoxView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,11 @@ const router = createRouter({
       path: "/confirmation",
       name: "confirmation",
       component: ConfirmationView,
+    },
+    {
+      path: "/buildbox",
+      name: "buildbox",
+      component: BuildBoxView,
     },
   ],
 });

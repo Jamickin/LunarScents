@@ -2,21 +2,16 @@
 import { RouterLink } from 'vue-router';
 </script>
 <template>
-    <div class="grid grid-cols-2 h-screen -mt-12">
-        <div class="flex justify-items-center place-items-center relative">
-            <img src="../assets/images/Logo.png" class="w-full -z-20">
-        </div>
-        <div class="grid justify-items-center place-items-center relative">
-            <img src="../assets/images/wood.jpeg" class="absolute top-0 h-full opacity-[66%] rounded-l-2xl z-0">
-            <p class="z-10 font-bold text-2xl">This is description</p>
+    <div class="flex h-screen px-36 flex-col -mt-12 justify-center place-items-center">
+        <p class="text-center">Ever wondered if there is the perfect store for all your herbal and homeopathic needs? You've
+            arrived at your destination...</p>
+        <div class="text-center z-30 my-16">
+            <RouterLink to="/store" class="text-center bg-Secondary p-8 rounded-2xl hover:opacity-95 z-30">STORE
+            </RouterLink>
         </div>
     </div>
-    <div class="text-center z-30 my-12">
-        <RouterLink to="/store" class="text-center bg-Secondary p-8 rounded-2xl hover:shadow-2xl z-30">STORE</RouterLink>
-    </div>
-    <div class="h-screen px-36">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore sapiente eveniet libero, ullam fugit quia maxime
-            ut temporibus voluptatum nisi optio sed consequuntur? Magni, blanditiis vel sint ipsum dolorem nisi?</p>
+    <div class="flex justify-items-center place-items-center h-[700px]w-screen">
+        <img src="../assets/images/Logo.png" class="h-full">
     </div>
 </template>
 

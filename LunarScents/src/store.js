@@ -6,40 +6,35 @@ export default createStore({
       products: [
         {
           id: 1,
-          name: "Stardust Elixir",
+          name: "Temple Tonic",
           description: "An enchanting blend of celestial florals and musk.",
-          price: "$49.99",
-          image: "../src/assets/images/ExampleSml.jpg",
+          price: "R50.00",
+          image: "../src/assets/images/TonicStore.jpg",
         },
         {
           id: 2,
-          name: "Moonbeam Mist",
+          name: "Enchanted Forest Spray",
           description:
             "A refreshing mist infused with the essence of moonlight.",
-          price: "$29.99",
-          image: "../src/assets/images/SingleSpraySml.jpg",
+          price: "R80.00",
+          image: "../src/assets/images/SprayStore.jpg",
         },
         {
           id: 3,
-          name: "Sunshine Betwixt",
+          name: "Moonlit Blush Blend",
           description: "A beam of sunlight, raging against your senses.",
-          price: "$39.99",
-          image: "../src/assets/images/ExampleSml.jpg",
+          price: "R120.00",
+          image: "../src/assets/images/RollerStore.jpg",
         },
-        {
-          id: 4,
-          name: "Windy Woes",
-          description: "Second wind. Pep in your step.",
-          price: "$19.99",
-          image: "../src/assets/images/InclCandleSml.jpg",
-        },
-        {
-          id: 5,
-          name: "Earthy Meadow",
-          description: "Earthy Meadows will bring you back to your roots.",
-          price: "$29.99",
-          image: "../src/assets/images/AllProductsSml.jpg",
-        },
+
+        // {
+        //   id: 4,
+        //   name: "Build-A-Box",
+        //   description:
+        //     "Add all your favourite merch to one parcel and receive a discount!",
+        //   price: "R450.00",
+        //   image: "../src/assets/images/Box.jpg",
+        // },
       ],
       cart: JSON.parse(localStorage.getItem("cart")) || [],
     };
