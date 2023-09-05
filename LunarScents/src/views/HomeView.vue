@@ -7,12 +7,16 @@ import { RouterLink } from 'vue-router';
             <img src="../assets/images/Logo.png" class="w-full -z-20">
         </div>
         <div class="grid justify-items-center place-items-center relative">
-            <img src="../assets/images/wood.jpeg" class="absolute top-0 h-full opacity-[66%] rounded-2xl z-0">
+            <img src="../assets/images/wood.jpeg" class="absolute top-0 h-full opacity-[66%] rounded-l-2xl z-0">
             <p class="z-10 font-bold text-2xl">This is description</p>
         </div>
     </div>
-    <div class="text-center z-30 mt-12">
+    <div class="text-center z-30 my-12">
         <RouterLink to="/store" class="text-center bg-Secondary p-8 rounded-2xl hover:shadow-2xl z-30">STORE</RouterLink>
+    </div>
+    <div class="h-screen px-36">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore sapiente eveniet libero, ullam fugit quia maxime
+            ut temporibus voluptatum nisi optio sed consequuntur? Magni, blanditiis vel sint ipsum dolorem nisi?</p>
     </div>
 </template>
 
