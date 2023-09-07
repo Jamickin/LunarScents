@@ -45,11 +45,15 @@ import { RouterLink } from 'vue-router';
                 out
                 to us at andreajonelle@gmail.com
                 I can't wait to connect and spread the essence of natural wellness together.</p>
+            <div class="px-80"> <img src="../assets/images/pfpblack.jpeg" class="rounded-2xl">
+            </div>
             <p> My Warmest regards,<br>
-                Andrea Wichelt<br>
+                Andrea Jonelle Wichelt<br>
                 Founder of Lunar Scents
             </p>
             <img src="../assets/images/Quotation.svg" class="w-12 absolute right-0 rotate-180">
+
+
         </div>
         <div class="text-xl font-bold text-center mt-12">
             Our Product Range:

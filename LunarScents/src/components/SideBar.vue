@@ -50,7 +50,7 @@ img {
 }
 
 .menu-item:hover {
-    @apply shadow-2xl rounded-2xl;
+    @apply shadow-2xl;
 }
 
 
