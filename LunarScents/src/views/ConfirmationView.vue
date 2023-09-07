@@ -2,27 +2,29 @@
     <div class="p-4 text-center">
         <h1 class="text-3xl font-bold mb-4">Order Confirmation</h1>
         <div class="text-lg leading-relaxed">
-            <p>Thank you for placing your order with Lunar Scents!</p>
-            <p>Your order details:</p>
-            <div class="mt-4">
-                <div v-for="product in cart" :key="product.id" class="border p-2 mb-2">
+            <p v-if="cart.length > 0">Thank you for placing your order with Lunar Scents!</p>
+            <p v-if="cart.length === 0">Your cart is empty. Start shopping!</p>
+            <p v-if="cart.length > 0"> Your order details: </p>
+            <div class=" mt-4">
+                <div v-for=" product  in  cart " :key="product.id" class="border p-2 mb-2">
                     <h2 class="text-xl font-bold">{{ product.name }}</h2>
                     <p class="text-gray-500">{{ product.description }}</p>
                     <p class="mt-2">Price: {{ product.price }}</p>
                 </div>
-                <div class="border p-2 mb-2">
+                <div v-if="cart.length > 0" class="border p-2 mb-2">
                     <h2 class="text-xl font-bold">Delivery Fee</h2>
                     <p class="text-gray-500">Delivery fee for your order</p>
                     <p class="mt-2">Price: R100.00</p>
                 </div>
             </div>
-            <p class="text-xl font-bold mt-4">Grand Total: {{ formattedTotal }}</p>
-            <button @click="openInfoModal"
-                class="bg-primary font-extrabold text-TertiaryHL py-2 px-4 rounded hover:bg-primary-dark">Press this link to
-                copy a code. It will open your preferred email app and all you have to do is press send!</button>
+            <p v-if="cart.length > 0" class="text-xl font-bold mt-4">Grand Total: {{ formattedTotal }}</p>
+            <button v-if="cart.length > 0" @click="openInfoModal"
+                class="animate-pulse bg-primary font-extrabold text-TertiaryHL py-2 px-4 rounded hover:bg-primary-dark">Press
+                this
+                link to
+                copy a code. It will open your preferred email app.<br>All you have to do is press send!</button>
         </div>
     </div>
-    <!-- Info Modal -->
     <div v-if="infoModalOpen"
         class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex items-center justify-center">
         <div class="bg-white rounded-lg p-6 w-96">
@@ -40,6 +42,10 @@
                 <textarea v-model="userInfo.address" placeholder="Shipping Address"
                     class="w-full border rounded px-2 py-1"></textarea>
             </div>
+            <div class="mb-4">
+                <textarea v-model="userInfo.notes" placeholder="Special Notes ex. Anniversary"
+                    class="w-full border rounded px-2 py-1"></textarea>
+            </div>
             <button @click="closeInfoModal"
                 class="bg-primary text-black px-4 py-2 rounded hover:bg-primary-dark">Cancel</button>
             <button @click="acceptInfoAndSendEmail"
@@ -53,8 +59,7 @@ export default {
     data() {
         return {
             emailSubject: 'Order Inquiry',
-            emailBody: '', // Initialize email body as an empty string
-
+            emailBody: '',
             showFullCode: false,
             infoModalOpen: false,
             userInfo: {
@@ -62,9 +67,11 @@ export default {
                 surname: '',
                 email: '',
                 address: '',
+                notes: ''
             },
         };
     },
+
     computed: {
         cart() {
             return this.$store.state.cart;
@@ -83,6 +90,7 @@ export default {
             return code.length > 5 ? `${code.substring(0, 5)}...` : code;
         },
     },
+
     methods: {
         calculateTotal() {
             return this.cart.reduce((total, product) => total + parseFloat(product.price.replace('R', '')), 0);
@@ -95,15 +103,6 @@ export default {
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-
-            // Prompt the user to open their email client manually
-            const confirmEmail = confirm('Your code has been copied to the clipboard. Do you want to open your email client to send the code to the CEO?');
-
-            if (confirmEmail) {
-                const emailTo = 'ceo@example.com'; // Replace with the CEO's email address
-                const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(this.emailSubject)}&body=${encodeURIComponent(this.emailBody)}`;
-                window.open(mailtoLink, '_blank');
-            }
         },
         openInfoModal() {
             this.infoModalOpen = true;
@@ -113,7 +112,7 @@ export default {
         },
         acceptInfoAndSendEmail() {
             this.emailBody = `
-        Hi CEO,
+        Hi Andrea,
 
         I am reaching out to you regarding my recent order with Lunar Scents. 
         Here's the order details:
@@ -125,16 +124,16 @@ export default {
         Email: ${this.userInfo.email}
         Shipping Address: ${this.userInfo.address}
 
+        Special Notes: ${this.userInfo.notes}
+
         Best regards,
         ${this.userInfo.name} ${this.userInfo.surname}
       `;
 
-            // Create a mailto link with the email subject and body
-            const emailTo = 'ceo@example.com'; // Replace with the CEO's email address
+            const emailTo = 'lunar.scents@outlook.com';
             const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(this.emailSubject)}&body=${encodeURIComponent(this.emailBody)}`;
-
-            // Open the mailto link in the current window
-            window.location.href = mailtoLink;
+            window.open(mailtoLink, '_blank');
+            this.closeInfoModal();
         }
     },
 };

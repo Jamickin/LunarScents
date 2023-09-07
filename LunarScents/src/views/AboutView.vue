@@ -1,67 +1,96 @@
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
+
 <template>
-    <div class="p-4 text-center rounded-2xl bg-cover bg-center celestial-decor text-slate-600 font-bold">
-        <h1 class="text-3xl font-bold mb-4">Who am I?</h1>
-        <div class="text-lg leading-relaxed">
-            <p>
-                I'm Andrea Weichelt, the visionary behind this fragrant journey, and I'm thrilled to share it with you!
-            </p>
-            <br>
-            <p>
-                Greetings, fragrance enthusiasts! Welcome to the extraordinary realm of Lunar Scents, where scent
-                becomes a
-                celestial symphony and fragrances are crafted with love and cosmic inspiration.
-            </p>
-            <br>
-            <p>
-                At Lunar Scents, we believe that fragrances have the power to transport us to magical realms and evoke
-                emotions that transcend time and space. With every scent we create, we capture the essence of celestial
-                bodies, infusing them into captivating fragrances that will ignite your senses and awaken your spirit.
-            </p>
-            <br>
-            <p>
-                Join us on this celestial odyssey as we explore a vast collection of otherworldly fragrances. Each
-                bottle is
-                a testament to our dedication and passion for the craft, meticulously crafted to transport you to
-                distant
-                realms and evoke a sense of wonder and enchantment. From the delicate blooms infused with stardust to
-                the
-                embrace of heavenly musks, our fragrances are works of art that will leave you breathless.
-            </p>
-            <br>
-            <p>
-                But Lunar Scents is more than just fragrances; it's an experience like no other. Step into our
-                celestial-themed boutiques, where ambient lighting and celestial decorations set the stage for an
-                immersive
-                journey. As you enter, you'll be enveloped in an ethereal ambiance, the air filled with the scent of
-                wonder
-                and the melodies guiding your exploration.
-            </p>
-            <br>
-            <p>
-                I, along with my team, invite you to indulge in the pleasures of scent. Allow our fragrances to unlock
-                your
-                inner senses, transforming ordinary moments into extraordinary memories. Embrace the magic that lies
-                within
-                each bottle and let your senses dance among the stars.
-            </p>
-            <br>
-            <p>
-                So, my fellow fragrance enthusiasts, prepare to be captivated by Lunar Scents. Together, let us embark
-                on a
-                fragrant voyage that transcends the mundane and takes us to new horizons. Surrender to the allure of our
-                celestial creations and let them guide you on an aromatic journey of infinite possibilities. Welcome to
+    <div class="text-slate-600 px-44 background bg-no-repeat w-screen">
+        <div class=" text-2xl  text-center bg-white bg-opacity-90 bg-no-repeat rounded-2xl p-12 relative">
+            <h1 class="text-3xl font-bold mb-4">Welcome to Lunar Scents<br>Your Gateway to Natural Wellness
+            </h1>
+            <img src="../assets/images/Quotation.svg" class="w-12 absolute left-0">
+            <p class="letter"> Hello, I'm Andrea, the heart and soul behind Lunar Scents. I'm thrilled to introduce you
+                to
+                the world of
+                natural
+                wellness and aromatherapy. Lunar Scents is not just a small essential oil business; it's a passion project
+                born
+                from a profound appreciation for the therapeutic and aromatic benefits of essential oils.
+                I firmly hold the
+                belief
+                that nature has granted us everything we need for healing and well-being, waiting to be discovered and
+                harnessed. It's this belief that fuels our commitment to crafting each product as a tribute to the
+                remarkable
+                gifts that nature provides us.</p>
+            <p> At Lunar Scents, our mission is clear: to promote wellness and relaxation through the power of nature's
+                purest
+                scents. I believe that in the hustle and bustle of life, everyone deserves a moment of tranquillity and
+                rejuvenation. That's why I carefully source and blend essential oils to create unique and captivating
+                fragrances
+                that elevate the senses and enhance overall well-being.
+                I enthusiastically anticipate the continued expansion of Lunar Scents' product range, as I strive to grow
                 our
-                scented universe, where dreams and fragrances collide in perfect harmony.
+                presence and introduce our offerings to an ever-widening audience.</p>
+            <p>
+                Partner with Lunar Scents:
+                We believe that our products can bring a touch of tranquillity and wellness to your customers' lives, and
+                we're
+                excited to explore the possibility of partnering with your store. Whether you're interested in consignment
+                or
+                purchasing a selection of our products, we're open to discussing what works best for you.<br>
+                Join us on this aromatic journey and introduce the pure scents of Lunar Scents to your valued customers.
             </p>
+            <p>Let's
+                chat, share ideas, and embark on a partnership that elevates the well-being of all.</p>
+            <p>For inquiries, partnership proposals, or simply to learn more about our products, please feel free to reach
+                out
+                to us at andreajonelle@gmail.com
+                I can't wait to connect and spread the essence of natural wellness together.</p>
+            <p> My Warmest regards,<br>
+                Andrea Wichelt<br>
+                Founder of Lunar Scents
+            </p>
+            <img src="../assets/images/Quotation.svg" class="w-12 absolute right-0 rotate-180">
+        </div>
+        <div class="text-xl font-bold text-center mt-12">
+            Our Product Range:
+            Explore our carefully curated selection of essential oil products, each designed to bring a touch of
+            serenity
+            and
+            balance to your life:
+            <ul class="py-6">
+                <li>Enchanted Forest - 100ml</li>
+                <li>Temple Tonic Roller - 10ml</li>
+                <li>Moonlit Blush Blend - 10ml</li>
+            </ul>
+            <div class="text-center z-30 my-12">
+                <RouterLink to="/store"
+                    class="text-center bg-Secondary p-8 rounded-2xl hover:opacity-80 hover:shadow-2xl transition-all z-30">
+                    STORE
+                </RouterLink>
+            </div>
+            <ul class="py-6">
+                Our thoughtfully crafted collection includes:
+                <li>Aromatherapy Burner
+                </li>
+                <li>Handmade Earrings
+                </li>
+                <li>Handbag Hanger
+                </li>
+                <li>Lunar Scents Gift Box</li>
+            </ul>
         </div>
     </div>
 </template>
-
 <style scoped>
-.celestial-decor {
-    background-image: url('../assets//images/BlobScene.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+p {
+    @apply py-6;
+    font-family: 'Pacifico';
+}
+
+.background {
+    background-image: url('../assets/images/Logo.png');
+    background-position-x: center;
+    /* background-position-y: -100px; */
+
 }
 </style>

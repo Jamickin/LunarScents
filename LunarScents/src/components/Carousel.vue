@@ -72,10 +72,9 @@ export default {
                 </div>
             </div>
         </div>
-        <p class="w-full text-center pl-12">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic culpa repellat qui
-            sed,
-            ipsam, fugiat quisquam repellendus numquam necessitatibus omnis aliquam eaque deleniti exercitationem
-            perferendis cum doloribus blanditiis assumenda in!</p>
+        <p class="w-full text-center pl-12 font-bold text-lg">All of our products are made with the finest of natures
+            ingredients. We urge you
+            to take a stroll through our exhaustive store and pick what you like!</p>
 
     </div>
 </template>

@@ -12,8 +12,8 @@ import Footer from "./components/Footer.vue"
     <main class="mt-12 bg-gradient-to-b from-white to-Secondary overflow-x-hidden">
         <Stars />
         <RouterView />
-        <Footer />
     </main>
+    <Footer />
 </template>
 
 <style scoped></style>

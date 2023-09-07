@@ -6,22 +6,27 @@
         </div>
 
         <div v-else>
-            <div v-for="product in cart" :key="product.id" class="bg-white flex flex-col rounded-lg shadow-md p-6 mt-4">
-                <h2 class="text-xl font-bold">{{ product.name }}</h2>
-                <p class="text-gray-500">{{ product.description }}</p>
-                <p class="mt-4 text-primary font-bold">{{ product.price }}</p>
-                <!-- Check if the item is not the delivery fee before displaying the image -->
+            <div v-for="product in cart" :key="product.id"
+                class="bg-Glass grid grid-cols-2 rounded-lg shadow-md p-8 mt-4 justify-center place-items-center">
+                <div>
+                    <h2 class="text-lg font-bold">{{ product.name }}</h2>
+                    <p class="text-gray-500 text-sm">{{ product.description }}</p>
+                    <p class="mt-2 text-primary font-bold text-lg">{{ product.price }}</p>
+                </div>
                 <img v-if="product.name !== 'Delivery Fee'" :src="product.image" :alt="product.name"
-                    class="mx-auto mb-4 rounded-lg" />
-                <button class="mt-2 bg-Primary text-white py-2 px-4 rounded hover:opacity-90"
+                    class="mx-auto rounded-lg max-h-44" />
+                <button v-if="product.name !== 'Delivery Fee'"
+                    class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
                     @click="removeFromCart(product)">Remove</button>
             </div>
 
-            <button class="mt-6 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark"
+            <button class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
                 @click="clearCartAndAdjustContainer">Clear Cart</button>
             <button v-if="!orderPlaced" id="place-order-button"
-                class="mt-6 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark" @click="placeOrderAndNavigate">
-                Place Order </button>
+                class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
+                @click="placeOrderAndNavigate">
+                Place Order
+            </button>
 
             <div v-if="orderPlaced" class="mt-6 p-4 bg-green-100 text-green-500 rounded">
                 <p>Thank you for your order!</p>
@@ -29,9 +34,9 @@
         </div>
     </div>
 </template>
-
 <script>
-const DELIVERY_FEE = 100; // Define the delivery fee here with your desired value
+
+const DELIVERY_FEE = 100;
 
 export default {
     created() {
@@ -52,6 +57,7 @@ export default {
     beforeDestroy() {
         window.removeEventListener('resize', this.adjustContainerHeight);
     },
+
     computed: {
         cart() {
             const cartItems = this.$store.state.cart;
@@ -68,6 +74,7 @@ export default {
             return [...cartItems, deliveryItem];
         },
     },
+
     watch: {
         cart: {
             handler() {
@@ -84,7 +91,6 @@ export default {
                 this.adjustContainerHeight();
             });
         },
-
         retrieveCart() {
             const storedCart = localStorage.getItem('cart');
             if (storedCart) {
@@ -104,12 +110,6 @@ export default {
             this.saveCart();
             this.orderPlaced = false;
         },
-        placeOrder() {
-            this.$store.commit('checkout');
-            this.orderPlaced = true;
-            this.clearCart();
-        },
-
         scrollToPlaceOrderButton() {
             this.$nextTick(() => {
                 const orderButton = document.getElementById('place-order-button');
@@ -119,7 +119,6 @@ export default {
             });
         },
         placeOrderAndNavigate() {
-            // this.placeOrder();
             this.$router.push({ name: 'confirmation' });
         },
         adjustContainerHeight() {
@@ -140,21 +139,5 @@ export default {
 .container {
     max-width: 960px;
     margin: 0 auto;
-}
-
-.text-primary {
-    color: #ffc600;
-}
-
-.bg-primary {
-    background-color: #ffc600;
-}
-
-.hover\:bg-primary-dark:hover {
-    background-color: #e6b800;
-}
-
-.text-white {
-    color: #fff;
 }
 </style>
