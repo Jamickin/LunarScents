@@ -44,11 +44,9 @@ export default {
     },
     computed: {
         slides() {
-            return store.state.products.map(product => ({
+            return store.state.galleryItems.map(product => ({
                 image: product.image,
                 caption: product.name,
-                description: product.description,
-                price: product.price,
             }));
         },
 

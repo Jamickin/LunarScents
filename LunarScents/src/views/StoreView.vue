@@ -3,9 +3,29 @@ import Carousel from '../components/Carousel.vue';
 import { RouterLink } from 'vue-router';
 
 export default {
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
     methods: {
         addToCart(product) {
             this.$store.commit('addToCart', product);
+        },
+        handleScroll() {
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            const threshold = 48;
+            const thankYouBanner = document.querySelector('.thank-you-banner');
+
+            if (thankYouBanner) {
+                if (scrollPosition > threshold) {
+                    thankYouBanner.classList.add('bg-opacity-30'); // Add background opacity class
+
+                } else {
+                    thankYouBanner.classList.remove('bg-opacity-30'); // Remove background opacity class
+                }
+            }
         },
     },
     computed: {
@@ -21,18 +41,19 @@ export default {
 </script>
 
 
+
 <template>
-    <RouterLink to="/checkout" class="fixed right-6 top-14 h-12">
+    <RouterLink to="/checkout" class="fixed right-6 top-14 h-12 z-[99999]">
         <img src="../assets/images/CartIcon.svg" class="h-full hover:scale-105 hover:drop-shadow-lg">
     </RouterLink>
-    <div v-if="cart.length > 0" class="absolute w-screen text-center top-12 h-16 z-[999] p-4 bg-neutral-500 text-white">
-        <p class="font-bold">Product/s added to cart! Go to the <router-link :to="{ name: 'checkout' }"
-                class="text-xl animate-pulse underline">cart</router-link>
+    <div v-if="cart.length > 0"
+        class="fixed w-screen text-center top-12 h-16 z-[999] p-4 bg-neutral-800 text-white thank-you-banner">
+        <p class="font-bold">Product/s added! Go to the <router-link :to="{ name: 'checkout' }"
+                class="text-xl animate-pulse underline text-Primary">cart</router-link>
             to complete your
             purchase.</p>
     </div>
-    <div class="container mx-auto py-8 relative text-slate-600">
-        <!-- <h1 class="text-3xl font-extrabold mb-6 text-slate-600">Welcome to the Lunar Scents Store!</h1> -->
+    <div class="container py-8 relative text-slate-600">
         <Carousel :class="{ 'mt-20': cart.length > 0 }" />
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             <div v-for="product in products" :key="product.id" class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
@@ -40,9 +61,9 @@ export default {
                 <h2 class="text-xl font-bold">{{ product.name }}</h2>
                 <p class="text-gray-500 font-bold">{{ product.description }}</p>
                 <p class="mt-4 text-black font-bold">{{ product.price }}</p>
-                <button class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors"
-                    @click="addToCart(product)">Add to
-                    Checkout</button>
+                <button
+                    class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
+                    @click="addToCart(product)">Add to Cart</button>
             </div>
         </div>
         <div class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">

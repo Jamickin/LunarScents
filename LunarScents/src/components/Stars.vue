@@ -3,7 +3,7 @@
         <div v-for="star in stars" :key="star.id"
             class="absolute w-[24px] h-[24px] opacity-100 pointer-events-none transition-transform animate-star-fall"
             :style="{ top: star.style.top, left: star.style.left, transform: star.style.transform }">
-            <img src="../assets/images/star.svg" alt="Star" class="w-full h-full" />
+            <img src="../assets/images/2.png" alt="Star" class="w-full h-full" />
         </div>
     </div>
 </template>

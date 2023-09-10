@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router';
     <div class="grid grid-cols-2 justify-items-center place-items-center py-16 h-[600px]">
         <div class="logo w-full h-full"></div>
         <p class="text-center font-bold text-slate-600 px-24 text-2xl">We are the one-stop for all of your
-            holistic-olfactory
+            holistic
             needs! Click
             on
             the shop button
@@ -21,7 +21,8 @@ import { RouterLink } from 'vue-router';
             get started!
         <div class="text-center z-30 my-16">
             <RouterLink to="/store"
-                class="text-center font-bold bg-Secondary p-8 rounded-2xl hover:opacity-95 hover:shadow-2xl z-30">STORE
+                class="text-center font-bold bg-Secondary p-8 transition-all rounded-2xl hover:opacity-95 hover:shadow-2xl z-30">
+                STORE
             </RouterLink>
         </div>
         </p>
