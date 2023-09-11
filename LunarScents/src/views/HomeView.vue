@@ -2,15 +2,18 @@
 import { RouterLink } from 'vue-router';
 </script>
 <template>
-    <div class="flex h-screen px-36 flex-col -mt-12 justify-center place-items-center homepic rounded-b-2xl">
-        <p class="text-center font-extrabold text-4xl text-white w-full">Ever wondered if there is the perfect store for all
+    <div
+        class="flex h-screen md:px-36 flex-col -mt-12 justify-center place-items-center md:bg-cover bg-contain homepic rounded-b-2xl">
+        <p class="md:text-white md:pt-0 pt-12 text-center font-extrabold text-4xl text-black w-full">Ever wondered if there
+            is
+            the perfect store for all
             your
             herbal and
             homeopathic
             needs? You've
             arrived at your destination</p>
     </div>
-    <div class="grid grid-cols-2 justify-items-center place-items-center py-16 h-[600px]">
+    <div class="grid sm:grid-cols-2 justify-items-center place-items-center md:py-16 h-[600px]">
         <div class="logo w-full h-full"></div>
         <p class="text-center font-bold text-slate-600 px-24 text-2xl">We are the one-stop for all of your
             holistic
@@ -32,7 +35,6 @@ import { RouterLink } from 'vue-router';
 <style scoped>
 .homepic {
     background-image: url('../assets/images/Box.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
 
 }

@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <div class="container text-slate-600 px-44 background bg-no-repeat w-screen">
+    <div class="container text-slate-600 px-44 bg-no-repeat w-screen">
         <div class=" text-2xl  text-center bg-white bg-opacity-90 bg-no-repeat rounded-2xl p-12 relative">
             <h1 class="text-3xl font-bold mb-4">Welcome to Lunar Scents<br>Your Gateway to Natural Wellness
             </h1>
@@ -45,17 +45,15 @@ import { RouterLink } from 'vue-router';
                 out
                 to us at andreajonelle@gmail.com
                 I can't wait to connect and spread the essence of natural wellness together.</p>
-            <div class="px-80"> <img src="../assets/images/pfpblack.jpeg" class="rounded-2xl">
+            <div class="h-80 flex justify-center"><img src="../assets/images/pfpblack.jpeg" class="rounded-2xl  sm:h-full">
             </div>
             <p> My Warmest regards,<br>
                 Andrea Jonelle Wichelt<br>
                 Founder of Lunar Scents
             </p>
             <img src="../assets/images/Quotation.svg" class="w-12 absolute right-0 rotate-180">
-
-
         </div>
-        <div class="text-xl font-bold text-center mt-12">
+        <!-- <div class="text-xl font-bold text-center mt-12 sm:visible hidden">
             Our Product Range:
             Explore our carefully curated selection of essential oil products, each designed to bring a touch of
             serenity
@@ -82,37 +80,26 @@ import { RouterLink } from 'vue-router';
                 </li>
                 <li>Lunar Scents Gift Box</li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </template>
 <style scoped>
 .container {
     max-width: 100%;
-    /* Ensure content doesn't overflow on small screens */
     padding: 16px;
-    /* Add some padding for spacing */
     box-sizing: border-box;
-    /* Ensure padding doesn't increase container width */
+    background-image: url('../assets/images/Logo.png');
+    background-position-x: center;
 }
 
-/* Media query for smaller screens (adjust breakpoints as needed) */
 @media screen and (max-width: 768px) {
     .container {
         padding: 10px;
-        /* Adjust padding for smaller screens */
     }
-
-    /* Add more specific styles for smaller screens here */
 }
 
 p {
     @apply py-6;
     font-family: 'Pacifico';
 }
-
-.background {
-    background-image: url('../assets/images/Logo.png');
-    background-position-x: center;
-    /* background-position-y: -100px; */
-
-}</style>
+</style>

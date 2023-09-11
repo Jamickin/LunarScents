@@ -70,9 +70,6 @@ export default {
                 </div>
             </div>
         </div>
-        <p class="w-full text-center pl-12 font-bold text-lg">All of our products are made with the finest of natures
-            ingredients. We urge you
-            to take a stroll through our exhaustive store and pick what you like!</p>
 
     </div>
 </template>
