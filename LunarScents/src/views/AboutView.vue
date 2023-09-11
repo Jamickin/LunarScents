@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <div class="text-slate-600 px-44 background bg-no-repeat w-screen">
+    <div class="container text-slate-600 px-44 background bg-no-repeat w-screen">
         <div class=" text-2xl  text-center bg-white bg-opacity-90 bg-no-repeat rounded-2xl p-12 relative">
             <h1 class="text-3xl font-bold mb-4">Welcome to Lunar Scents<br>Your Gateway to Natural Wellness
             </h1>
@@ -86,6 +86,25 @@ import { RouterLink } from 'vue-router';
     </div>
 </template>
 <style scoped>
+.container {
+    max-width: 100%;
+    /* Ensure content doesn't overflow on small screens */
+    padding: 16px;
+    /* Add some padding for spacing */
+    box-sizing: border-box;
+    /* Ensure padding doesn't increase container width */
+}
+
+/* Media query for smaller screens (adjust breakpoints as needed) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+        /* Adjust padding for smaller screens */
+    }
+
+    /* Add more specific styles for smaller screens here */
+}
+
 p {
     @apply py-6;
     font-family: 'Pacifico';
@@ -96,5 +115,4 @@ p {
     background-position-x: center;
     /* background-position-y: -100px; */
 
-}
-</style>
+}</style>

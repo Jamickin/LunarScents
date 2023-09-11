@@ -78,5 +78,6 @@ p {
     left: 0;
     right: 0;
     transition: background-color 0.3s ease-in-out;
+    @apply bg-Glass
 }
 </style>
