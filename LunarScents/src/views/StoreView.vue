@@ -3,6 +3,11 @@ import Carousel from '../components/Carousel.vue';
 import { RouterLink } from 'vue-router';
 
 export default {
+    data() {
+        return {
+            selectedProductImage: "../assets/images/RollerStore.jpg", // Default image source
+        };
+    },
     mounted() {
         window.addEventListener('scroll', this.handleScroll);
     },
@@ -11,6 +16,7 @@ export default {
     },
     methods: {
         addToCart(product) {
+            this.selectedProductImage = product.image;
             this.$store.commit('addToCart', product);
         },
     },
@@ -51,8 +57,7 @@ export default {
                 to take a stroll through our exhaustive store and pick what you like!</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-    <!-- Product 1 -->
-    <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
+    <div class="bg-Secondary rounded-lg shadow-md pb-6 px-2 h-auto">
         <img src="../assets/images/RollerStore.jpg"  class="mx-auto h-50 mb-4 rounded-lg" />
         <h2 class="text-xl font-bold">{{ products[0].name }}</h2>
         <p class="text-gray-500 font-bold">{{ products[0].description }}</p>
@@ -61,9 +66,7 @@ export default {
             class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
             @click="addToCart(products[0])">Add to Cart</button>
     </div>
-
-    <!-- Product 2 -->
-    <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
+    <div class="bg-Secondary rounded-lg shadow-md pb-6 px-2 h-auto">
         <img src="../assets/images/RollerStore.jpg"  class="mx-auto h-50 mb-4 rounded-lg" />
         <h2 class="text-xl font-bold">{{ products[1].name }}</h2>
         <p class="text-gray-500 font-bold">{{ products[1].description }}</p>
@@ -72,10 +75,8 @@ export default {
             class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
             @click="addToCart(products[1])">Add to Cart</button>
     </div>
-
-    <!-- Product 3 -->
-    <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
-        <img src="../assets/images/RollerStore.jpg"  class="mx-auto h-50 mb-4 rounded-lg" />
+    <div class="bg-Secondary rounded-lg shadow-md pb-6 px-2 h-auto">
+        <img src="../assets/images/TonicStore.jpg"  class="mx-auto h-50 mb-4 rounded-lg" />
         <h2 class="text-xl font-bold">{{ products[2].name }}</h2>
         <p class="text-gray-500 font-bold">{{ products[2].description }}</p>
         <p class="mt-4 text-black font-bold">{{ products[2].price }}</p>
