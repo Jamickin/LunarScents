@@ -13,20 +13,6 @@ export default {
         addToCart(product) {
             this.$store.commit('addToCart', product);
         },
-        handleScroll() {
-            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-            const threshold = 48;
-            const thankYouBanner = document.querySelector('.thank-you-banner');
-
-            if (thankYouBanner) {
-                if (scrollPosition > threshold) {
-                    thankYouBanner.classList.add('bg-opacity-30'); // Add background opacity class
-
-                } else {
-                    thankYouBanner.classList.remove('bg-opacity-30'); // Remove background opacity class
-                }
-            }
-        },
     },
     computed: {
         products() {
@@ -50,10 +36,10 @@ export default {
         <img src="../assets/images/CartIcon.svg" class="md:h-full h-0 hover:scale-105 hover:drop-shadow-lg">
     </RouterLink>
     <div v-if="cart.length > 0"
-        class="fixed w-screen text-center top-12 md:h-16 z-[999] p-4 bg-neutral-800 text-white thank-you-banner">
-        <p class="font-bold">Product/s added! Go to the <router-link :to="{ name: 'checkout' }"
-                class="text-xl animate-pulse underline text-Primary">cart</router-link>
-            to complete your
+        class="fixed w-screen text-center top-12  z-[999] p-4 bg-neutral-50 text-black font-extrabold rounded-b-2xl" >
+        <p class="">Product added! Go to the <router-link :to="{ name: 'checkout' }"
+                class="text-xl animate-pulse underline text-green-600">cart</router-link>
+            to review your
             purchase.</p>
     </div>
     <div class="container py-8 relative text-slate-600">
@@ -75,7 +61,7 @@ export default {
                     @click="addToCart(product)">Add to Cart</button>
             </div>
         </div>
-        <div class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">
+        <!-- <div class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">
             <img src="../assets/images/All.jpg" class="mx-auto h-50 mb-4 rounded-lg" />
             <h2 class="text-xl font-bold">Build-A-Box</h2>
             <p class="text-gray-500">All of your favourite merch in one gift box! And a discount to boot!</p>
@@ -90,7 +76,7 @@ export default {
             <router-link to="/resell"
                 class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors">Resell
                 Store</router-link>
-        </div>
+        </div> -->
     </div>
 </template>
 

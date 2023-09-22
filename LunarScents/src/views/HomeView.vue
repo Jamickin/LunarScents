@@ -34,9 +34,8 @@ import { RouterLink } from 'vue-router';
 
 <style scoped>
 .homepic {
-    background-image: url('../assets/images/Box.jpg');
+    background-image: url('../assets/images/All.jpg');
     background-repeat: no-repeat;
-
 }
 
 .logo {

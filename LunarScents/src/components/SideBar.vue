@@ -10,15 +10,15 @@
         <router-link to="/store" class="menu-item">
             <p>STORE</p>
         </router-link>
-        <router-link to="/gallery" class="menu-item">
+        <!-- <router-link to="/gallery" class="menu-item">
             <p>GALLERY</p>
-        </router-link>
+        </router-link> -->
         <router-link to="/faq" class="menu-item">
             <p>FAQ</p>
         </router-link>
-        <router-link to="/profile" class="menu-item">
+        <!-- <router-link to="/profile" class="menu-item">
             <p>PROFILE</p>
-        </router-link>
+        </router-link> -->
         <router-link to="/checkout" class="menu-item">
             <p>CHECKOUT</p>
         </router-link>
@@ -72,7 +72,7 @@ p {
 }
 
 
-.scrolling {
+/* .scrolling {
     @apply bg-Glass
-}
+} */
 </style>

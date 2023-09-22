@@ -85,10 +85,9 @@ import { RouterLink } from 'vue-router';
 </template>
 <style scoped>
 .container {
-    max-width: 100%;
-    padding: 16px;
-    box-sizing: border-box;
+    width: screen;
     background-image: url('../assets/images/Logo.png');
+    background-position-y: 4px;
     background-position-x: center;
 }
 
