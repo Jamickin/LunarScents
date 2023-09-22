@@ -51,6 +51,41 @@ export default {
                 to take a stroll through our exhaustive store and pick what you like!</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+    <!-- Product 1 -->
+    <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
+        <img :src="products[0].image" :alt="products[0].name" class="mx-auto h-50 mb-4 rounded-lg" />
+        <h2 class="text-xl font-bold">{{ products[0].name }}</h2>
+        <p class="text-gray-500 font-bold">{{ products[0].description }}</p>
+        <p class="mt-4 text-black font-bold">{{ products[0].price }}</p>
+        <button
+            class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
+            @click="addToCart(products[0])">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
+        <img :src="products[1].image" :alt="products[1].name" class="mx-auto h-50 mb-4 rounded-lg" />
+        <h2 class="text-xl font-bold">{{ products[1].name }}</h2>
+        <p class="text-gray-500 font-bold">{{ products[1].description }}</p>
+        <p class="mt-4 text-black font-bold">{{ products[1].price }}</p>
+        <button
+            class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
+            @click="addToCart(products[1])">Add to Cart</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
+        <img :src="products[2].image" :alt="products[2].name" class="mx-auto h-50 mb-4 rounded-lg" />
+        <h2 class="text-xl font-bold">{{ products[2].name }}</h2>
+        <p class="text-gray-500 font-bold">{{ products[2].description }}</p>
+        <p class="mt-4 text-black font-bold">{{ products[2].price }}</p>
+        <button
+            class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
+            @click="addToCart(products[2])">Add to Cart</button>
+    </div>
+</div>
+
+        <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             <div v-for="product in products" :key="product.id" class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
                 <img :src=product.image :alt="product.name" class="mx-auto h-50 mb-4 rounded-lg" />
                 <h2 class="text-xl font-bold">{{ product.name }}</h2>
@@ -60,7 +95,7 @@ export default {
                     class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
                     @click="addToCart(product)">Add to Cart</button>
             </div>
-        </div>
+        </div> -->
         <!-- <div class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">
             <img src="../assets/images/All.jpg" class="mx-auto h-50 mb-4 rounded-lg" />
             <h2 class="text-xl font-bold">Build-A-Box</h2>
