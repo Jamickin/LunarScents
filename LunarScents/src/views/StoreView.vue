@@ -53,7 +53,7 @@ export default {
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
     <!-- Product 1 -->
     <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
-        <img :src="products[0].image" :alt="products[0].name" class="mx-auto h-50 mb-4 rounded-lg" />
+        <img src="../assets/images/RollerStore.jpg"  class="mx-auto h-50 mb-4 rounded-lg" />
         <h2 class="text-xl font-bold">{{ products[0].name }}</h2>
         <p class="text-gray-500 font-bold">{{ products[0].description }}</p>
         <p class="mt-4 text-black font-bold">{{ products[0].price }}</p>
@@ -64,7 +64,7 @@ export default {
 
     <!-- Product 2 -->
     <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
-        <img :src="products[1].image" :alt="products[1].name" class="mx-auto h-50 mb-4 rounded-lg" />
+        <img src="../assets/images/RollerStore.jpg"  class="mx-auto h-50 mb-4 rounded-lg" />
         <h2 class="text-xl font-bold">{{ products[1].name }}</h2>
         <p class="text-gray-500 font-bold">{{ products[1].description }}</p>
         <p class="mt-4 text-black font-bold">{{ products[1].price }}</p>
@@ -75,7 +75,7 @@ export default {
 
     <!-- Product 3 -->
     <div class="bg-Glass rounded-lg shadow-md pb-6 px-2 h-auto">
-        <img :src="products[2].image" :alt="products[2].name" class="mx-auto h-50 mb-4 rounded-lg" />
+        <img src="../assets/images/RollerStore.jpg"  class="mx-auto h-50 mb-4 rounded-lg" />
         <h2 class="text-xl font-bold">{{ products[2].name }}</h2>
         <p class="text-gray-500 font-bold">{{ products[2].description }}</p>
         <p class="mt-4 text-black font-bold">{{ products[2].price }}</p>
