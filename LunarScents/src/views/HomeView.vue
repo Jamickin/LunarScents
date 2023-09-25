@@ -1,7 +1,10 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import Stars from "../components/Stars.vue";
+
 </script>
 <template>
+    <Stars class="-z-10"/>
     <div class="flex flex-col">
      <div
         class="flex h-screen md:px-36 -mt-12 justify-center place-items-center md:bg-cover bg-contain homepic rounded-b-2xl">

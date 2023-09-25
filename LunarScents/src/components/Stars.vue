@@ -1,5 +1,5 @@
 <template>
-    <div class="z-[-1] fixed top-0 left-0 h-screen w-full overflow-hidden">
+    <div class="z-0 fixed top-0 left-0 h-screen w-full overflow-hidden">
         <div v-for="star in stars" :key="star.id"
             class="absolute w-[24px] h-[24px] opacity-100 pointer-events-none transition-transform animate-star-fall"
             :style="{ top: star.style.top, left: star.style.left, transform: star.style.transform }">

@@ -1,5 +1,5 @@
 <template>
-    <div class="transition-colors duration-300 ease-in-out fixed top-0 left-0 h-12 w-screen flex justify-center place-items-center flex-row z-50 bg-white shadow-md"
+    <div class="transition-colors duration-300 ease-in-out fixed top-0 left-0 h-12 w-screen flex justify-center place-items-center flex-row z-50 text-white shadow-md"
         :class="{ 'scrolling': isScrolling }">
         <router-link to="/" class="menu-item">
             <p>HOME</p>
@@ -72,7 +72,7 @@ p {
 }
 
 
-/* .scrolling {
-    @apply bg-Glass
-} */
+.scrolling {
+    @apply bg-neutral-50 text-black
+} 
 </style>

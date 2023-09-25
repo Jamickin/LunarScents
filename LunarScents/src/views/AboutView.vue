@@ -1,9 +1,12 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import Stars from "../components/Stars.vue";
+
 </script>
 
 <template>
-    <div class="container text-slate-600 px-44 bg-no-repeat">
+    <Stars />
+    <div class="container text-slate-600 px-44 bg-no-repeat ">
         <div class=" text-2xl  text-center bg-white bg-opacity-90 bg-no-repeat rounded-2xl p-12 relative">
             <h1 class="text-3xl font-bold mb-4">Welcome to Lunar Scents<br>Your Gateway to Natural Wellness
             </h1>
@@ -47,8 +50,8 @@ import { RouterLink } from 'vue-router';
                 I can't wait to connect and spread the essence of natural wellness together.</p>
             <div class="h-80 flex justify-center"><img src="../assets/images/pfpblack.webp" class="rounded-2xl  sm:h-full">
             </div>
-            <p> My Warmest regards,<br>
-                Andrea Jonelle Wichelt<br>
+            <p> My warmest regards,<br>
+                Andrea Jõnelle Weichelt<br>
                 Founder of Lunar Scents
             </p>
             <img src="../assets/images/Quotation.svg" class="w-12 absolute right-0 rotate-180">

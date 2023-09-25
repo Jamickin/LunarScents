@@ -1,6 +1,7 @@
 <script>
 import Carousel from '../components/Carousel.vue';
 import { RouterLink } from 'vue-router';
+import Stars from "../components/Stars.vue";
 
 export default {
     data() {
@@ -35,6 +36,7 @@ export default {
 
 
 <template>
+    <Stars class="z-[99999999]"/>
     <div class="h-screen w-screen -top-[5rem] fixed flex place-items-center justify-center"> <img
             src="../assets/images/Logo.png" class="h-full opacity-40">
     </div>
