@@ -25,7 +25,7 @@ import { RouterLink } from 'vue-router';
             get started!
         <div class="text-center z-30 my-16">
             <RouterLink to="/store"
-                class="text-center font-bold bg-Secondary p-8 transition-all rounded-2xl hover:opacity-95 hover:shadow-2xl z-30">
+                class="text-center text-white hover:bg-TertiaryHL font-bold bg-gray-500 p-8 transition-all rounded-2xl hover:opacity-95 hover:shadow-2xl z-30">
                 STORE
             </RouterLink>
         </div>

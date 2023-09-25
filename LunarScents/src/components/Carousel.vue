@@ -71,7 +71,7 @@ export default {
 
     </div> -->
 <div class="flex flex-col-2 place-items-center justify-start">
-    <div class="box-border h-[400px] w-full flex bg-Glass shadow-xl backdrop-blur-sm rounded-2xl flex-col place-items-center overflow-hidden"
+    <div class="box-border h-[600px] w-full flex bg-Glass shadow-xl backdrop-blur-sm rounded-2xl flex-col place-items-center overflow-hidden"
         @mouseenter="stopAutoScroll" @mouseleave="startAutoScroll">
         <div class="flex flex-nowrap overflow-hidden" ref="carouselWrapper">
             <div ref="carouselTrack" class="flex transition-transform duration-300"
