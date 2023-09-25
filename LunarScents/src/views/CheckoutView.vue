@@ -13,8 +13,8 @@
                     <p class="text-gray-500 text-sm">{{ product.description }}</p>
                     <p class="mt-2 text-primary font-bold text-lg">{{ product.price }}</p>
                 </div>
-                <img v-if="product.name !== 'Delivery Fee'" :src="product.image || selectedProductImage" :alt="product.name"
-                    class="mx-auto rounded-lg max-h-44" />
+                <!-- <img v-if="product.name !== 'Delivery Fee'" :src="product.image || selectedProductImage" :alt="product.name"
+                    class="mx-auto rounded-lg max-h-44" /> -->
                 <button v-if="product.name !== 'Delivery Fee'"
                     class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
                     @click="removeFromCart(product)">Remove</button>
@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             orderPlaced: false,
-            selectedProductImage: "", 
+            selectedProductImage: "",
         };
     },
     mounted() {
@@ -66,7 +66,7 @@ export default {
                 return [];
             }
             const subtotal = cartItems.reduce((total, product) => total + parseFloat(product.price.replace('R', '')), 0);
-            const total = subtotal + DELIVERY_FEE; 
+            const total = subtotal + DELIVERY_FEE;
             const deliveryItem = {
                 name: 'Delivery Fee',
                 description: 'Delivery fee for your order',

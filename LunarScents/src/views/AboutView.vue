@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <div class="container text-slate-600 px-44 bg-no-repeat w-screen">
+    <div class="container text-slate-600 px-44 bg-no-repeat">
         <div class=" text-2xl  text-center bg-white bg-opacity-90 bg-no-repeat rounded-2xl p-12 relative">
             <h1 class="text-3xl font-bold mb-4">Welcome to Lunar Scents<br>Your Gateway to Natural Wellness
             </h1>
@@ -45,7 +45,7 @@ import { RouterLink } from 'vue-router';
                 out
                 to us at andreajonelle@gmail.com
                 I can't wait to connect and spread the essence of natural wellness together.</p>
-            <div class="h-80 flex justify-center"><img src="../assets/images/pfpblack.jpeg" class="rounded-2xl  sm:h-full">
+            <div class="h-80 flex justify-center"><img src="../assets/images/pfpblack.webp" class="rounded-2xl  sm:h-full">
             </div>
             <p> My Warmest regards,<br>
                 Andrea Jonelle Wichelt<br>
@@ -86,7 +86,7 @@ import { RouterLink } from 'vue-router';
 <style scoped>
 .container {
     width: screen;
-    background-image: url('../assets/images/Logo.png');
+    background-image: url('../assets/images/Logo.webp');
     background-position-y: 4px;
     background-position-x: center;
 }
