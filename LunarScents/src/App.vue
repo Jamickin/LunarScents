@@ -9,7 +9,7 @@ import Footer from "./components/Footer.vue"
 
 <template>
     <SideBar />
-    <main class="mt-12 bg-gradient-to-b from-white to-Secondary overflow-x-hidden flex justify-center ">
+    <main class="mt-12 bg-gradient-to-b from-white to-Secondary overflow-x-hidden flex justify-center">
         <Stars />
         <RouterView />
     </main>
