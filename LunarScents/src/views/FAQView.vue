@@ -1,5 +1,4 @@
 <script>
-import Stars from "../components/Stars.vue";
 
 
 export default {
@@ -39,13 +38,11 @@ export default {
             this.faqs[index].open = !this.faqs[index].open;
         },
     },
-    components: { Stars }
 };
 </script>
 
 
 <template>
-    <stars />
     <div class="max-w-3xl mx-auto flex flex-col h-screen justify-center items-center z-20">
         <h1 class="text-3xl font-semibold mb-6">Frequently Asked Questions</h1>
         <div v-for="(faq, index) in faqs" :key="index" class="mb-4 border rounded-md w-full">

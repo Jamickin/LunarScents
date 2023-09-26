@@ -1,11 +1,5 @@
-<script setup>
-import { RouterLink } from 'vue-router';
-import Stars from "../components/Stars.vue";
-
-</script>
 
 <template>
-    <Stars />
     <div class="container text-slate-600 px-44 bg-no-repeat ">
         <div class=" text-2xl  text-center bg-white bg-opacity-90 bg-no-repeat rounded-2xl p-12 relative">
             <h1 class="text-3xl font-bold mb-4">Welcome to Lunar Scents<br>Your Gateway to Natural Wellness

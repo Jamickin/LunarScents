@@ -1,25 +1,22 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import Stars from "../components/Stars.vue";
 
 </script>
 <template>
-    <Stars class="-z-10"/>
     <div class="flex flex-col">
      <div
-        class="flex h-screen md:px-36 -mt-12 justify-center place-items-center md:bg-cover bg-contain homepic rounded-b-2xl">
-        <p class="md:text-white md:pt-0 pt-12 text-center font-extrabold text-4xl text-black w-full">Ever wondered if there
+        class="flex h-screen -mt-12 justify-center place-items-center bg-cover homepic rounded-b-2xl">
+        <p class="text-white text-center font-extrabold text-4xl w-full">Have you ever wondered if there
             is
-            the perfect store for all
+            a store for all
             your
-            herbal and
             homeopathic
-            needs? You've
-            arrived at your destination</p>
+            needs? <br> <br> You've
+            arrived at your destination:</p>
     </div> 
-    <div class="grid sm:grid-cols-2 justify-items-center place-items-center md:py-16 h-[600px]">
+    <div class="grid justify-items-center place-items-center h-screen mt-36">
         <div class="logo w-full h-full"></div>
-        <p class="text-center font-bold text-slate-600 px-24 text-2xl">We are the one-stop for all of your
+        <p class="text-center font-bold text-slate-600 md:px-24 px-12 text-2xl">We are the one-stop for all of your
             holistic
             needs! Click
             on

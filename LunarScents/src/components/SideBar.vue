@@ -1,6 +1,6 @@
 <template>
-    <div class="transition-colors duration-300 ease-in-out fixed top-0 left-0 h-12 w-screen flex justify-center place-items-center flex-row z-50 text-white shadow-md"
-        :class="{ 'scrolling': isScrolling }">
+    <div class="transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex-col flex justify-center bg-white sm:bg-Glass place-items-center sm:flex-row z-50 sm:text-white shadow-md"
+        :class="{ 'scrolling': isScrolling, 'menu-open': isMenuOpen  }">
         <router-link to="/" class="menu-item">
             <p>HOME</p>
         </router-link>
@@ -30,26 +30,31 @@ import { RouterLink } from 'vue-router';
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const isScrolling = ref(false);
-
-const windowWidth = ref(window.innerWidth < 640);
+const isMenuOpen = ref(false);
 
 const handleScroll = () => {
-    if (window.scrollY > 18) {
-        isScrolling.value = true;
+    // Check if the screen width is below 640px
+    if (window.innerWidth < 640) {
+        if (window.scrollY > 0) {
+            isScrolling.value = true;
+            isMenuOpen.value = true;
+        } else {
+            isScrolling.value = false;
+            isMenuOpen.value = false;
+        }
     } else {
-        isScrolling.value = false;
+        // If the screen width is larger than 640px, only update isScrolling
+        isScrolling.value = window.scrollY > 18;
     }
 };
 
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
-
 });
 
 onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll);
-
 });
 </script>
 
@@ -60,7 +65,7 @@ img {
 }
 
 .menu-item {
-    @apply w-full sm:px-2 sm:py-1 flex place-items-center justify-center text-center transition-all duration-700 h-full font-bold text-lg;
+    @apply sm:w-full sm:px-2 sm:py-1 flex place-items-center justify-center text-center transition-all duration-700 h-full font-bold sm:text-lg text-xs;
 }
 
 .menu-item:hover {
@@ -73,6 +78,10 @@ p {
 
 
 .scrolling {
-    @apply bg-neutral-50 text-black
+    @apply bg-neutral-50 text-black  
 } 
+
+.menu-open {
+    left: -50%;
+}
 </style>
