@@ -65,7 +65,7 @@ img {
 }
 
 .menu-item {
-    @apply sm:w-full sm:px-2 sm:py-1 flex place-items-center justify-center text-center transition-all duration-700 h-full font-bold sm:text-lg text-xs;
+    @apply w-full sm:px-2 sm:py-1 flex place-items-center justify-center text-center transition-all duration-700 h-full font-bold sm:text-lg text-xs;
 }
 
 .menu-item:hover {
