@@ -7,7 +7,8 @@ export default createStore({
         {
           id: 1,
           name: "Temple Tonic",
-          description: "An enchanting blend of celestial florals and musk.",
+          description:
+            "An enchanting blend of celestial florals and musk.",
           price: "R50.00",
           image: "../src/assets/images/TonicStore.webp",
         },
@@ -22,7 +23,8 @@ export default createStore({
         {
           id: 3,
           name: "Moonlit Blush Blend",
-          description: "A beam of sunlight, raging against your senses.",
+          description:
+            "A beam of sunlight, raging against your senses.",
           price: "R120.00",
           image: "../src/assets/images/RollerStore.webp",
         },
@@ -240,7 +242,10 @@ export default createStore({
   mutations: {
     addToCart(state, product) {
       state.cart = [...state.cart, product];
-      localStorage.setItem("cart", JSON.stringify(state.cart));
+      localStorage.setItem(
+        "cart",
+        JSON.stringify(state.cart)
+      );
     },
 
     setCart(state, cart) {
@@ -248,10 +253,15 @@ export default createStore({
     },
 
     removeFromCart(state, product) {
-      const index = state.cart.findIndex((item) => item.id === product.id);
+      const index = state.cart.findIndex(
+        (item) => item.id === product.id
+      );
       if (index !== -1) {
         state.cart.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify(state.cart));
+        localStorage.setItem(
+          "cart",
+          JSON.stringify(state.cart)
+        );
       }
     },
     clearCart(state) {
@@ -275,7 +285,8 @@ export default createStore({
     },
     cartTotalPrice(state) {
       return state.cart.reduce(
-        (total, product) => total + parseFloat(product.price),
+        (total, product) =>
+          total + parseFloat(product.price),
         0
       );
     },
