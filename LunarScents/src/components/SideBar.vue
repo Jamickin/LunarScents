@@ -14,9 +14,15 @@
     <router-link to="/store" class="menu-item">
       <p>SHOP</p>
     </router-link>
-    <router-link to="/gallery" class="menu-item">
+    <!-- <router-link to="/gallery" class="menu-item">
       <p>GALLERY</p>
-    </router-link>
+    </router-link> -->
+    <div class="w-full h-full relative flex justify-center">
+      <img
+        src="../assets/images/Logo.webp"
+        class="absolute h-36 transition-all duration-300"
+        :class="{ large: isScrolling }" />
+    </div>
     <router-link to="/faq" class="menu-item">
       <p>FAQ</p>
     </router-link>
@@ -60,9 +66,9 @@
 </script>
 
 <style scoped>
-  img {
+  /* img {
     @apply w-[2.7rem] cursor-pointer transition-all duration-[600ms];
-  }
+  } */
 
   .menu-item {
     @apply w-full sm:px-2 sm:py-1 flex place-items-center justify-center text-center transition-all duration-700 h-full font-bold sm:text-lg text-xs;
@@ -82,5 +88,9 @@
 
   .menu-open {
     left: -50%;
+  }
+
+  .large {
+    @apply h-12;
   }
 </style>

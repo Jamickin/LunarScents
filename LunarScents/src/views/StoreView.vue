@@ -64,9 +64,9 @@
   </div>
   <div class="container py-8 relative text-slate-600">
     <div>
-      <Carousel :class="{ 'mt-24': cart.length > 0 }" />
+      <!-- <Carousel :class="{ 'mt-24': cart.length > 0 }" /> -->
       <p
-        class="w-full text-center px-12 pt-6 font-bold text-lg">
+        class="w-full pt-24 text-center px-12 pt-6 font-bold text-lg">
         All of our products are made with the finest of
         natures ingredients. We urge you to take a stroll
         through our store and pick what you like!
@@ -100,7 +100,7 @@
         class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
         <img
           src="../assets/images/RollerStore.jpg"
-          class="mx-auto h-50 mb-4 rounded-lg" />
+          class="mx-auto h-50 mb-4 rounded-lg bg-" />
         <div class="px-2">
           <h2 class="text-xl font-bold">
             {{ products[1].name }}
@@ -156,22 +156,40 @@
 
    </div>             </div>
         </div> -->
-    <!-- <div class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">
-            <img src="../assets/images/All.jpg" class="mx-auto h-50 mb-4 rounded-lg" />
-            <h2 class="text-xl font-bold">Build-A-Box</h2>
-            <p class="text-gray-500">All of your favourite merch in one gift box! And a discount to boot!</p>
-            <p class="mt-4 text-black font-bold mb-8">R450</p>
-            <router-link to="/buildbox"
-                class=" bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors">Build!</router-link>
-        </div>
-        <div class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">
-            <img src="../assets/images/gallery/_MGL0126.jpg" class="mx-auto h-50 mb-4 rounded-lg" />
-            <h2 class="text-xl font-bold">Resell</h2>
-            <p class="text-gray-500 mb-4">Unbranded for selling and reselling!</p>
-            <router-link to="/resell"
-                class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors">Resell
-                Store</router-link>
-        </div> -->
+    <div
+      class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto mt-24">
+      <img
+        src="../assets/images/All.jpg"
+        class="mx-auto h-50 mb-4 rounded-lg" />
+      <div class="px-2">
+        <h2 class="text-xl font-bold">Build-A-Box</h2>
+        <p class="text-gray-500">
+          All of your favourite merch in one gift box! And a
+          discount to boot!
+        </p>
+        <p class="mt-4 text-black font-bold mb-8">R450</p>
+        <router-link
+          to="/buildbox"
+          class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors"
+          >Build!</router-link
+        >
+      </div>
+    </div>
+    <!-- <div
+      class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">
+      <img
+        src="../assets/images/gallery/_MGL0126.jpg"
+        class="mx-auto h-50 mb-4 rounded-lg" />
+      <h2 class="text-xl font-bold">Resell</h2>
+      <p class="text-gray-500 mb-4">
+        Unbranded for selling and reselling!
+      </p>
+      <router-link
+        to="/resell"
+        class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors"
+        >Resell Store</router-link
+      >
+    </div> -->
   </div>
 </template>
 
