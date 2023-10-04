@@ -70,7 +70,7 @@
       <div
         class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
         <img
-          src="../assets/images/RollerStore.jpg"
+          src="../assets/images/RollerStore.webp"
           class="mx-auto h-50 mb-4 rounded-lg" />
         <div class="px-2">
           <h2 class="text-xl font-bold">
@@ -92,7 +92,7 @@
       <div
         class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
         <img
-          src="../assets/images/RollerStore.jpg"
+          src="../assets/images/RollerStore.webp"
           class="mx-auto h-50 mb-4 rounded-lg bg-" />
         <div class="px-2">
           <h2 class="text-xl font-bold">
@@ -114,7 +114,7 @@
       <div
         class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
         <img
-          src="../assets/images/TonicStore.jpg"
+          src="../assets/images/TonicStore.webp"
           class="mx-auto h-50 mb-4 rounded-lg" />
         <div class="px-2">
           <h2 class="text-xl font-bold">
@@ -152,7 +152,7 @@
     <div
       class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto mt-24">
       <img
-        src="../assets/images/All.jpg"
+        src="../assets/images/All.webp"
         class="mx-auto h-50 mb-4 rounded-lg" />
       <div class="px-2">
         <h2 class="text-xl font-bold">Build-A-Box</h2>
