@@ -23,14 +23,22 @@
         class="absolute h-36 transition-all duration-300"
         :class="{ large: isScrolling }" />
     </div>
-    <router-link to="/faq" class="menu-item">
+    <!-- <router-link to="/faq" class="menu-item">
       <p>FAQ</p>
+    </router-link> -->
+    <router-link to="/contact" class="menu-item">
+      <p>CONTACT</p>
     </router-link>
     <router-link to="/profile" class="menu-item">
       <p>PROFILE</p>
     </router-link>
     <router-link to="/checkout" class="menu-item">
       <p>CHECKOUT</p>
+      <div class="h-12 pr-10">
+        <img
+          src="../assets/images/CartIcon.svg"
+          class="h-full" />
+      </div>
     </router-link>
   </div>
 </template>

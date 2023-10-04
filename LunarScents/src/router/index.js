@@ -8,6 +8,7 @@ import BuildBoxView from "../views/BuildBoxView.vue";
 import ProfileView from "../views/ProfileView.vue";
 import FAQView from "../views/FAQView.vue";
 import GalleryView from "../views/GalleryView.vue";
+import ContactView from "../views/ContactView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -60,6 +61,11 @@ const router = createRouter({
       path: "/profile",
       name: "profile",
       component: ProfileView,
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: ContactView,
     },
   ],
 });

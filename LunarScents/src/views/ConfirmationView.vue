@@ -178,6 +178,7 @@
         Grand Total: ${this.formattedTotal}
 
         Email: ${this.userInfo.email}
+        
         Shipping Address: ${this.userInfo.address}
 
         Special Notes: ${this.userInfo.notes}

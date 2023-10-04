@@ -1,33 +1,66 @@
 <template>
   <div
-    class="flex justify-center gap-12 px-44 py-24 place-items-center">
-    <p class="text-center w-full text-2xl"><p class="text-right py-12">
+    class="h-screen w-screen grid grid-cols-2 grid-rows-3 justify-center text-center pt-24 px-24">
+    <div class="aboutImage bg-neutral-500"></div>
+    <div class="flex place-items-center bg-green-200">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Consequatur quam, doloribus quidem sequi hic
+        similique voluptatum, non voluptas facilis dicta
+        nesciunt, quo totam modi blanditiis quibusdam
+        eligendi esse? Debitis, magnam!
+      </p>
+    </div>
+    <div class="flex place-items-center bg-orange-300">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Consequatur quam, doloribus quidem sequi hic
+        similique voluptatum, non voluptas facilis dicta
+        nesciunt, quo totam modi blanditiis quibusdam
+        eligendi esse? Debitis, magnam!
+      </p>
+    </div>
+    <div class="aboutImage bg-neutral-500"></div>
+    <div class="aboutImage bg-neutral-500"></div>
+    <div class="flex place-items-center bg-neutral-300">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Consequatur quam, doloribus quidem sequi hic
+        similique voluptatum, non voluptas facilis dicta
+        nesciunt, quo totam modi blanditiis quibusdam
+        eligendi esse? Debitis, magnam!
+      </p>
+    </div>
+  </div>
+  <div
+    class="flex justify-center gap-12 px-44 py-24 place-items-center font-[Pacifico]">
+    <p class="text-center w-full text-2xl">
       Hello, I'm Andrea, the heart and soul behind Lunar
-      Scents. </p>
-      I'm thrilled to introduce you to the world of natural
-      wellness and aromatherapy. Lunar Scents is not just a
-      small essential oil business; it's a passion project
-      born from a profound appreciation for the therapeutic
-      and aromatic benefits of essential oils. I firmly hold
-      the belief that nature has granted us everything we
-      need for healing and well-being, waiting to be
-      discovered and harnessed. <br><br> It's this belief that fuels
-      our commitment to crafting each product as a tribute
-      to the remarkable gifts that nature provides us. At
-      Lunar Scents, our mission is clear: to promote
-      wellness and relaxation through the power of nature's
-      purest scents. I believe that in the hustle and bustle
-      of life, everyone deserves a moment of tranquillity
-      and rejuvenation. That's why I carefully source and
-      blend essential oils to create unique and captivating
-      fragrances that elevate the senses and enhance overall
-      well-being.  <br><br>  I enthusiastically anticipate the
-      continued expansion of Lunar Scents' product range, as
-      I strive to grow our presence and introduce our
-      offerings to an ever-widening audience. Partner with
-      Lunar Scents: We believe that our products can bring a
-      touch of tranquillity and wellness to your customers'
-      lives, and we're excited to explore the possibility of
+      Scents. I'm thrilled to introduce you to the world of
+      natural wellness and aromatherapy. Lunar Scents is not
+      just a small essential oil business; it's a passion
+      project born from a profound appreciation for the
+      therapeutic and aromatic benefits of essential oils. I
+      firmly hold the belief that nature has granted us
+      everything we need for healing and well-being, waiting
+      to be discovered and harnessed. <br /><br />
+      It's this belief that fuels our commitment to crafting
+      each product as a tribute to the remarkable gifts that
+      nature provides us. At Lunar Scents, our mission is
+      clear: to promote wellness and relaxation through the
+      power of nature's purest scents. I believe that in the
+      hustle and bustle of life, everyone deserves a moment
+      of tranquillity and rejuvenation. That's why I
+      carefully source and blend essential oils to create
+      unique and captivating fragrances that elevate the
+      senses and enhance overall well-being. <br /><br />
+      I enthusiastically anticipate the continued expansion
+      of Lunar Scents' product range, as I strive to grow
+      our presence and introduce our offerings to an
+      ever-widening audience. Partner with Lunar Scents: We
+      believe that our products can bring a touch of
+      tranquillity and wellness to your customers' lives,
+      and we're excited to explore the possibility of
       partnering with your store. Whether you're interested
       in consignment or purchasing a selection of our
       products, we're open to discussing what works best for
@@ -55,5 +88,12 @@
 <style scoped>
   p {
     font-family: "Pacifico";
+  }
+
+  .aboutImage {
+    background-image: url("../assets/images/All.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 </style>

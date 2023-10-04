@@ -6,7 +6,7 @@
     data() {
       return {
         selectedProductImage:
-          "../assets/images/RollerStore.jpg", // Default image source
+          "../assets/images/RollerStore.jpg",
       };
     },
     mounted() {
@@ -42,31 +42,24 @@
     <div
       class="storepic w-full h-full bg-contain bg-center opacity-30"></div>
   </div>
-  <RouterLink
-    to="/checkout"
-    class="fixed right-24 top-24 h-12 z-[99999]">
-    <img
-      src="../assets/images/CartIcon.svg"
-      class="md:h-full h-0 hover:scale-105 hover:drop-shadow-lg" />
-  </RouterLink>
   <div
     v-if="cart.length > 0"
-    class="fixed w-screen h-12 flex justify-center place-items-center text-center bottom-0 z-[999] p-4 bg-neutral-100 text-black font-extrabold rounded-b-2xl">
-    <p class="">
+    class="fixed h-12 flex justify-center place-items-center text-center top-12 right-0 z-[999] p-4 bg-Primary">
+    <p class="text-black font-extrabold text-lg">
       Product added! Go to the
       <router-link
         :to="{ name: 'checkout' }"
-        class="text-xl animate-pulse underline text-green-600"
-        >cart</router-link
+        class="text-2xl animate-pulse underline text-green-800"
+        >CHECKOUT</router-link
       >
-      to review your purchase.
+      to review your purchase
     </p>
   </div>
   <div class="container py-8 relative text-slate-600">
     <div>
       <!-- <Carousel :class="{ 'mt-24': cart.length > 0 }" /> -->
       <p
-        class="w-full pt-24 text-center px-12 pt-6 font-bold text-lg">
+        class="w-full pt-24 text-center px-12 font-bold text-lg">
         All of our products are made with the finest of
         natures ingredients. We urge you to take a stroll
         through our store and pick what you like!

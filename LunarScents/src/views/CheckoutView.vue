@@ -5,6 +5,11 @@
       v-if="cart.length === 0"
       class="p-4 bg-gray-100 text-gray-500 rounded">
       <p>Your cart is empty. Start shopping!</p>
+      <p>
+        Note that any orders of R800 and above in Gauteng
+        and R1000 and above in Joburg respectively qualify
+        for free delivery!
+      </p>
     </div>
 
     <div v-else>
