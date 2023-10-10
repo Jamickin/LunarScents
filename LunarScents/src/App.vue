@@ -8,7 +8,7 @@
 <template>
   <SideBar />
   <main
-    class="bg-gradient-to-b from-white to-Secondary mt-12">
+    class="bg-gradient-to-b from-white to-Secondary sm:mt-12">
     <RouterView />
     <Stars />
   </main>

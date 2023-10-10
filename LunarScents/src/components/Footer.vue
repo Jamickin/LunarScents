@@ -19,6 +19,6 @@
 
 <style scoped>
   img {
-    @apply h-10 w-10;
+    @apply h-10 w-10 hover:scale-105 transition-all duration-300;
   }
 </style>

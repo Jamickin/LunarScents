@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen w-screen flex justify-evenly place-items-center px-44">
+    class="h-screen w-screen flex sm:flex-row flex-col justify-evenly place-items-center sm:px-44">
     <div class="flex flex-col">
       <h1 class="font-extrabold text-xl mb-12">
         CONTACT INFO

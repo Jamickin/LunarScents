@@ -5,6 +5,7 @@
       scrolling: isScrolling,
       'menu-open': isMenuOpen,
     }">
+    <button @click="isMenuOpen = !isMenuOpen" class="fixed left-16 top-0 sm:hidden block" :class="{'button-visible' : isMenuOpen}"><img src="../assets/images/ArrowRight.svg" class="w-12 rotate-180"></button>
     <router-link to="/" class="menu-item">
       <p>HOME</p>
     </router-link>
@@ -17,10 +18,10 @@
     <!-- <router-link to="/gallery" class="menu-item">
       <p>GALLERY</p>
     </router-link> -->
-    <div class="w-full h-full relative flex justify-center">
+    <div class="w-full h-full relative justify-center hidden sm:flex">
       <img
         src="../assets/images/Logo.webp"
-        class="absolute h-36 transition-all duration-300"
+        class="absolute h-36 transition-all duration-300 z-[9999999999]"
         :class="{ large: isScrolling }" />
     </div>
     <!-- <router-link to="/faq" class="menu-item">
@@ -32,9 +33,9 @@
     <router-link to="/profile" class="menu-item">
       <p>PROFILE</p>
     </router-link>
-    <router-link to="/checkout" class="menu-item">
+    <router-link to="/checkout" class="menu-item mr-4">
       <p>CHECKOUT</p>
-      <div class="h-12 pr-10">
+      <div class="h-12 w-12 sm:block hidden">
         <img
           src="../assets/images/CartIcon.svg"
           class="h-full" />
@@ -100,5 +101,9 @@
 
   .large {
     @apply h-12;
+  }
+
+  .button-visible {
+    display: none;
   }
 </style>

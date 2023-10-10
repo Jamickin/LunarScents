@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen w-screen grid grid-cols-2 grid-rows-3 justify-center text-center pt-24 px-24">
+    class="h-screen w-screen grid grid-cols-2 grid-rows-3 justify-center text-center sm:pt-24 sm:px-24">
     <div class="aboutImage bg-neutral-500"></div>
     <div class="flex place-items-center bg-green-200">
       <p>
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div
-    class="flex justify-center gap-12 px-44 py-24 place-items-center font-[Pacifico]">
+    class="flex sm:flex-row flex-col justify-center gap-12 sm:px-44 py-24 place-items-center font-[Pacifico]">
     <p class="text-center w-full text-2xl">
       Hello, I'm Andrea, the heart and soul behind Lunar
       Scents. I'm thrilled to introduce you to the world of

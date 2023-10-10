@@ -44,7 +44,7 @@
   </div>
   <div
     v-if="cart.length > 0"
-    class="fixed h-12 flex justify-center place-items-center text-center top-12 right-0 z-[999] p-4 bg-Primary">
+    class="fixed w-full sm:h-12 flex justify-center place-items-center text-center sm:top-12 right-0 z-20 sm:p-4 bg-Primary">
     <p class="text-black font-extrabold text-lg">
       Product added! Go to the
       <router-link
@@ -59,10 +59,12 @@
     <div>
       <!-- <Carousel :class="{ 'mt-24': cart.length > 0 }" /> -->
       <p
-        class="w-full pt-24 text-center px-12 font-bold text-lg">
+        class="w-full pt-24 text-center px-12 font-bold text-lg bg-neutral-50 p-4">
         All of our products are made with the finest of
         natures ingredients. We urge you to take a stroll
         through our store and pick what you like!
+      <br>
+        Note – We are experiencing growth and eagerly anticipate the addition of new products to our shop in the near future!
       </p>
     </div>
     <div
@@ -156,7 +158,7 @@
         class="mx-auto h-50 mb-4 rounded-lg" />
       <div class="px-2">
         <h2 class="text-xl font-bold">Build-A-Box</h2>
-        <p class="text-gray-500">
+        <p class="text-gray-500 font-extrabold">
           All of your favourite merch in one gift box! And a
           discount to boot!
         </p>
