@@ -72,8 +72,8 @@
     },
     methods: {
       sendEmail() {
-        const subject = "Contact Request from Your Website";
-        const to = "ceo@example.com";
+        const subject = "Contact Request from Lunar Scents";
+        const to = "lunar.scents@outlook.com";
 
         const emailBody = `Name: ${this.formData.name}\nEmail: ${this.formData.email}\nMessage: ${this.formData.message}`;
 

@@ -55,11 +55,11 @@
       to review your purchase
     </p>
   </div>
-  <div class="container py-8 relative text-slate-600">
-    <div>
+  <div class="container relative text-slate-600">
+    <div class="">
       <!-- <Carousel :class="{ 'mt-24': cart.length > 0 }" /> -->
       <p
-        class="w-full pt-24 text-center px-12 font-bold text-lg bg-neutral-50 p-4">
+        class="w-full text-center px-12 font-bold text-lg bg-white rounded-2xl py-24">
         All of our products are made with the finest of
         natures ingredients. We urge you to take a stroll
         through our store and pick what you like!
@@ -136,23 +136,8 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <div v-for="product in products" :key="product.id" class="bg-Glass rounded-lg shadow-md pb-6 h-auto">
-                <img :src=product.image :alt="product.name" class="mx-auto h-50 mb-4 rounded-lg" />
-                <div><h2 cl
-                ass="text-xl font-bold"> class="px-2"{{ product.name }}</h2>
-                <p class="text-gray-500 font-bold">{{ product.description }}</p>
-                <p class="mt-4 text-black font-bold">{{ product.price }}</p>
-                <button
-                    class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
-                    @click="addToCart(product)">Add to Cart</button>
-   
-
-   </div>             </div>
-        </div> -->
     <div
-      class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto mt-24">
+      class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
       <img
         src="../assets/images/All.webp"
         class="mx-auto h-50 mb-4 rounded-lg" />
@@ -170,21 +155,6 @@
         >
       </div>
     </div>
-    <!-- <div
-      class="bg-Glass rounded-lg shadow-md pb-6 h-auto mt-24 px-6">
-      <img
-        src="../assets/images/gallery/_MGL0126.jpg"
-        class="mx-auto h-50 mb-4 rounded-lg" />
-      <h2 class="text-xl font-bold">Resell</h2>
-      <p class="text-gray-500 mb-4">
-        Unbranded for selling and reselling!
-      </p>
-      <router-link
-        to="/resell"
-        class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors"
-        >Resell Store</router-link
-      >
-    </div> -->
   </div>
 </template>
 

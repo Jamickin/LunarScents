@@ -1,64 +1,3 @@
-<template>
-  <div class="container mx-auto py-10" ref="container">
-    <h1 class="text-3xl font-bold mb-6">Checkout</h1>
-    <div
-      v-if="cart.length === 0"
-      class="p-4 bg-gray-100 text-gray-500 rounded">
-      <p>Your cart is empty. Start shopping!</p>
-      <p>
-        Note that any orders of R800 and above in Gauteng
-        and R1000 and above in Joburg respectively qualify
-        for free delivery!
-      </p>
-    </div>
-
-    <div v-else>
-      <div
-        v-for="product in cart"
-        :key="product.id"
-        class="bg-Glass grid grid-cols-2 rounded-lg shadow-md p-8 mt-4 justify-center place-items-center">
-        <div>
-          <h2 class="text-lg font-bold">
-            {{ product.name }}
-          </h2>
-          <p class="text-gray-500 text-sm">
-            {{ product.description }}
-          </p>
-          <p class="mt-2 text-primary font-bold text-lg">
-            {{ product.price }}
-          </p>
-        </div>
-        <!-- <img v-if="product.name !== 'Delivery Fee'" :src="product.image || selectedProductImage" :alt="product.name"
-                    class="mx-auto rounded-lg max-h-44" /> -->
-        <button
-          v-if="product.name !== 'Delivery Fee'"
-          class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
-          @click="removeFromCart(product)">
-          Remove
-        </button>
-      </div>
-
-      <button
-        class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
-        @click="clearCartAndAdjustContainer">
-        Clear Cart
-      </button>
-      <button
-        v-if="!orderPlaced"
-        id="place-order-button"
-        class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
-        @click="placeOrderAndNavigate">
-        Place Order
-      </button>
-
-      <div
-        v-if="orderPlaced"
-        class="mt-6 p-4 bg-green-100 text-green-500 rounded">
-        <p>Thank you for your order!</p>
-      </div>
-    </div>
-  </div>
-</template>
 <script>
   const DELIVERY_FEE = 100;
 
@@ -70,9 +9,36 @@
       return {
         orderPlaced: false,
         selectedProductImage: "",
+        products: [
+        {
+          id: 1,
+          name: "Temple Tonic",
+          description:
+            "An enchanting blend of celestial florals and musk.",
+          price: "R50.00",
+          image: "../src/assets/images/TonicStore.webp",
+        },
+        {
+          id: 2,
+          name: "Enchanted Forest Spray",
+          description:
+            "A refreshing mist infused with the essence of moonlight.",
+          price: "R80.00",
+          image: "../src/assets/images/SprayStore.webp",
+        },
+        {
+          id: 3,
+          name: "Moonlit Blush Blend",
+          description:
+            "A beam of sunlight, raging against your senses.",
+          price: "R120.00",
+          image: "../src/assets/images/RollerStore.webp",
+        },
+      ],
       };
     },
     mounted() {
+      this.isScrollingEnabled = false;
       this.retrieveCart();
       window.addEventListener(
         "resize",
@@ -182,6 +148,73 @@
     },
   };
 </script>
+
+
+<template>
+  <div class="container mx-auto py-10" ref="container">
+    <h1 class="text-3xl font-bold mb-6">Checkout</h1>
+    <div
+      v-if="cart.length === 0"
+      class="p-4 bg-gray-100 text-gray-500 rounded">
+      <p>Your cart is empty. Start shopping!</p>
+      <p>
+        Note that any orders of R800 and above in Gauteng
+        and R1000 and above in Joburg respectively qualify
+        for free delivery!
+      </p>
+    </div>
+
+    <div v-else>
+      <div
+        v-for="product in cart"
+        :key="product.id"
+        class="bg-Glass grid grid-cols-2 rounded-lg shadow-md p-8 mt-4 justify-center place-items-center">
+        <div>
+          <h2 class="text-lg font-bold">
+            {{ product.name }}
+          </h2>
+          <p class="text-gray-500 text-sm">
+            {{ product.description }}
+          </p>
+          <p class="mt-2 text-primary font-bold text-lg">
+            {{ product.price }}
+          </p>
+        </div>
+        <img
+    v-if="product.name !== 'Delivery Fee'"
+    :src="product.image"
+    :alt="product.name"
+    class="mx-auto rounded-lg max-h-44"
+  />
+        <button
+          v-if="product.name !== 'Delivery Fee'"
+          class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
+          @click="removeFromCart(product)">
+          Remove
+        </button>
+      </div>
+
+      <button
+        class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
+        @click="clearCartAndAdjustContainer">
+        Clear Cart
+      </button>
+      <button
+        v-if="!orderPlaced"
+        id="place-order-button"
+        class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
+        @click="placeOrderAndNavigate">
+        Place Order
+      </button>
+
+      <div
+        v-if="orderPlaced"
+        class="mt-6 p-4 bg-green-100 text-green-500 rounded">
+        <p>Thank you for your order!</p>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
   .container {

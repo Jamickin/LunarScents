@@ -40,7 +40,7 @@
       <button
         v-if="cart.length > 0"
         @click="openInfoModal"
-        class="animate-pulse bg-primary font-extrabold text-TertiaryHL py-2 px-4 rounded hover:bg-primary-dark">
+        class="animate-pulse bg-primary font-extrabold text-green-500 py-2 px-4 rounded hover:bg-primary-dark">
         Press this link to copy a code. It will open your
         preferred email app.<br />All you have to do is
         press send!
