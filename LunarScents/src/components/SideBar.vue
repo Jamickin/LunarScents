@@ -47,7 +47,7 @@ export default {
       scrolling: isScrolling,
       'menu-open': isMenuOpen,
     }">
-    <button @click="isMenuOpen = !isMenuOpen" class="fixed left-16 top-0 sm:hidden block" :class="{'button-visible' : isMenuOpen}"><img src="../assets/images/ArrowRight.svg" class="w-12 rotate-180"></button>
+    <button @click="isMenuOpen = !isMenuOpen" class="transition-all duration-300 fixed left-16 top-0 sm:hidden block" :class="{'button-visible' : isMenuOpen}"><img src="../assets/images/ArrowRight.svg" class="w-12 rotate-180"></button>
     <router-link to="/" class="menu-item">
       <p>HOME</p>
     </router-link>
@@ -118,6 +118,7 @@ export default {
   }
 
   .button-visible {
-    display: none;
+    left: 0;
+    @apply rotate-180
   }
 </style>

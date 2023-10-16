@@ -3,9 +3,9 @@
 </script>
 <template>
   <div
-    class="flex h-screen w-screen justify-center place-items-center sm:bg-fixed sm:bg-cover bg-contain homepic"></div>
+    class="flex sm:h-screen h-[400px] w-screen justify-center place-items-center sm:bg-fixed sm:bg-cover bg-contain homepic"></div>
   <div
-    class="flex flex-col justify-items-center place-items-center h-screen bg-gradient-to-b from-white to-Secondary py-24">
+    class="flex flex-col justify-items-center place-items-center h-screen py-24">
     <div class="logo w-full h-full"></div>
     <p
       class="text-center font-bold text-slate-600 sm:px-24 md:px-12 text-2xl py-12">
