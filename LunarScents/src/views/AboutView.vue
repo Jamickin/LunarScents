@@ -1,8 +1,8 @@
 <template>
   <div
-    class="h-screen w-screen grid grid-cols-2 grid-rows-3 justify-center text-center sm:pt-24 sm:px-24">
-    <div class="aboutImage bg-neutral-500"></div>
-    <div class="flex place-items-center bg-green-200">
+    class="h-screen w-screen grid grid-cols-2 grid-rows-3 justify-center text-center sm:pt-36  bg-Glass rounded-2xl px-12">
+    <div class="aboutImage spray "></div>
+    <div class="flex place-items-center bg-Glass">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing
         elit. Consequatur quam, doloribus quidem sequi hic
@@ -11,7 +11,7 @@
         eligendi esse? Debitis, magnam!
       </p>
     </div>
-    <div class="flex place-items-center bg-orange-300">
+    <div class="flex place-items-center bg-Glass">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing
         elit. Consequatur quam, doloribus quidem sequi hic
@@ -20,9 +20,9 @@
         eligendi esse? Debitis, magnam!
       </p>
     </div>
-    <div class="aboutImage bg-neutral-500"></div>
-    <div class="aboutImage bg-neutral-500"></div>
-    <div class="flex place-items-center bg-neutral-300">
+    <div class="aboutImage roll "></div>
+    <div class="aboutImage oil "></div>
+    <div class="flex place-items-center bg-Glass">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing
         elit. Consequatur quam, doloribus quidem sequi hic
@@ -78,10 +78,10 @@
       <br />
       Founder of Lunar Scents
     </p>
-    <div class="w-full h-1/2">
+    <div class="w-full h-1/2 flex place-items-center">
       <img
         src="../assets/images/pfpblack.webp"
-        class="rounded-3xl h-full" />
+        class="rounded-3xl h-[500px]" />
     </div>
   </div>
 </template>
@@ -91,9 +91,19 @@
   }
 
   .aboutImage {
-    background-image: url("../assets/images/All.webp");
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
   }
+
+  .spray {
+    background-image: url("../assets/images/SprayStore.webp");
+
+  }
+  .roll{    background-image: url("../assets/images/RollerStore.webp");
+}
+  .oil{    background-image: url("../assets/images/TonicStore.webp");
+}.w-screen {
+    width: 100vw;
+}
 </style>

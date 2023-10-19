@@ -44,7 +44,7 @@
   </div>
   <div
     v-if="cart.length > 0"
-    class="fixed w-full sm:h-12 flex justify-center place-items-center text-center sm:top-12 right-0 z-20 sm:p-4 bg-Primary">
+    class="fixed  w-full sm:h-12 flex sm:hidden justify-center place-items-center text-center sm:top-12 right-0 z-20 sm:p-4 bg-Primary">
     <p class="text-black font-extrabold text-lg">
       Product added! Go to the
       <router-link

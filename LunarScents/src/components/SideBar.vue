@@ -42,7 +42,7 @@ export default {
 
 <template>
   <div
-    class="transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex flex-col justify-evenly bg-white sm:bg-Glass place-items-center sm:flex-row z-50 sm:text-white shadow-md"
+    class="sidebar transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex flex-col justify-evenly bg-white sm:bg-Glass place-items-center sm:flex-row z-50 sm:text-white shadow-md"
     :class="{
       scrolling: isScrolling,
       'menu-open': isMenuOpen,
@@ -57,23 +57,25 @@ export default {
     <router-link to="/store" class="menu-item">
       <p>SHOP</p>
     </router-link>
-    <!-- <router-link to="/gallery" class="menu-item">
-      <p>GALLERY</p>
-    </router-link> -->
+   
     <div class="w-full h-full relative justify-center hidden sm:flex">
       <img
         src="../assets/images/Logo.webp"
         class="absolute h-36 transition-all duration-300 z-[9999999999]"
-        :class="{'large': isScrolling }" />    </div>
+        :class="{'large': isScrolling }" />    
+      </div>
+        <router-link to="/gallery" class="menu-item">
+      <p>GALLERY</p>
+    </router-link> 
     <!-- <router-link to="/faq" class="menu-item">
       <p>FAQ</p>
     </router-link> -->
     <router-link to="/contact" class="menu-item">
       <p>CONTACT</p>
     </router-link>
-    <router-link to="/profile" class="menu-item">
+    <!-- <router-link to="/profile" class="menu-item">
       <p>PROFILE</p>
-    </router-link>
+    </router-link> -->
     <router-link to="/checkout" class="menu-item">
       <p>CHECKOUT</p>
       <div class="h-12 w-12 sm:block hidden mr-4">
@@ -121,4 +123,10 @@ export default {
     left: 0;
     @apply rotate-180
   }
+
+  @media (min-width: 640px) {
+    .sm\:w-screen {
+        width: 100dvw;
+    }
+}
 </style>
