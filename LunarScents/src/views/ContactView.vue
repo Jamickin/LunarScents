@@ -52,7 +52,7 @@
         <button
           class="p-4 bg-neutral-50 rounded-2xl hover:bg-TertiaryHL hover:shadow-xl transition-colors duration-300"
           type="submit">
-          Send Email to CEO
+          Send
         </button>
       </form>
     </div>
