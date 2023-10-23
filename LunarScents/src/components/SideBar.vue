@@ -6,7 +6,7 @@ export default {
   data() {
     return {
       isScrolling: false,
-      isMenuOpen: true,
+      isMenuOpen: false,
 };
   },
   computed: {
