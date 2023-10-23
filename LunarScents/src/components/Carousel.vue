@@ -78,17 +78,17 @@ export default {
                 :style="{ transform: `translateX(-${currentIndex * slideWidth}px)` }">
                 <div class="flex place-items-center flex-shrink-0 w-full text-center">
                     <div>
-                        <img src="../assets/images/SprayStore.jpg" />
+                        <img src="../assets/images/SprayStore.webp" />
                     </div>
                 </div>
                 <div class="flex place-items-center flex-shrink-0 w-full text-center">
                     <div>
-                        <img src="../assets/images/RollerStore.jpg" />
+                        <img src="../assets/images/RollerStore.webp" />
                     </div>
                 </div>
                 <div class="flex place-items-center flex-shrink-0 w-full text-center">
                     <div>
-                        <img src="../assets/images/TonicStore.jpg" />
+                        <img src="../assets/images/TonicStore.webp" />
                     </div>
                 </div>
             </div>
