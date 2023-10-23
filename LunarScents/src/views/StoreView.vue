@@ -8,6 +8,7 @@
         selectedProductImage:
           "../assets/images/RollerStore.jpg",
       };
+      
     },
     mounted() {
       window.addEventListener("scroll", this.handleScroll);
@@ -142,7 +143,7 @@
         src="../assets/images/All.webp"
         class="mx-auto h-50 mb-4 rounded-lg" />
       <div class="px-2">
-        <h2 class="text-xl font-bold">Build-A-Box</h2>
+        <h2 class="text-xl font-bold">Gift Box</h2>
         <p class="text-gray-500 font-extrabold">
           All of your favourite merch in one gift box! And a
           discount to boot!
@@ -151,7 +152,7 @@
         <router-link
           to="/buildbox"
           class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors"
-          >Build!</router-link
+          >Add to Cart</router-link
         >
       </div>
     </div>

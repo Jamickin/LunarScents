@@ -1,5 +1,5 @@
 <template>
-  <div
+  <!-- <div
     class="h-screen w-screen grid grid-cols-2 grid-rows-3 justify-center text-center sm:pt-36  bg-Glass rounded-2xl px-12">
     <div class="aboutImage spray "></div>
     <div class="flex place-items-center bg-Glass">
@@ -31,9 +31,9 @@
         eligendi esse? Debitis, magnam!
       </p>
     </div>
-  </div>
+  </div> -->
   <div
-    class="flex sm:flex-row flex-col justify-center gap-12 sm:px-44 py-24 place-items-center font-[Pacifico]">
+    class="flex sm:flex-row flex-col justify-center gap-12 sm:px-44 px-8 py-24 place-items-center font-[Pacifico]">
     <p class="text-center w-full text-2xl">
       Hello, I'm Andrea, the heart and soul behind Lunar
       Scents. I'm thrilled to introduce you to the world of
@@ -81,7 +81,7 @@
     <div class="w-full h-1/2 flex place-items-center">
       <img
         src="../assets/images/pfpblack.webp"
-        class="rounded-3xl h-[500px]" />
+        class="rounded-3xl sm:h-auto max-h-[500px]" />
     </div>
   </div>
 </template>

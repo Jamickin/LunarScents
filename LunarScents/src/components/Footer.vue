@@ -12,6 +12,9 @@
         <a href="" target="_blank"
           ><img src="../assets/images/InstaLogo.svg"
         /></a>
+        <a href="" target="_blank"
+          ><img src="../assets/images/WhatsappLogo.svg"
+        /></a>
       </div>
     </div>
   </div>

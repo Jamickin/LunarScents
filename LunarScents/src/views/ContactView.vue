@@ -1,13 +1,10 @@
 <template>
   <div
-    class="h-screen w-screen flex sm:flex-row flex-col justify-evenly place-items-center sm:px-44">
-    <div class="flex flex-col">
-      <h1 class="font-extrabold text-xl mb-12">
-        CONTACT INFO
-      </h1>
+    class="sm:h-screen w-screen flex sm:flex-row flex-col justify-evenly place-items-center lg:px-44">
+    <div class="flex flex-col gap-8">
       <a href="" target="_blank"
         ><div
-          class="flex place-items-center bg-blue-300 px-8 mb-4 hover:scale-110 hover:shadow-2xl hover:rounded-xl transition-all duration-300">
+          class="flex place-items-center bg-blue-300 px-8 hover:scale-110 sm:mt-0 mt-12 hover:shadow-2xl hover:rounded-xl transition-all duration-300">
           <img src="../assets/images/FacebookLogo.svg" />
           <p class="pl-12">Facebook</p>
         </div></a
@@ -19,10 +16,18 @@
           <p class="pl-12">Instagram</p>
         </div></a
       >
+      <a href="" target="_blank"
+        ><div
+          class="flex place-items-center bg-green-300 px-8 hover:scale-110 hover:shadow-2xl hover:rounded-xl transition-all duration-300">
+          <img src="../assets/images/WhatsappLogo.svg" />
+          <p class="pl-12">Whatsapp</p>
+        </div></a
+      >
     </div>
+
     <div>
       <form
-        class="bg-Primary p-16 rounded-2xl"
+        class="bg-Glass p-16 sm:rounded-2xl my-12 sm:mt-0"
         @submit.prevent="sendEmail">
         <label class="pr-4" for="name">Name:</label>
         <input
@@ -81,7 +86,7 @@
           subject
         )}&body=${encodeURIComponent(emailBody)}`;
 
-        window.location.href = mailtoUrl;
+        window.open(mailtoUrl, "_blank");
       },
     },
   };
