@@ -3,13 +3,6 @@
   import { RouterLink } from "vue-router";
 
   export default {
-    data() {
-      return {
-        selectedProductImage:
-          "../assets/images/RollerStore.jpg",
-      };
-      
-    },
     mounted() {
       window.addEventListener("scroll", this.handleScroll);
     },
@@ -22,16 +15,7 @@
     methods: {
       addToCart(product) {
         this.selectedProductImage = product.image;
-        this.$store.commit("addToCart", product);
-      },
-    },
-    computed: {
-      products() {
-        return this.$store.state.products;
-      },
-      cart() {
-        return this.$store.state.cart;
-      },
+        this.$router.push({ name: 'selectedProduct', params: { selectedProduct: product } });      },
     },
     components: { Carousel },
   };

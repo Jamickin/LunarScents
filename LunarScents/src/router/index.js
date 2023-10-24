@@ -4,8 +4,6 @@ import AboutView from "../views/AboutView.vue";
 import StoreView from "../views/StoreView.vue";
 import CheckoutView from "../views/CheckoutView.vue";
 import ConfirmationView from "../views/ConfirmationView.vue";
-import BuildBoxView from "../views/BuildBoxView.vue";
-import ProfileView from "../views/ProfileView.vue";
 import FAQView from "../views/FAQView.vue";
 import GalleryView from "../views/GalleryView.vue";
 import ContactView from "../views/ContactView.vue";
@@ -13,6 +11,12 @@ import ContactView from "../views/ContactView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/selected-product/:selectedProduct',
+      name: 'selectedProduct',
+      component: () => import(/* webpackChunkName: "CheckoutView" */ '../views/CheckoutView.vue'),
+      props: true, // Allow route parameters to be passed as props
+        },
     {
       path: "/",
       redirect: "/home",
@@ -43,11 +47,6 @@ const router = createRouter({
       component: ConfirmationView,
     },
     {
-      path: "/buildbox",
-      name: "buildbox",
-      component: BuildBoxView,
-    },
-    {
       path: "/gallery",
       name: "gallery",
       component: GalleryView,
@@ -56,11 +55,6 @@ const router = createRouter({
       path: "/faq",
       name: "faq",
       component: FAQView,
-    },
-    {
-      path: "/profile",
-      name: "profile",
-      component: ProfileView,
     },
     {
       path: "/contact",

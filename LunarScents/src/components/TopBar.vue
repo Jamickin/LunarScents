@@ -70,9 +70,6 @@ export default {
     <router-link to="/contact" class="menu-item">
       <p>CONTACT</p>
     </router-link>
-    <!-- <router-link to="/profile" class="menu-item">
-      <p>PROFILE</p>
-    </router-link> -->
     <router-link to="/checkout" class="menu-item">
       <p>CHECKOUT</p>
       <div class="h-12 w-12 sm:block hidden mr-4">
