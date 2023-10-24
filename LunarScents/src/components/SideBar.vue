@@ -17,11 +17,13 @@ export default {
   methods: {
     handleScroll() {
       if (window.innerWidth < 640) {
-        if (window.scrollY > 0) {
+        this.isMenuOpen = true;
+      };
+      if (window.scrollY > 0) {
           this.isScrolling = true;
-          this.isMenuOpen = true;
-        } 
-      } 
+      } else {
+          this.isScrolling = false;
+      };
     },
   },
   mounted() {
@@ -42,13 +44,13 @@ export default {
       'menu-open': isMenuOpen,
     }">
     <button @click="isMenuOpen = !isMenuOpen" class="transition-all duration-300 fixed left-16 top-0 sm:hidden block" :class="{'button-visible' : isMenuOpen}"><img src="../assets/images/ArrowRight.svg" class="w-12 rotate-180"></button>
-    <router-link @click="isMenuOpen != isMenuOpen" to="/" class="menu-item">
+    <router-link to="/" class="menu-item">
       <p>HOME</p>
     </router-link>
-    <router-link @click="isMenuOpen != isMenuOpen" to="/about" class="menu-item">
+    <router-link to="/about" class="menu-item">
       <p>ABOUT</p>
     </router-link>
-    <router-link @click="isMenuOpen != isMenuOpen" to="/store" class="menu-item">
+    <router-link to="/store" class="menu-item">
       <p>SHOP</p>
     </router-link>
    
@@ -58,25 +60,26 @@ export default {
         class="absolute h-36 transition-all duration-300 z-[9999999999]"
         :class="{'large': isScrolling }" />    
       </div>
-        <router-link @click="isMenuOpen != isMenuOpen" to="/gallery" class="menu-item">
+        <!-- <router-link to="/gallery" class="menu-item">
       <p>GALLERY</p>
-    </router-link> 
-    <!-- <router-link to="/faq" class="menu-item">
+    </router-link>  -->
+    <!-- <div class="menu-item"></div> -->
+     <router-link to="/faq" class="menu-item">
       <p>FAQ</p>
-    </router-link> -->
-    <router-link @click="isMenuOpen != isMenuOpen" to="/contact" class="menu-item">
+    </router-link> 
+    <router-link to="/contact" class="menu-item">
       <p>CONTACT</p>
     </router-link>
     <!-- <router-link to="/profile" class="menu-item">
       <p>PROFILE</p>
     </router-link> -->
-    <router-link @click="isMenuOpen != isMenuOpen" to="/checkout" class="menu-item">
+    <router-link to="/checkout" class="menu-item">
       <p>CHECKOUT</p>
       <div class="h-12 w-12 sm:block hidden mr-4">
         <img
           src="../assets/images/CartIcon.svg"
           class="h-12" />
-          <span class="cart-item-count">({{ cartItemCount }})</span>
+          <span class="text-TertiaryHL">({{ cartItemCount }})</span>
       </div>
     </router-link>
   </div>

@@ -13,13 +13,13 @@
           {
             question: "Are your products eco-friendly?",
             answer:
-              "Yes, we prioritize sustainability. Our packaging is recyclable, and our candles use soy wax, which is a renewable resource. We also strive to minimize our carbon footprint in our production process.",
+              "Yes, we prioritize sustainability. Our packaging is recyclable and we also strive to minimize our carbon footprint in our production process.",
             open: false,
           },
           {
-            question: "How long do your candles burn?",
+            question: "How long does your spray last?",
             answer:
-              "On average, our candles have a burn time of 40-50 hours. However, burn time may vary depending on factors like the size of the candle and environmental conditions.",
+              "On average, our sprays last between 2000 and 3000 sprays. However, that may vary depending on factors like the pressure of the spray-action and environmental conditions such as an enclosed space needing less sprays.",
             open: false,
           },
           {
@@ -27,6 +27,7 @@
             answer:
               "Currently, we offer a curated selection of scents, but we're always open to feedback and suggestions. Feel free to reach out with your scent ideas, and we'll consider them for future products.",
             open: false,
+            link: "/contact",
           },
         ],
       };
@@ -62,6 +63,9 @@
       <transition name="slide-fade">
         <div v-if="faq.open" class="bg-gray-100 px-4 py-2">
           {{ faq.answer }}
+          <div v-if="faq.link">
+      <a :href="faq.link" class="btn-contact">Contact Us</a>
+    </div>
         </div>
       </transition>
     </div>
@@ -81,4 +85,20 @@
     opacity: 0;
     overflow: hidden;
   }
+
+  .btn-contact {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #475569; 
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-contact:hover {
+@apply bg-TertiaryHL 
+}
 </style>

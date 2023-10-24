@@ -27,7 +27,7 @@
 
     <div>
       <form
-        class="bg-Glass p-16 sm:rounded-2xl my-12 sm:mt-0"
+        class="bg-Glass p-16 sm:rounded-2xl my-12 sm:my-0"
         @submit.prevent="sendEmail">
         <label class="pr-4" for="name">Name:</label>
         <input

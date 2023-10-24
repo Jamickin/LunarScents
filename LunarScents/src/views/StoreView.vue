@@ -56,7 +56,7 @@
       to review your purchase
     </p>
   </div>
-  <div class="container relative text-slate-600">
+  <div class="container relative text-slate-600 pb-12">
     <div class="">
       <!-- <Carousel :class="{ 'mt-24': cart.length > 0 }" /> -->
       <p
@@ -69,11 +69,11 @@
       </p>
     </div>
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
       <div
         class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
         <img
-          src="../assets/images/RollerStore.webp"
+          src="../assets/images/RollerStore.webp" alt="RollerBottle"
           class="mx-auto h-50 mb-4 rounded-lg" />
         <div class="px-2">
           <h2 class="text-xl font-bold">
@@ -95,7 +95,8 @@
       <div
         class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
         <img
-          src="../assets/images/RollerStore.webp"
+          src="../assets/images/SprayStore.webp"
+          alt="SprayBottle"
           class="mx-auto h-50 mb-4 rounded-lg bg-" />
         <div class="px-2">
           <h2 class="text-xl font-bold">
@@ -118,6 +119,7 @@
         class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
         <img
           src="../assets/images/TonicStore.webp"
+          alt="TonicBottle"
           class="mx-auto h-50 mb-4 rounded-lg" />
         <div class="px-2">
           <h2 class="text-xl font-bold">
@@ -141,6 +143,7 @@
       class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
       <img
         src="../assets/images/All.webp"
+        alt="GiftBox"
         class="mx-auto h-50 mb-4 rounded-lg" />
       <div class="px-2">
         <h2 class="text-xl font-bold">Gift Box</h2>
