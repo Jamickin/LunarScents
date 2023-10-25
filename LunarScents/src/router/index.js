@@ -12,12 +12,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/selected-product/:selectedProduct',
-      name: 'selectedProduct',
-      component: () => import(/* webpackChunkName: "CheckoutView" */ '../views/CheckoutView.vue'),
-      props: true, // Allow route parameters to be passed as props
-        },
-    {
       path: "/",
       redirect: "/home",
     },
@@ -37,9 +31,10 @@ const router = createRouter({
       component: ShopView,
     },
     {
-      path: "/checkout",
+      path: "/checkout/:productId", // Add a route param for product ID
       name: "checkout",
       component: CheckoutView,
+      props: true,
     },
     {
       path: "/confirmation",

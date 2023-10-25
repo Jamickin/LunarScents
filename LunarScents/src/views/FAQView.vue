@@ -7,7 +7,7 @@
             question:
               "What are Lunar Scents products made of?",
             answer:
-              "Our products are made with all-natural ingredients carefully sourced to create the perfect scents. We use a blend of essential oils, natural fragrances, and soy wax in our candles and sprays.",
+              "Our products are made with all-natural ingredients carefully sourced to create the perfect scents. We use a blend of essential oils and natural fragrances in our oils and sprays.",
             open: false,
           },
           {

@@ -1,5 +1,6 @@
 <script>
   import Carousel from "../components/Carousel.vue";
+  import { RouterLink } from "vue-router"; // Import Vue Router
 
   export default {
     components: { Carousel },
@@ -7,18 +8,21 @@
       return {
         products: [
           {
+            id: "1",
             name: "RollerStore",
             viewname: "Temple Tonic",
             description: "Description of RollerBottle",
             price: "50",
           },
           {
+            id: "2",
             name: "SprayStore",
             viewname: "Enchanted Forest Spray",
             description: "Description of SprayBottle",
             price: "80",
           },
           {
+            id: "3",
             name: "TonicStore",
             viewname: "Moonlit Blush Blend",
             description: "Description of TonicBottle",
@@ -26,6 +30,16 @@
           },
         ],
       };
+    },
+    addToCart(productId) {
+      // Get the current selected product IDs from route params
+      const selectedProducts = this.$route.params.selectedProducts || [];
+
+      // Add the new product ID to the array
+      selectedProducts.push(productId);
+
+      // Update the route with the updated selected products array
+      this.$router.push({ name: "checkout", params: { selectedProducts } });
     },
   };
 </script>
@@ -65,7 +79,7 @@
           <p class="mt-4 text-black font-bold">R{{ product.price }}.00</p>
           <button
             class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
-            @click="addToCart(product)"
+            @click="selectProduct(product.id)"
           >
             Add to Cart
           </button>
