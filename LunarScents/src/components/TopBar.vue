@@ -7,13 +7,9 @@ export default {
     return {
       isScrolling: false,
       isMenuOpen: false,
-};
+    };
   },
-  computed: {
-    cartItemCount() {
-      return this.$store.state.cart.length;
-    },
-  },
+
   methods: {
     handleScroll() {
       if (window.innerWidth < 640) {
@@ -50,7 +46,7 @@ export default {
     <router-link to="/about" class="menu-item">
       <p>ABOUT</p>
     </router-link>
-    <router-link to="/store" class="menu-item">
+    <router-link to="/shop" class="menu-item">
       <p>SHOP</p>
     </router-link>
    
@@ -72,11 +68,10 @@ export default {
     </router-link>
     <router-link to="/checkout" class="menu-item">
       <p>CHECKOUT</p>
-      <div class="h-12 w-12 sm:block hidden mr-4">
+      <div class="h-12 w-12 sm:block hidden">
         <img
           src="../assets/images/CartIcon.svg"
           class="h-12" />
-          <span class="text-TertiaryHL">({{ cartItemCount }})</span>
       </div>
     </router-link>
   </div>

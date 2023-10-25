@@ -1,6 +1,4 @@
 <script>
-import store from "@/store";
-
 export default {
     name: 'Carousel',
     data() {
@@ -47,31 +45,13 @@ export default {
                 caption: product.name,
             }));
         },
-
     },
 };
 </script>
 
 <template>
-    <!-- <div class="flex flex-col-2 place-items-center justify-start">
-        <div class="box-border h-[400px] w-full flex bg-Glass shadow-xl backdrop-blur-sm rounded-2xl flex-col place-items-center overflow-hidden"
-            @mouseenter="stopAutoScroll" @mouseleave="startAutoScroll">
-            <div class="flex flex-nowrap overflow-hidden" ref="carouselWrapper">
-                <div ref="carouselTrack" class="flex transition-transform duration-300"
-                    :style="{ transform: `translateX(-${currentIndex * slideWidth}px)` }">
-                    <div v-for="(slide, index) in slides" :key="index"
-                        class="flex place-items-center flex-shrink-0 w-full text-center">
-                        <div>
-                            <img :src="slide.image" :alt="slide.caption" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div> -->
 <div class="flex flex-col-2 place-items-center justify-start">
-    <div class="box-border h-auto w-full flex bg-Glass shadow-xl backdrop-blur-sm rounded-2xl flex-col place-items-center overflow-hidden"
+    <div class="box-border h-auto w-full flex bg-Glass shadow-xl backdrop-blur-sm rounded-t-2xl flex-col place-items-center overflow-hidden"
         @mouseenter="stopAutoScroll" @mouseleave="startAutoScroll">
         <div class="flex flex-nowrap overflow-hidden" ref="carouselWrapper">
             <div ref="carouselTrack" class="flex transition-transform duration-300"
