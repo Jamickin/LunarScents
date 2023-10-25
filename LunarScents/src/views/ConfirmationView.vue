@@ -7,9 +7,6 @@
       <p v-if="cart.length > 0">
         Thank you for placing your order with Lunar Scents!
       </p>
-      <p v-if="cart.length === 0">
-        Your cart is empty. Start shopping!
-      </p>
       <p v-if="cart.length > 0">Your order details:</p>
       <div class="mt-4">
         <div
