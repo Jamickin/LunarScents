@@ -3,13 +3,7 @@
   import { RouterLink } from "vue-router";
 
   export default {
-    data() {
-      return {
-        selectedProductImage:
-          "../assets/images/RollerStore.jpg",
-      };
-      
-    },
+
     mounted() {
       window.addEventListener("scroll", this.handleScroll);
     },
@@ -146,16 +140,17 @@
         alt="GiftBox"
         class="mx-auto h-50 mb-4 rounded-lg" />
       <div class="px-2">
-        <h2 class="text-xl font-bold">Gift Box</h2>
+        <h2 class="text-xl font-bold">{{ products[3].name }}</h2>
         <p class="text-gray-500 font-extrabold">
-          All of your favourite merch in one gift box! And a
-          discount to boot!
+          {{ products[3].description }}
         </p>
-        <p class="mt-4 text-black font-bold mb-8">R450</p>
-        <router-link
-          to="/buildbox"
+        <p class="mt-4 text-black font-bold mb-8">          
+          {{ products[3].price }}
+        </p>
+        <button
+        @click="addToCart(products[3])"
           class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors"
-          >Add to Cart</router-link
+          >Add to Cart</button
         >
       </div>
     </div>

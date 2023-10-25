@@ -8,33 +8,6 @@
     data() {
       return {
         orderPlaced: false,
-        selectedProductImage: "",
-        products: [
-        {
-          id: 1,
-          name: "Temple Tonic",
-          description:
-            "An enchanting blend of celestial florals and musk.",
-          price: "R50.00",
-          image: "../src/assets/images/TonicStore.webp",
-        },
-        {
-          id: 2,
-          name: "Enchanted Forest Spray",
-          description:
-            "A refreshing mist infused with the essence of moonlight.",
-          price: "R80.00",
-          image: "../src/assets/images/SprayStore.webp",
-        },
-        {
-          id: 3,
-          name: "Moonlit Blush Blend",
-          description:
-            "A beam of sunlight, raging against your senses.",
-          price: "R120.00",
-          image: "../src/assets/images/RollerStore.webp",
-        },
-      ],
       };
     },
     mounted() {
@@ -67,12 +40,12 @@
             parseFloat(product.price.replace("R", "")),
           0
         );
-        const total = subtotal + DELIVERY_FEE;
-        const deliveryItem = {
-          name: "Delivery Fee",
-          description: "Delivery fee for your order",
-          price: `R${DELIVERY_FEE.toFixed(2)}`,
-        };
+        const total = subtotal;
+      const deliveryItem = {
+        name: "Delivery Fee",
+        description: "Delivery fee for your order",
+        price: total > 800 ? "R0.00" : `R${DELIVERY_FEE.toFixed(2)}`,
+      };
         return [...cartItems, deliveryItem];
       },
     },
@@ -158,8 +131,7 @@
       class="p-4 bg-gray-100 text-gray-500 rounded">
       <p>Your cart is empty. Start shopping!</p>
       <p>
-        Note that any orders of R800 and above in Gauteng
-        and R1000 and above in Joburg respectively qualify
+        Note that any orders of R800 and above qualify
         for free delivery!
       </p>
     </div>

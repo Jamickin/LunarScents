@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 text-center">
+  <div class="p-4 text-center pt-24">
     <h1 class="text-3xl font-bold mb-4">
       Order Confirmation
     </h1>
@@ -19,9 +19,7 @@
           <h2 class="text-xl font-bold">
             {{ product.name }}
           </h2>
-          <p class="text-gray-500">
-            {{ product.description }}
-          </p>
+  
           <p class="mt-2">Price: {{ product.price }}</p>
         </div>
         <div v-if="cart.length > 0" class="border p-2 mb-2">
@@ -29,7 +27,7 @@
           <p class="text-gray-500">
             Delivery fee for your order
           </p>
-          <p class="mt-2">Price: R100.00</p>
+          <p class="mt-2">Price: R{{deliveryFee}}.00</p>
         </div>
       </div>
       <p
@@ -121,12 +119,18 @@
 
     computed: {
       cart() {
-        return this.$store.state.cart;
-      },
-      formattedTotal() {
-        const total = this.calculateTotal() + 100;
-        return `R${total.toFixed(2)}`;
-      },
+    return this.$store.state.cart;
+  },
+  calculatedTotal() {
+    return this.calculateTotal();
+  },
+  deliveryFee() {
+    return this.calculatedTotal > 800 ? 0 : 100; // Update the delivery fee logic
+  },
+  formattedTotal() {
+    const total = this.calculatedTotal + this.deliveryFee;
+    return `R${total.toFixed(2)}`;
+  },
       generatedCode() {
         const productCodes = this.cart.map((product) =>
           product.name.substring(0, 3).toUpperCase()

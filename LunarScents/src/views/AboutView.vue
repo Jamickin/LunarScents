@@ -1,40 +1,7 @@
 <template>
-  <!-- <div
-    class="h-screen w-screen grid grid-cols-2 grid-rows-3 justify-center text-center sm:pt-36  bg-Glass rounded-2xl px-12">
-    <div class="aboutImage spray "></div>
-    <div class="flex place-items-center bg-Glass">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Consequatur quam, doloribus quidem sequi hic
-        similique voluptatum, non voluptas facilis dicta
-        nesciunt, quo totam modi blanditiis quibusdam
-        eligendi esse? Debitis, magnam!
-      </p>
-    </div>
-    <div class="flex place-items-center bg-Glass">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Consequatur quam, doloribus quidem sequi hic
-        similique voluptatum, non voluptas facilis dicta
-        nesciunt, quo totam modi blanditiis quibusdam
-        eligendi esse? Debitis, magnam!
-      </p>
-    </div>
-    <div class="aboutImage roll "></div>
-    <div class="aboutImage oil "></div>
-    <div class="flex place-items-center bg-Glass">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Consequatur quam, doloribus quidem sequi hic
-        similique voluptatum, non voluptas facilis dicta
-        nesciunt, quo totam modi blanditiis quibusdam
-        eligendi esse? Debitis, magnam!
-      </p>
-    </div>
-  </div> -->
   <div
     class="flex sm:flex-row flex-col justify-center gap-12 sm:px-44 px-8 py-24 place-items-center font-[Pacifico]">
-    <p class="text-center w-full text-2xl">
+    <p class="text-center w-full text-lg">
       Hello, I'm Andrea, the heart and soul behind Lunar
       Scents. I'm thrilled to introduce you to the world of
       natural wellness and aromatherapy. Lunar Scents is not

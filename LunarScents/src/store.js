@@ -28,6 +28,14 @@ export default createStore({
           price: "R120.00",
           image: "../src/assets/images/RollerStore.webp",
         },
+        {
+          id: 4,
+          name: "Gift Box",
+          description:
+            "All of your favourite merch in one gift box!",
+          price: "R450.00",
+          image: "../src/assets/images/All.webp",
+        },
       ],
        galleryItems: [
          {
