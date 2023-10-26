@@ -65,7 +65,7 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
       <div
-        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto  transition-all duration-100 hover:scale-105">
         <img
           src="../assets/images/RollerStore.webp" alt="RollerBottle"
           class="mx-auto h-50 mb-4 rounded-t-2xl" />
@@ -87,7 +87,7 @@
         </div>
       </div>
       <div
-        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto  transition-all duration-100 hover:scale-105">
         <img
           src="../assets/images/SprayStore.webp"
           alt="SprayBottle"
@@ -110,7 +110,7 @@
         </div>
       </div>
       <div
-        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto transition-all duration-100 hover:scale-105">
         <img
           src="../assets/images/TonicStore.webp"
           alt="TonicBottle"
@@ -134,7 +134,7 @@
       </div>
     </div>
     <div
-        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto transition-all duration-100 hover:scale-105">
         <img
           src="../assets/images/All.webp" alt="RollerBottle"
           class="mx-auto h-50 mb-4 rounded-t-2xl" />

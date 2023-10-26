@@ -133,7 +133,7 @@ export default {
       });
     },
     placeOrderAndNavigate() {
-      const total = this.grandTotal; // Assuming grandTotal is the correct total
+      const total = this.grandTotal;
       this.$router.push({ name: "confirmation", query: { total } });
     },
     adjustContainerHeight() {
@@ -152,13 +152,10 @@ export default {
     },
     increaseQuantity(product) {
   console.log("Increase quantity called for product:", product);
-  // Find the product in the cart and increase its quantity by 1
   const cartItem = this.$store.state.cart.find((item) => item.id === product.id);
   console.log("Found cart item:", cartItem);
   if (cartItem) {
-    // Create a new item with the same properties as the original product
     const newCartItem = { ...product };
-    // Add it to the cart
     this.$store.commit("addToCart", newCartItem);
     this.saveCart();
     console.log("Updated cart item:", cartItem);
@@ -176,8 +173,7 @@ export default {
       class="p-4 bg-gray-100 text-gray-500 rounded">
       <p>Your cart is empty. Start shopping!</p>
       <p>
-        Note that any orders of R800 and above qualify
-        for free delivery!
+        Note that delivery is free when orders are above R800 in Pretoria and R1000 in Joburg respectively!
       </p>
     </div>
 
@@ -185,46 +181,54 @@ export default {
       <div
         v-for="product in cart"
         :key="product.id"
-        class="bg-Glass rounded-lg shadow-md p-8 mt-4 ">
-        <div class="grid grid-cols-2 justify-center place-items-center">
+        class="bg-Glass rounded-lg transition-all duration-100 hover:scale-105 shadow-md p-8  mt-4 ">
+        <div class="grid grid-cols-2 justify-between place-items-center">
           <h2 class="text-lg font-bold">
             {{ product.name }}
           </h2>
-          <p class="text-gray-500 text-sm">
+              <!-- <p class="text-gray-500 text-sm">
             {{ product.description }}
-          </p>
-          <p class="mt-2 text-primary font-bold text-lg">
-            {{ product.price }}
-          </p>
+          </p> -->
           <img
-    v-if="product.name !== 'Delivery Fee'"
-    :src="product.image"
-    :alt="product.name"
+          :src="product.image"
+          :alt="product.name"
     class="mx-auto rounded-lg max-h-44"/>
         </div>
-        <button
-          class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
+        <div class="flex place-items-center">   
+          <button
+          class="transition-all duration-300 mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 hover:bg-red-500 text-sm"
           @click="removeFromCart(product)">
           Remove
         </button>
         <button
-    class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
+    class="mt-2 transition-all duration-300 ml-4 bg-TertiaryHL active:animate-ping text-white py-2 px-4 rounded hover:opacity-90 hover:bg-slate-500 text-sm"
     @click="increaseQuantity(product)"
   >
     +1
   </button>
-      </div>
-      <div class="my-4">      <label for="deliveryLocation">Delivery Location:</label>
-<select id="deliveryLocation" v-model="selectedLocation" class="rounded-lg p-2 border">
-  <option value="">Select a location</option>
-  <option value="Pretoria">Pretoria</option>
-  <option value="Joburg">Joburg</option>
-</select></div>
+  <p class="mt-2 ml-4 text-primary font-bold text-lg">
+            {{ product.price }}
+          </p></div>
 
-<div class="flex gap-4">      
-  <p class="text-slate-500 font bolder text-xl">Cart Total: R{{ cartTotal }}.00</p>
-  <p class="text-slate-500 font bolder text-xl">Delivery Fee: {{ calculateDeliveryFee() }}</p>
-  <p class="text-slate-500 font bolder text-xl">Grand Total: R{{ grandTotal }}.00</p>
+  
+      </div>
+      <div class="my-4">
+  <label for="deliveryLocation">Delivery Location:</label>
+  <select
+    id="deliveryLocation"
+    v-model="selectedLocation"
+    class="rounded-lg p-2 border"
+  >
+    <option value="">Select a location</option>
+    <option value="Pretoria">Pretoria</option>
+    <option value="Joburg">Joburg</option>
+  </select>
+</div>
+
+<div class="flex gap-4 bg-Glass p-8 rounded-2xl place-items-center justify-items-center">      
+  <p class="text-slate-900 font bolder text-xl">Cart Total: R{{ cartTotal }}.00</p>
+  <p class="text-slate-900 font bolder text-xl">Delivery Fee: {{ calculateDeliveryFee() }}</p>
+  <p class="text-slate-900 font bolder text-xl">Grand Total: R{{ grandTotal }}.00</p>
      </div>
  
 <button
