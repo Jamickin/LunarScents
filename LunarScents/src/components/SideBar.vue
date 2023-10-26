@@ -59,10 +59,11 @@ export default {
    
     <div class="w-full h-full relative justify-center hidden sm:flex"
     >
-      <img
+    <img
         src="../assets/images/Logo.webp"
-        class="absolute h-36 transition-all duration-300 z-[9999999999]"
-       />    
+        class="absolute transition-all duration-300"
+        :class="{ 'h-36': !isScrolling, 'h-12': isScrolling }"
+      />    
       </div>
       <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly"
    >
@@ -81,10 +82,11 @@ export default {
     </router-link> -->
     <router-link to="/checkout" class="menu-item">
       <p>CHECKOUT</p>
-      <div class="h-12 w-12 sm:block hidden mr-4">
+      <div class="h-12 w-12 sm:block hidden mr-4"
+    >
         <img
           src="../assets/images/CartIcon.svg"
-          class="h-full" />
+          class="h-full">
           <span class="text-TertiaryHL">({{ cartItemCount }})</span>
       </div>
     </router-link>
