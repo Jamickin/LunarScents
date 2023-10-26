@@ -150,7 +150,7 @@
           </p>
           <button
             class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
-            @click="addToCart(products[0])">
+            @click="addToCart(products[3])">
             Add to Cart
           </button>
         </div>

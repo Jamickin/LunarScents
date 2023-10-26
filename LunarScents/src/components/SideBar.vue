@@ -44,7 +44,7 @@ export default {
       'menu-open': isMenuOpen,
     }">
     <button @click="isMenuOpen = !isMenuOpen" class="transition-all duration-300 fixed left-16 top-0 sm:hidden block" :class="{'button-visible' : isMenuOpen}"><img src="../assets/images/ArrowRight.svg" class="w-12 rotate-180"></button>
-    <div class="flex w-full h-full place-items-center justify-evenly">
+    <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly">
     <router-link to="/" class="menu-item">
       <p>HOME</p>
     </router-link>
@@ -62,7 +62,7 @@ export default {
         class="absolute h-36 transition-all duration-300 z-[9999999999]"
         :class="{'large': isScrolling }" />    
       </div>
-      <div class="flex w-full h-full">
+      <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly">
         <!-- <router-link to="/gallery" class="menu-item">
       <p>GALLERY</p>
     </router-link>  -->

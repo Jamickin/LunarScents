@@ -1,139 +1,172 @@
 <script>
-  const DELIVERY_FEE = 100;
+export default {
+  created() {
+    this.scrollToPlaceOrderButton();
+  },
 
-  export default {
-    created() {
-      this.scrollToPlaceOrderButton();
-    },
-    data() {
-      return {
-        orderPlaced: false,
-        deliveryLocation: "",
-      };
-    },
-    mounted() {
-      this.isScrollingEnabled = false;
-      this.retrieveCart();
-      window.addEventListener(
-        "resize",
-        this.adjustContainerHeight
+  data() {
+    return {
+      orderPlaced: false,
+      deliveryLocation: "",
+      showDeliveryFee: false,
+      selectedLocation: "",
+    };
+  },
+
+  mounted() {
+    this.isScrollingEnabled = false;
+    this.retrieveCart();
+    window.addEventListener(
+      "resize",
+      this.adjustContainerHeight
+    );
+    this.$nextTick(() => {
+      this.adjustContainerHeight();
+    });
+  },
+
+  beforeDestroy() {
+    window.removeEventListener(
+      "resize",
+      this.adjustContainerHeight
+    );
+  },
+
+  computed: {
+    cart() {
+      const cartItems = this.$store.state.cart;
+      if (cartItems.length === 0) {
+        return [];
+      }
+      const subtotal = cartItems.reduce(
+        (total, product) =>
+          total +
+          parseFloat(product.price.replace("R", "")),
+        0
       );
+
+      return [...cartItems];
+    },
+    cartTotal() {
+      const cartItems = this.$store.state.cart;
+      if (cartItems.length === 0) {
+        return 0;
+      }
+      return cartItems.reduce((total, product) => {
+        return total + parseFloat(product.price.replace("R", ""));
+      }, 0);
+    },
+    grandTotal() {
+  if (isNaN(this.cartTotal)) {
+    return "Please select a delivery location";
+  } else {
+    const deliveryFee = parseFloat(
+      this.calculateDeliveryFee().replace("R", "")
+    );
+    return this.cartTotal + deliveryFee;
+  }
+},
+  },
+
+  watch: {
+    cart: {
+      handler() {
+        this.adjustContainerHeight();
+      },
+      deep: true,
+    },
+  },
+
+  methods: {
+    calculateDeliveryFee() {
+      const pretoriaThreshold = 800;
+      const joburgThreshold = 1000;
+      const deliveryFeePretoria = 80;
+      const deliveryFeeJoburg = 100;
+
+      if (this.selectedLocation === "Pretoria") {
+        return this.cartTotal >= pretoriaThreshold
+          ? "R0.00"
+          : `R${deliveryFeePretoria.toFixed(2)}`;
+      } else if (this.selectedLocation === "Joburg") {
+        return this.cartTotal >= joburgThreshold
+          ? "R0.00"
+          : `R${deliveryFeeJoburg.toFixed(2)}`;
+      } else {
+        return "Please select a delivery location";
+      }
+    },
+    clearCartAndAdjustContainer() {
+      this.clearCart();
       this.$nextTick(() => {
         this.adjustContainerHeight();
       });
     },
-    beforeDestroy() {
-      window.removeEventListener(
-        "resize",
-        this.adjustContainerHeight
-      );
+    retrieveCart() {
+      const storedCart = localStorage.getItem("cart");
+      if (storedCart) {
+        this.$store.commit("setCart", JSON.parse(storedCart));
+      }
     },
-
-    computed: {
-      cart() {
-        const cartItems = this.$store.state.cart;
-        if (cartItems.length === 0) {
-          return [];
+    saveCart() {
+      const cart = JSON.stringify(this.cart);
+      localStorage.setItem("cart", cart);
+    },
+    removeFromCart(product) {
+      this.$store.commit("removeFromCart", product);
+      this.saveCart();
+    },
+    clearCart() {
+      this.$store.commit("clearCart");
+      this.saveCart();
+      this.orderPlaced = false;
+    },
+    scrollToPlaceOrderButton() {
+      this.$nextTick(() => {
+        const orderButton = document.getElementById("place-order-button");
+        if (orderButton) {
+          orderButton.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         }
-        const subtotal = cartItems.reduce(
-          (total, product) =>
-            total +
-            parseFloat(product.price.replace("R", "")),
-          0
-        );
-        const total = subtotal;
-      const deliveryItem = {
-        name: "Delivery Fee",
-        description: "Delivery fee for your order",
-        price: total > 800 ? "R0.00" : `R${DELIVERY_FEE.toFixed(2)}`,
-      };
-        return [...cartItems, deliveryItem];
-      },
+      });
     },
-
-    watch: {
-      cart: {
-        handler() {
-          this.adjustContainerHeight();
-        },
-        deep: true,
-      },
+    placeOrderAndNavigate() {
+      const total = this.grandTotal; // Assuming grandTotal is the correct total
+      this.$router.push({ name: "confirmation", query: { total } });
     },
-
-    methods: {
-      calculateDeliveryFee() {
-    const localDeliveryFee = 80; // Replace with your local delivery fee
-    const outOfAreaDeliveryFee = 100; // Replace with your out-of-area delivery fee
-    
-    if (this.deliveryLocation.toLowerCase() === "local") {
-      return localDeliveryFee;
-    } else {
-      return outOfAreaDeliveryFee;
-    }
+    adjustContainerHeight() {
+      this.$nextTick(() => {
+        const container = this.$refs.container;
+        if (container) {
+          const screenHeight = window.innerHeight;
+          const containerHeight =
+            container.getBoundingClientRect().height;
+          container.style.height =
+            containerHeight > screenHeight
+              ? "auto"
+              : `${screenHeight}px`;
+        }
+      });
+    },
+    increaseQuantity(product) {
+  console.log("Increase quantity called for product:", product);
+  // Find the product in the cart and increase its quantity by 1
+  const cartItem = this.$store.state.cart.find((item) => item.id === product.id);
+  console.log("Found cart item:", cartItem);
+  if (cartItem) {
+    // Create a new item with the same properties as the original product
+    const newCartItem = { ...product };
+    // Add it to the cart
+    this.$store.commit("addToCart", newCartItem);
+    this.saveCart();
+    console.log("Updated cart item:", cartItem);
+  }
+},
   },
-
-      clearCartAndAdjustContainer() {
-        this.clearCart();
-        this.$nextTick(() => {
-          this.adjustContainerHeight();
-        });
-      },
-      retrieveCart() {
-        const storedCart = localStorage.getItem("cart");
-        if (storedCart) {
-          this.$store.commit(
-            "setCart",
-            JSON.parse(storedCart)
-          );
-        }
-      },
-      saveCart() {
-        const cart = JSON.stringify(this.cart);
-        localStorage.setItem("cart", cart);
-      },
-      removeFromCart(product) {
-        this.$store.commit("removeFromCart", product);
-        this.saveCart();
-      },
-      clearCart() {
-        this.$store.commit("clearCart");
-        this.saveCart();
-        this.orderPlaced = false;
-      },
-      scrollToPlaceOrderButton() {
-        this.$nextTick(() => {
-          const orderButton = document.getElementById(
-            "place-order-button"
-          );
-          if (orderButton) {
-            orderButton.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      },
-      placeOrderAndNavigate() {
-        this.$router.push({ name: "confirmation" });
-      },
-      adjustContainerHeight() {
-        this.$nextTick(() => {
-          const container = this.$refs.container;
-          if (container) {
-            const screenHeight = window.innerHeight;
-            const containerHeight =
-              container.getBoundingClientRect().height;
-            container.style.height =
-              containerHeight > screenHeight
-                ? "auto"
-                : `${screenHeight}px`;
-          }
-        });
-      },
-    },
-  };
+};
 </script>
-
 
 <template>
   <div class="container mx-auto py-10" ref="container">
@@ -152,8 +185,8 @@
       <div
         v-for="product in cart"
         :key="product.id"
-        class="bg-Glass grid grid-cols-2 rounded-lg shadow-md p-8 mt-4 justify-center place-items-center">
-        <div>
+        class="bg-Glass rounded-lg shadow-md p-8 mt-4 ">
+        <div class="grid grid-cols-2 justify-center place-items-center">
           <h2 class="text-lg font-bold">
             {{ product.name }}
           </h2>
@@ -163,49 +196,49 @@
           <p class="mt-2 text-primary font-bold text-lg">
             {{ product.price }}
           </p>
-        </div>
-        <img
+          <img
     v-if="product.name !== 'Delivery Fee'"
     :src="product.image"
     :alt="product.name"
-    class="mx-auto rounded-lg max-h-44"
-  />
-  <label for="deliveryLocation">Delivery Location:</label>
-  <input
-    id="deliveryLocation"
-    v-model="deliveryLocation"
-    type="text"
-    class="rounded-lg p-2 border"
-    placeholder="Enter your delivery location"
-  />
-  
-  <p>Delivery Fee: R{{ calculateDeliveryFee().toFixed(2) }}</p>
+    class="mx-auto rounded-lg max-h-44"/>
+        </div>
         <button
-          v-if="product.name !== 'Delivery Fee'"
           class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
           @click="removeFromCart(product)">
           Remove
         </button>
+        <button
+    class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"
+    @click="increaseQuantity(product)"
+  >
+    +1
+  </button>
       </div>
+      <div class="my-4">      <label for="deliveryLocation">Delivery Location:</label>
+<select id="deliveryLocation" v-model="selectedLocation" class="rounded-lg p-2 border">
+  <option value="">Select a location</option>
+  <option value="Pretoria">Pretoria</option>
+  <option value="Joburg">Joburg</option>
+</select></div>
 
-      <button
-        class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
-        @click="clearCartAndAdjustContainer">
-        Clear Cart
-      </button>
-      <button
-        v-if="!orderPlaced"
-        id="place-order-button"
-        class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
-        @click="placeOrderAndNavigate">
-        Place Order
-      </button>
-
-      <div
-        v-if="orderPlaced"
-        class="mt-6 p-4 bg-green-100 text-green-500 rounded">
-        <p>Thank you for your order!</p>
-      </div>
+<div class="flex gap-4">      
+  <p class="text-slate-500 font bolder text-xl">Cart Total: R{{ cartTotal }}.00</p>
+  <p class="text-slate-500 font bolder text-xl">Delivery Fee: {{ calculateDeliveryFee() }}</p>
+  <p class="text-slate-500 font bolder text-xl">Grand Total: R{{ grandTotal }}.00</p>
+     </div>
+ 
+<button
+  class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
+  @click="clearCartAndAdjustContainer">
+  Clear Cart
+</button>
+<button
+  v-if="!orderPlaced && selectedLocation"
+  id="place-order-button"
+  class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
+  @click="placeOrderAndNavigate">
+  Place Order
+</button>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 text-center pt-24">
+  <div class="pl-8 text-center h-screen flex flex-col place-items-center justify-center text-slate-500">
     <h1 class="text-3xl font-bold mb-4">
       Order Confirmation
     </h1>
@@ -9,29 +9,20 @@
       </p>
       <p v-if="cart.length > 0">Your order details:</p>
       <div class="mt-4">
-        <div
+        <!-- <div
           v-for="product in cart"
           :key="product.id"
           class="border p-2 mb-2">
           <h2 class="text-xl font-bold">
             {{ product.name }}
           </h2>
-  
           <p class="mt-2">Price: {{ product.price }}</p>
-        </div>
-        <div v-if="cart.length > 0" class="border p-2 mb-2">
-          <h2 class="text-xl font-bold">Delivery Fee</h2>
-          <p class="text-gray-500">
-            Delivery fee for your order
-          </p>
-          <p class="mt-2">Price: R{{deliveryFee}}.00</p>
-        </div>
+        </div> -->
       </div>
       <p
         v-if="cart.length > 0"
         class="text-xl font-bold mt-4">
-        Grand Total: {{ formattedTotal }}
-      </p>
+        Grand Total: R{{ receivedTotal }}.00      </p>
       <button
         v-if="cart.length > 0"
         @click="openInfoModal"
@@ -124,6 +115,9 @@
   deliveryFee() {
     return this.calculatedTotal > 800 ? 0 : 100; // Update the delivery fee logic
   },
+  receivedTotal() {
+    return parseFloat(this.$route.query.total) || 0;
+  },
   formattedTotal() {
     const total = this.calculatedTotal + this.deliveryFee;
     return `R${total.toFixed(2)}`;
@@ -176,7 +170,7 @@
 
         Order Code: ${this.generatedCode}
 
-        Grand Total: ${this.formattedTotal}
+        Grand Total: R${this.receivedTotal}.00
 
         Email: ${this.userInfo.email}
         
