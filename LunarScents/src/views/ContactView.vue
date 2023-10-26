@@ -1,24 +1,24 @@
 <template>
   <div
-    class="sm:h-screen w-screen flex sm:flex-row flex-col justify-evenly place-items-center lg:px-44">
-    <div class="flex flex-col gap-8">
+    class="sm:h-screen w-screen flex sm:flex-row flex-col gap-40 justify-evenly place-items-center lg:px-44">
+    <div class="flex flex-col gap-2">
       <a href="" target="_blank"
         ><div
-          class="flex place-items-center bg-blue-300 px-8 hover:scale-110 sm:mt-0 mt-12 hover:shadow-2xl hover:rounded-xl transition-all duration-300">
+        class="flex place-items-center bg-Glass px-8 hover:scale-110 hover:shadow-2xl rounded-xl transition-all duration-300">
           <img src="../assets/images/FacebookLogo.svg" />
           <p class="pl-12">Facebook</p>
         </div></a
       >
       <a href="" target="_blank"
         ><div
-          class="flex place-items-center bg-red-300 px-8 hover:scale-110 hover:shadow-2xl hover:rounded-xl transition-all duration-300">
+          class="flex place-items-center bg-Glass px-8 hover:scale-110 hover:shadow-2xl rounded-xl transition-all duration-300">
           <img src="../assets/images/InstaLogo.svg" />
           <p class="pl-12">Instagram</p>
         </div></a
       >
       <a href="" target="_blank"
         ><div
-          class="flex place-items-center bg-green-300 px-8 hover:scale-110 hover:shadow-2xl hover:rounded-xl transition-all duration-300">
+        class="flex place-items-center bg-Glass px-8 hover:scale-110 hover:shadow-2xl rounded-xl transition-all duration-300">
           <img src="../assets/images/WhatsappLogo.svg" />
           <p class="pl-12">Whatsapp</p>
         </div></a
@@ -78,7 +78,7 @@
     methods: {
       sendEmail() {
         const subject = "Contact Request from Lunar Scents";
-        const to = "lunar.scents@outlook.com";
+        const to = "andreaweichelt@gmail.com";
 
         const emailBody = `Name: ${this.formData.name}\nEmail: ${this.formData.email}\nMessage: ${this.formData.message}`;
 

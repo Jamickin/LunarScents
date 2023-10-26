@@ -1,7 +1,7 @@
 <template>
   <div
-    class="flex sm:flex-row flex-col justify-center gap-12 sm:px-40 px-8 py-24 place-items-center font-[Pacifico]">
-    <p class="text-center w-full text-lg">
+    class="flex sm:flex-row flex-col justify-center gap-12 sm:px-40 px-8 py-24 place-items-center font-[Pacifico] text-slate-700">
+    <p class="text-center w-full text-xl">
       Hello, I'm Andrea, the heart and soul behind Lunar
       Scents. I'm thrilled to introduce you to the world of
       natural wellness and aromatherapy. Lunar Scents is not

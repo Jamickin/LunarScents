@@ -8,6 +8,7 @@
     data() {
       return {
         orderPlaced: false,
+        deliveryLocation: "",
       };
     },
     mounted() {
@@ -60,6 +61,17 @@
     },
 
     methods: {
+      calculateDeliveryFee() {
+    const localDeliveryFee = 80; // Replace with your local delivery fee
+    const outOfAreaDeliveryFee = 100; // Replace with your out-of-area delivery fee
+    
+    if (this.deliveryLocation.toLowerCase() === "local") {
+      return localDeliveryFee;
+    } else {
+      return outOfAreaDeliveryFee;
+    }
+  },
+
       clearCartAndAdjustContainer() {
         this.clearCart();
         this.$nextTick(() => {
@@ -158,6 +170,16 @@
     :alt="product.name"
     class="mx-auto rounded-lg max-h-44"
   />
+  <label for="deliveryLocation">Delivery Location:</label>
+  <input
+    id="deliveryLocation"
+    v-model="deliveryLocation"
+    type="text"
+    class="rounded-lg p-2 border"
+    placeholder="Enter your delivery location"
+  />
+  
+  <p>Delivery Fee: R{{ calculateDeliveryFee().toFixed(2) }}</p>
         <button
           v-if="product.name !== 'Delivery Fee'"
           class="mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 text-sm"

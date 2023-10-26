@@ -39,9 +39,9 @@
   </div>
   <div
     v-if="cart.length > 0"
-    class="fixed  w-full sm:h-12 flex sm:hidden justify-center place-items-center text-center sm:top-12 right-0 z-20 sm:p-4 bg-Primary">
+    class="fixed  w-full sm:h-12 flex  justify-center place-items-center text-center sm:top-12 right-0 z-20 sm:p-4 bg-Primary">
     <p class="text-black font-extrabold text-lg">
-      Product added! Go to the
+      Product added! Go to
       <router-link
         :to="{ name: 'checkout' }"
         class="text-2xl animate-pulse underline text-green-800"
@@ -50,11 +50,11 @@
       to review your purchase
     </p>
   </div>
-  <div class="container relative text-slate-600 pb-12">
+  <div class="container relative text-slate-500 py-24">
     <div class="">
-      <!-- <Carousel :class="{ 'mt-24': cart.length > 0 }" /> -->
+      <Carousel />
       <p
-        class="w-full text-center px-12 font-bold text-lg bg-white rounded-2xl py-24">
+        class="w-full text-center px-12 font-bold text-lg bg-white rounded-b-2xl py-24">
         All of our products are made with the finest of
         natures ingredients. We urge you to take a stroll
         through our store and pick what you like!
@@ -65,18 +65,18 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
       <div
-        class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
         <img
           src="../assets/images/RollerStore.webp" alt="RollerBottle"
-          class="mx-auto h-50 mb-4 rounded-lg" />
+          class="mx-auto h-50 mb-4 rounded-t-2xl" />
         <div class="px-2">
-          <h2 class="text-xl font-bold">
+          <h2 class="text-2xl font-bolder text-black">
             {{ products[0].name }}
           </h2>
-          <p class="text-gray-500 font-bold">
+          <p class="text-slate-500 my-4 font-bold">
             {{ products[0].description }}
           </p>
-          <p class="mt-4 text-black font-bold">
+          <p class=" text-black font-bold">
             {{ products[0].price }}
           </p>
           <button
@@ -87,19 +87,19 @@
         </div>
       </div>
       <div
-        class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
         <img
           src="../assets/images/SprayStore.webp"
           alt="SprayBottle"
-          class="mx-auto h-50 mb-4 rounded-lg bg-" />
+          class="mx-auto h-50 mb-4 rounded-t-2xl bg-" />
         <div class="px-2">
-          <h2 class="text-xl font-bold">
+          <h2 class="text-2xl font-bolder text-black">
             {{ products[1].name }}
           </h2>
-          <p class="text-gray-500 font-bold">
+          <p class="text-slate-500 my-4 font-bold">
             {{ products[1].description }}
           </p>
-          <p class="mt-4 text-black font-bold">
+          <p class=" text-black font-bold">
             {{ products[1].price }}
           </p>
           <button
@@ -110,19 +110,19 @@
         </div>
       </div>
       <div
-        class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
         <img
           src="../assets/images/TonicStore.webp"
           alt="TonicBottle"
-          class="mx-auto h-50 mb-4 rounded-lg" />
+          class="mx-auto h-50 mb-4 rounded-t-2xl" />
         <div class="px-2">
-          <h2 class="text-xl font-bold">
+          <h2 class="text-2xl font-bolder text-black">
             {{ products[2].name }}
           </h2>
-          <p class="text-gray-500 font-bold">
+          <p class="text-slate-500 my-4 font-bold">
             {{ products[2].description }}
           </p>
-          <p class="mt-4 text-black font-bold">
+          <p class=" text-black font-bold">
             {{ products[2].price }}
           </p>
           <button
@@ -134,27 +134,28 @@
       </div>
     </div>
     <div
-      class="bg-neutral-50 rounded-lg shadow-md pb-6 h-auto">
-      <img
-        src="../assets/images/All.webp"
-        alt="GiftBox"
-        class="mx-auto h-50 mb-4 rounded-lg" />
-      <div class="px-2">
-        <h2 class="text-xl font-bold">{{ products[3].name }}</h2>
-        <p class="text-gray-500 font-extrabold">
-          {{ products[3].description }}
-        </p>
-        <p class="mt-4 text-black font-bold mb-8">          
-          {{ products[3].price }}
-        </p>
-        <button
-        @click="addToCart(products[3])"
-          class="bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors"
-          >Add to Cart</button
-        >
+        class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto">
+        <img
+          src="../assets/images/All.webp" alt="RollerBottle"
+          class="mx-auto h-50 mb-4 rounded-t-2xl" />
+        <div class="px-2">
+          <h2 class="text-2xl font-bolder text-black">
+            {{ products[3].name }}
+          </h2>
+          <p class="text-slate-500 my-4 font-bold">
+            {{ products[3].description }}
+          </p>
+          <p class=" text-black font-bold">
+            {{ products[3].price }}
+          </p>
+          <button
+            class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-TertiaryHL transition-colors active:animate-ping"
+            @click="addToCart(products[0])">
+            Add to Cart
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
+      </div>
 </template>
 
 <style scoped>

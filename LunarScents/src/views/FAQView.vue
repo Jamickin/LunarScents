@@ -47,7 +47,7 @@
 
 <template>
   <div
-    class="max-w-3xl mx-auto flex flex-col h-screen justify-center items-center z-20">
+    class="max-w-3xl mx-auto flex flex-col h-screen justify-center items-center z-20 text-slate-500">
     <h1 class="text-3xl font-semibold mb-6">
       Frequently Asked Questions
     </h1>
@@ -56,7 +56,7 @@
       :key="index"
       class="mb-4 border rounded-md w-full">
       <div
-        class="bg-Secondary text-black px-4 py-2 cursor-pointer flex justify-between items-center"
+        class="bg-Secondary font-bolder px-4 py-2 cursor-pointer flex justify-between items-center"
         @click="toggleDropdown(index)">
         <div>{{ faq.question }}</div>
       </div>
