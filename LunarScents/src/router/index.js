@@ -5,7 +5,6 @@ import StoreView from "../views/StoreView.vue";
 import CheckoutView from "../views/CheckoutView.vue";
 import ConfirmationView from "../views/ConfirmationView.vue";
 import FAQView from "../views/FAQView.vue";
-import GalleryView from "../views/GalleryView.vue";
 import ContactView from "../views/ContactView.vue";
 
 const router = createRouter({
@@ -39,11 +38,6 @@ const router = createRouter({
       path: "/confirmation",
       name: "confirmation",
       component: ConfirmationView,
-    },
-    {
-      path: "/gallery",
-      name: "gallery",
-      component: GalleryView,
     },
     {
       path: "/faq",

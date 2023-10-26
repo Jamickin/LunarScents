@@ -1,3 +1,107 @@
+
+<script>
+export default {
+  data() {
+    return {
+      emailSubject: "Order Inquiry",
+      emailBody: "",
+      showFullCode: false,
+      infoModalOpen: false,
+      userInfo: {
+        name: "",
+        surname: "",
+        email: "",
+        address: "",
+        notes: "",
+      },
+    };
+  },
+
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+    calculatedTotal() {
+      return this.calculateTotal();
+    },
+    deliveryFee() {
+      return this.calculatedTotal > 800 ? 0 : 100; // Update the delivery fee logic
+    },
+    receivedTotal() {
+      return parseFloat(this.$route.query.total) || 0;
+    },
+    formattedTotal() {
+      const total = this.calculatedTotal + this.deliveryFee;
+      return `R${total.toFixed(2)}`;
+    },
+    generatedCode() {
+      const productCodes = this.cart.map((product) =>
+        product.name.substring(0, 3).toUpperCase()
+      );
+      const code = productCodes.join("");
+      return code;
+    },
+    truncatedCode() {
+      const code = this.generatedCode;
+      return code.length > 5 ? `${code.substring(0, 5)}...` : code;
+    },
+  },
+
+  methods: {
+    calculateTotal() {
+      return this.cart.reduce(
+        (total, product) =>
+          total + parseFloat(product.price.replace("R", "")),
+        0
+      );
+    },
+    copyToClipboard() {
+      const code = this.generatedCode;
+      const textArea = document.createElement("textarea");
+      textArea.value = code;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    },
+    openInfoModal() {
+      this.infoModalOpen = true;
+    },
+    closeInfoModal() {
+      this.infoModalOpen = false;
+    },
+    acceptInfoAndSendEmail() {
+      this.emailBody = `
+        Hi Andrea,
+
+        I am reaching out to you regarding my recent order with Lunar Scents. 
+        Here's the order details:
+
+        Order Code: ${this.generatedCode}
+
+        Grand Total: R${this.receivedTotal}.00
+
+        Email: ${this.userInfo.email}
+        
+        Shipping Address: ${this.userInfo.address}
+
+        Special Notes: ${this.userInfo.notes}
+
+        Best regards,
+        ${this.userInfo.name} ${this.userInfo.surname}
+      `;
+
+      const emailTo = "lunar.scents@outlook.com";
+      const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(
+        this.emailSubject
+      )}&body=${encodeURIComponent(this.emailBody)}`;
+      window.open(mailtoLink, "_blank");
+      this.closeInfoModal();
+    },
+  },
+};
+</script>
+
 <template>
   <div class="pl-8 text-center h-screen flex flex-col place-items-center justify-center text-slate-500">
     <h1 class="text-3xl font-bold mb-4">
@@ -22,7 +126,8 @@
       <p
         v-if="cart.length > 0"
         class="text-xl font-bold mt-4">
-        Grand Total: R{{ receivedTotal }}.00      </p>
+        Grand Total: R{{ receivedTotal }}.00
+      </p>
       <button
         v-if="cart.length > 0"
         @click="openInfoModal"
@@ -87,108 +192,3 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        emailSubject: "Order Inquiry",
-        emailBody: "",
-        showFullCode: false,
-        infoModalOpen: false,
-        userInfo: {
-          name: "",
-          surname: "",
-          email: "",
-          address: "",
-          notes: "",
-        },
-      };
-    },
-
-    computed: {
-      cart() {
-    return this.$store.state.cart;
-  },
-  calculatedTotal() {
-    return this.calculateTotal();
-  },
-  deliveryFee() {
-    return this.calculatedTotal > 800 ? 0 : 100; // Update the delivery fee logic
-  },
-  receivedTotal() {
-    return parseFloat(this.$route.query.total) || 0;
-  },
-  formattedTotal() {
-    const total = this.calculatedTotal + this.deliveryFee;
-    return `R${total.toFixed(2)}`;
-  },
-      generatedCode() {
-        const productCodes = this.cart.map((product) =>
-          product.name.substring(0, 3).toUpperCase()
-        );
-        const code = productCodes.join("");
-        return code;
-      },
-      truncatedCode() {
-        const code = this.generatedCode;
-        return code.length > 5
-          ? `${code.substring(0, 5)}...`
-          : code;
-      },
-    },
-
-    methods: {
-      calculateTotal() {
-        return this.cart.reduce(
-          (total, product) =>
-            total +
-            parseFloat(product.price.replace("R", "")),
-          0
-        );
-      },
-      copyToClipboard() {
-        const code = this.generatedCode;
-        const textArea = document.createElement("textarea");
-        textArea.value = code;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
-      },
-      openInfoModal() {
-        this.infoModalOpen = true;
-      },
-      closeInfoModal() {
-        this.infoModalOpen = false;
-      },
-      acceptInfoAndSendEmail() {
-        this.emailBody = `
-        Hi Andrea,
-
-        I am reaching out to you regarding my recent order with Lunar Scents. 
-        Here's the order details:
-
-        Order Code: ${this.generatedCode}
-
-        Grand Total: R${this.receivedTotal}.00
-
-        Email: ${this.userInfo.email}
-        
-        Shipping Address: ${this.userInfo.address}
-
-        Special Notes: ${this.userInfo.notes}
-
-        Best regards,
-        ${this.userInfo.name} ${this.userInfo.surname}
-      `;
-
-        const emailTo = "lunar.scents@outlook.com";
-        const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(
-          this.emailSubject
-        )}&body=${encodeURIComponent(this.emailBody)}`;
-        window.open(mailtoLink, "_blank");
-        this.closeInfoModal();
-      },
-    },
-  };
-</script>

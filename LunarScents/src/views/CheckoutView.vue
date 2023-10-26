@@ -44,9 +44,9 @@ export default {
           parseFloat(product.price.replace("R", "")),
         0
       );
-
       return [...cartItems];
     },
+
     cartTotal() {
       const cartItems = this.$store.state.cart;
       if (cartItems.length === 0) {
@@ -56,16 +56,17 @@ export default {
         return total + parseFloat(product.price.replace("R", ""));
       }, 0);
     },
+
     grandTotal() {
-  if (isNaN(this.cartTotal)) {
-    return "Please select a delivery location";
-  } else {
-    const deliveryFee = parseFloat(
-      this.calculateDeliveryFee().replace("R", "")
-    );
-    return this.cartTotal + deliveryFee;
-  }
-},
+      if (isNaN(this.cartTotal)) {
+        return "Please select a delivery location";
+      } else {
+        const deliveryFee = parseFloat(
+          this.calculateDeliveryFee().replace("R", "")
+        );
+        return this.cartTotal + deliveryFee;
+      }
+    },
   },
 
   watch: {
@@ -151,26 +152,27 @@ export default {
       });
     },
     increaseQuantity(product) {
-  console.log("Increase quantity called for product:", product);
-  const cartItem = this.$store.state.cart.find((item) => item.id === product.id);
-  console.log("Found cart item:", cartItem);
-  if (cartItem) {
-    const newCartItem = { ...product };
-    this.$store.commit("addToCart", newCartItem);
-    this.saveCart();
-    console.log("Updated cart item:", cartItem);
-  }
-},
+      const cartItem = this.$store.state.cart.find(
+        (item) => item.id === product.id
+      );
+      if (cartItem) {
+        const newCartItem = { ...product };
+        this.$store.commit("addToCart", newCartItem);
+        this.saveCart();
+        console.log("Updated cart item:", cartItem);
+      }
+    },
   },
 };
 </script>
 
 <template>
-  <div class="container mx-auto py-10" ref="container">
+  <div class="container mx-auto px-4 lg:px-0 py-10" ref="container">
     <h1 class="text-3xl font-bold mb-6">Checkout</h1>
     <div
       v-if="cart.length === 0"
-      class="p-4 bg-gray-100 text-gray-500 rounded">
+      class="p-4 bg-gray-100 text-gray-500 rounded"
+    >
       <p>Your cart is empty. Start shopping!</p>
       <p>
         Note that delivery is free when orders are above R800 in Pretoria and R1000 in Joburg respectively!
@@ -181,68 +183,69 @@ export default {
       <div
         v-for="product in cart"
         :key="product.id"
-        class="bg-Glass rounded-lg transition-all duration-100 hover:scale-105 shadow-md p-8  mt-4 ">
+        class="bg-Glass rounded-lg transition-all duration-100 hover:scale-105 shadow-md p-8  mt-4 "
+      >
         <div class="grid grid-cols-2 justify-between place-items-center">
           <h2 class="text-lg font-bold">
             {{ product.name }}
           </h2>
-              <!-- <p class="text-gray-500 text-sm">
-            {{ product.description }}
-          </p> -->
           <img
-          :src="product.image"
-          :alt="product.name"
-    class="mx-auto rounded-lg max-h-44"/>
+            :src="product.image"
+            :alt="product.name"
+            class="mx-auto rounded-lg max-h-44"
+          />
         </div>
-        <div class="flex place-items-center">   
+        <div class="flex place-items-center">
           <button
-          class="transition-all duration-300 mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 hover:bg-red-500 text-sm"
-          @click="removeFromCart(product)">
-          Remove
-        </button>
-        <button
-    class="mt-2 transition-all duration-300 ml-4 bg-TertiaryHL active:animate-ping text-white py-2 px-4 rounded hover:opacity-90 hover:bg-slate-500 text-sm"
-    @click="increaseQuantity(product)"
-  >
-    +1
-  </button>
-  <p class="mt-2 ml-4 text-primary font-bold text-lg">
+            class="transition-all duration-300 mt-2 bg-[#475569] text-white py-2 px-4 rounded hover:opacity-90 hover:bg-red-500 text-sm"
+            @click="removeFromCart(product)"
+          >
+            Remove
+          </button>
+          <button
+            class="mt-2 transition-all duration-300 ml-4 bg-TertiaryHL active:animate-ping text-white py-2 px-4 rounded hover:opacity-90 hover:bg-slate-500 text-sm"
+            @click="increaseQuantity(product)"
+          >
+            +
+          </button>
+          <p class="mt-2 ml-4 text-primary font-bold text-lg">
             {{ product.price }}
-          </p></div>
-
-  
+          </p>
+        </div>
       </div>
       <div class="my-4">
-  <label for="deliveryLocation">Delivery Location:</label>
-  <select
-    id="deliveryLocation"
-    v-model="selectedLocation"
-    class="rounded-lg p-2 border"
-  >
-    <option value="">Select a location</option>
-    <option value="Pretoria">Pretoria</option>
-    <option value="Joburg">Joburg</option>
-  </select>
-</div>
+        <label for="deliveryLocation">Delivery Location:</label>
+        <select
+          id="deliveryLocation"
+          v-model="selectedLocation"
+          class="rounded-lg p-2 border bg-Glass border-none"
+        >
+          <option value="">Select a location</option>
+          <option value="Pretoria">Pretoria</option>
+          <option value="Joburg">Joburg</option>
+        </select>
+      </div>
 
-<div class="flex gap-4 bg-Glass p-8 rounded-2xl place-items-center justify-items-center">      
-  <p class="text-slate-900 font bolder text-xl">Cart Total: R{{ cartTotal }}.00</p>
-  <p class="text-slate-900 font bolder text-xl">Delivery Fee: {{ calculateDeliveryFee() }}</p>
-  <p class="text-slate-900 font bolder text-xl">Grand Total: R{{ grandTotal }}.00</p>
-     </div>
- 
-<button
-  class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
-  @click="clearCartAndAdjustContainer">
-  Clear Cart
-</button>
-<button
-  v-if="!orderPlaced && selectedLocation"
-  id="place-order-button"
-  class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
-  @click="placeOrderAndNavigate">
-  Place Order
-</button>
+      <div class="flex sm:flex-row flex-col gap-4 bg-Glass p-8 rounded-2xl place-items-center justify-items-center">
+        <p class="text-slate-900 font-bold text-xl">Cart Total: R{{ cartTotal }}.00</p>
+        <p class="text-slate-900 font-bold text-xl">Delivery Fee: {{ calculateDeliveryFee() }}</p>
+        <p class="text-slate-900 font-bold text-xl">Grand Total: R{{ grandTotal }}.00</p>
+      </div>
+
+      <button
+        class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
+        @click="clearCartAndAdjustContainer"
+      >
+        Clear Cart
+      </button>
+      <button
+        v-if="!orderPlaced && selectedLocation"
+        id="place-order-button"
+        class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
+        @click="placeOrderAndNavigate"
+      >
+        Place Order
+      </button>
     </div>
   </div>
 </template>
