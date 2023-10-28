@@ -7,13 +7,13 @@
       © 2023 All rights reserved.
       <div class="flex justify-evenly">
         <a href="" target="_blank"
-          ><img src="../assets/images/FacebookLogo.svg"
+          ><img src="/images/FacebookLogo.svg"
         /></a>
         <a href="" target="_blank"
-          ><img src="../assets/images/InstaLogo.svg"
+          ><img src="/images/InstaLogo.svg"
         /></a>
         <a href="" target="_blank"
-          ><img src="../assets/images/WhatsappLogo.svg"
+          ><img src="/images/WhatsappLogo.svg"
         /></a>
       </div>
     </div>

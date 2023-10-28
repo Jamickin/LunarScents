@@ -11,7 +11,7 @@
         transform: star.style.transform,
       }">
       <img
-        src="../assets/images/2.webp"
+        src="/images/2.webp"
         alt="Star"
         class="w-full h-full" />
     </div>

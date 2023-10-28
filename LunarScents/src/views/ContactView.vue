@@ -40,7 +40,7 @@ export default {
         <div
           class="flex place-items-center bg-Glass px-8 hover:scale-110 hover:shadow-2xl rounded-xl transition-all duration-300"
         >
-          <img src="../assets/images/FacebookLogo.svg" />
+          <img src="/images/FacebookLogo.svg" />
           <p class="pl-12">Facebook</p>
         </div>
       </a>
@@ -48,7 +48,7 @@ export default {
         <div
           class="flex place-items-center bg-Glass px-8 hover:scale-110 hover:shadow-2xl rounded-xl transition-all duration-300"
         >
-          <img src="../assets/images/InstaLogo.svg" />
+          <img src="/images/InstaLogo.svg" />
           <p class="pl-12">Instagram</p>
         </div>
       </a>
@@ -56,7 +56,7 @@ export default {
         <div
           class="flex place-items-center bg-Glass px-8 hover:scale-110 hover:shadow-2xl rounded-xl transition-all duration-300"
         >
-          <img src="../assets/images/WhatsappLogo.svg" />
+          <img src="/images/WhatsappLogo.svg" />
           <p class="pl-12">Whatsapp</p>
         </div>
       </a>

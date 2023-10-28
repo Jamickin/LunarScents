@@ -45,7 +45,7 @@ export default {
       'menu-open': isMenuOpen,
     }">
     <button @click="isMenuOpen = !isMenuOpen" class="transition-all duration-300 fixed left-16 top-0 sm:hidden block"
-            :class="{'button-visible' : isMenuOpen}"><img src="../assets/images/ArrowRight.svg" class="w-12 rotate-180">
+            :class="{'button-visible' : isMenuOpen}"><img src="/images/ArrowRight.svg" class="w-12 rotate-180">
     </button>
     <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly"
     >
@@ -63,7 +63,7 @@ export default {
     <div class="w-full h-full relative justify-center hidden sm:flex"
     >
       <img
-          src="../assets/images/Logo.webp"
+          src="/images/Logo.webp"
           class="absolute transition-all duration-300"
           :class="{ 'h-36': !isScrolling, 'h-12': isScrolling }"
       />

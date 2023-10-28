@@ -25,17 +25,17 @@
              :style="{ transform: `translateX(-${currentIndex * slideWidth}px)` }">
           <div class="flex place-items-center flex-shrink-0 w-full text-center">
             <div>
-              <img src="../assets/images/SprayStore.webp"/>
+              <img src="/images/SprayStore.webp"/>
             </div>
           </div>
           <div class="flex place-items-center flex-shrink-0 w-full text-center">
             <div>
-              <img src="../assets/images/RollerStore.webp"/>
+              <img src="/images/RollerStore.webp"/>
             </div>
           </div>
           <div class="flex place-items-center flex-shrink-0 w-full text-center">
             <div>
-              <img src="../assets/images/TonicStore.webp"/>
+              <img src="/images/TonicStore.webp"/>
             </div>
           </div>
         </div>

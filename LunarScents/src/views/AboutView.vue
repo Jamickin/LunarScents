@@ -15,7 +15,7 @@
     </p>
     <div class="w-full h-1/2 flex place-items-center">
       <img
-        src="../assets/images/pfpblack.webp"
+        src="/images/pfpblack.webp"
         class="rounded-3xl sm:h-auto max-h-[500px]"
       />
     </div>

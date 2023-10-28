@@ -24,12 +24,12 @@
 
 <style scoped>
   .homepic {
-    background-image: url("../assets/images/All.webp");
+    background-image: url("/images/All.webp");
     background-repeat: no-repeat;
   }
 
   .logo {
-    background-image: url("../assets/images/Logo.webp");
+    background-image: url("/images/Logo.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
