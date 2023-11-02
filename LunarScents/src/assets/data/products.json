@@ -19,12 +19,5 @@
     "description": "A beam of sunlight, raging against your senses.",
     "price": 120.00,
     "image": "/images/RollerStore.webp"
-  },
-  {
-    "id": 4,
-    "name": "Gift Box",
-    "description": "All of your favourite merch in one gift box!",
-    "price": 450.00,
-    "image": "/images/All.webp"
   }
 ]

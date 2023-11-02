@@ -117,9 +117,4 @@ export default {
 .text-white {
   color: #fff;
 }
-
-/* .storepic {
-  background-image: url("../assets/images/Logo.webp");
-  background-repeat: no-repeat;
-} */
 </style>
