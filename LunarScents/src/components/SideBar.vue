@@ -7,7 +7,7 @@
         'menu-open': isMenuOpen,
       }">
     <button @click="isMenuOpen = !isMenuOpen" class="transition-all duration-300 fixed left-16 top-0 sm:hidden block"
-      :class="{'button-visible' : isMenuOpen}"><img src="../assets/images/ArrowRight.svg" class="w-12 rotate-180"
+      :class="{'button-visible' : isMenuOpen}"><img src="/images/ArrowRight.svg" class="w-12 rotate-180"
       >
     </button>
     <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly">
@@ -29,7 +29,7 @@
           :class="{ 'h-48': !isScrolling, 'h-12': isScrolling, 'bg-none' : isScrolling, 'bg-[hsl(209,43%,73%)]': !isScrolling }"> 
             <img
             class="h-full"
-              src="../assets/images/Logo.webp"
+              src="/images/Logo.webp"
             />
       </div>
     </div>
