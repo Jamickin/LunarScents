@@ -72,7 +72,7 @@ export default {
     addToCart(product) {
       this.selectedProductImage = product.image;
       this.$store.commit("addToCart", product);
-    },
+    }
   },
 
   mounted() {
