@@ -1,8 +1,11 @@
 <template>
   <div class="grid grid-cols-2 justify-between place-items-center">
-    <h2 class="text-lg font-bold">
-      {{ name }}
-    </h2>
+    <div>
+      <h2 class="text-lg font-bold">
+        {{ name }}
+      </h2>
+      <h3>{{ description }}</h3>    
+  </div>
     <img
         :src="image"
         :alt="name"
@@ -25,6 +28,9 @@
     <p class="mt-2 ml-4 text-primary font-bold text-lg">
       R{{ price }}
     </p>
+    <p class="mt-2 ml-4 text-primary font-bold text-lg">
+      <p class="sm:block hidden">Quantity:</p> ({{ quantity }})
+    </p>
   </div>
 </template>
 
@@ -42,6 +48,12 @@ export default {
     price: {
       type: Number
     },
+    description: {
+      type: String
+    },
+    quantity: {
+      type: Number
+    }
   },
   methods: {
     removeFromCart() {
@@ -51,9 +63,6 @@ export default {
       this.$emit('increaseQuantity');
     },
   },
-  mounted() {
-
-  }
 }
 </script>
 

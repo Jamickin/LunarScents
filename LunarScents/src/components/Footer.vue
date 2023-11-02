@@ -1,6 +1,9 @@
 <template>
   <div
-    class="flex bg-neutral-50 flex-col text-xl font-extrabold text-slate-500 py-2 text-center place-items-center justify-center">
+    class="flex bg-neutral-50 flex-col text-xl font-extrabold text-slate-500 py-2 text-center place-items-center justify-center"
+    :class="{ 'sticky': stickyFooter }"
+    ref="footer"
+  >
     <div>
       Lunar Scents | Fragrance Inspired by the Cosmos
       <br />
@@ -20,8 +23,47 @@
   </div>
 </template>
 
+
+<script>
+export default {
+  data() {
+    return {
+      stickyFooter: false,
+    };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const pageHeight = document.documentElement.scrollHeight;
+      const footerHeight = this.$refs.footer.clientHeight;
+      const scrollThreshold = pageHeight - window.innerHeight - footerHeight - 10; 
+
+      if (window.scrollY >= scrollThreshold) {
+        this.stickyFooter = true;
+      } else {
+        this.stickyFooter = false;
+      }
+    },
+  },
+};
+</script>
+
 <style scoped>
-  img {
-    @apply h-10 w-10 hover:scale-105 transition-all duration-300;
-  }
+img {
+  @apply h-10 w-10 hover:scale-105 transition-transform duration-300;
+}
+.sticky {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; 
+  transition: transform 0.3s ease; /* Use transform for the transition */
+}
 </style>
+

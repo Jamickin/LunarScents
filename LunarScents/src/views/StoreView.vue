@@ -1,12 +1,10 @@
 <template>
   <div
       class="fixed flex justify-center place-items-center w-screen h-[600px]">
-    <div
-        class="storepic w-full h-full bg-contain bg-center opacity-30"></div>
   </div>
   <div
       v-if="cart.length > 0"
-      class="fixed  w-full sm:h-12 flex  justify-center place-items-center text-center sm:top-12 right-0 z-20 sm:p-4 bg-Primary">
+      class="fixed w-full sm:hidden flex justify-center place-items-center text-center right-0 z-20 bg-Primary">
     <p class="text-black font-extrabold text-lg">
       Product added! Go to
       <router-link
@@ -20,14 +18,13 @@
   </div>
   <div class="container relative text-slate-500 py-24">
     <div>
-      <!-- <Carousel/> -->
       <p
           class="w-full text-center px-12 font-bold text-lg bg-white rounded-b-2xl py-24">
         All of our products are made with the finest of
         nature's ingredients. We urge you to take a stroll
         through our store and pick what you like!
         <br>
-        Note – We are experiencing growth and eagerly anticipate the addition of new products to our shop in the near
+        Please note: We are experiencing growth and eagerly anticipate the addition of new products to our shop in the near
         future!
       </p>
     </div>
@@ -54,37 +51,32 @@
 </template>
 
 <script>
-import Carousel from "../components/Carousel.vue";
 import Products from "@/assets/data/products.json";
 import Product from "@/components/Product.vue";
 import store from "@/store";
 
 export default {
   name: 'StoreView',
-  components: {Product, Carousel},
+  components: {Product},
   computed: {
     products() {
       return this.$store.state.products;
     },
+
     cart() {
       return this.$store.state.cart;
     },
   },
+
   methods: {
     addToCart(product) {
       this.selectedProductImage = product.image;
       this.$store.commit("addToCart", product);
     },
   },
-  beforeUnmount() {
-    window.removeEventListener(
-        "scroll",
-        this.handleScroll
-    );
-  },
+
   mounted() {
     store.dispatch('setProducts', Products);
-    window.addEventListener("scroll", this.handleScroll);
   },
 };
 </script>

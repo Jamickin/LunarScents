@@ -4,20 +4,20 @@
     "name": "Temple Tonic",
     "description": "An enchanting blend of celestial florals and musk.",
     "price": 50.00,
-    "image": "/images/TonicStore.webp"
+    "image": "/images/TonicStoreWhite.webp"
   },
   {
     "id": 2,
     "name": "Enchanted Forest Spray",
     "description": "A refreshing mist infused with the essence of moonlight.",
     "price": 80.00,
-    "image": "/images/SprayStore.webp"
+    "image": "/images/SprayStoreWhite.webp"
   },
   {
     "id": 3,
     "name": "Moonlit Blush Blend",
     "description": "A beam of sunlight, raging against your senses.",
     "price": 120.00,
-    "image": "/images/RollerStore.webp"
+    "image": "/images/MoonlitBlushBlendWhite.webp"
   }
 ]

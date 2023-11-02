@@ -1,11 +1,6 @@
 <template>
-  <div class="flex sm:flex-row flex-col justify-center gap-12 sm:px-40 px-8 py-44 place-items-center text-slate-700">
+  <div class="sm:px-40 px-8 py-44 place-items-center text-slate-700">
     <div class="w-full h-1/2 flex place-items-center">
-      <img
-        src="/images/pfpblack.webp"
-        class="aboutImage rounded-3xl sm:h-auto max-h-[500px]"
-        alt="Lunar Scents Image"
-      />
       <p class="text-center w-full text-xl">
         Hello, I'm Andrea, the heart and soul behind Lunar Scents. I'm thrilled to introduce you to the world of natural wellness and aromatherapy. Lunar Scents is not just a small essential oil business; it's a passion project born from a profound appreciation for the therapeutic and aromatic benefits of essential oils. I firmly hold the belief that nature has granted us everything we need for healing and well-being, waiting to be discovered and harnessed.
         <br /><br />
@@ -19,6 +14,11 @@
         Andrea Jõnelle Weichelt,
         Founder of Lunar Scents
       </p>
+      <img
+        src="/images/pfpblack.webp"
+        class="aboutImage rounded-3xl sm:h-auto max-h-[500px] float-right ml-6"
+        alt="Lunar Scents Image"
+      />
     </div>
   </div>
 </template>

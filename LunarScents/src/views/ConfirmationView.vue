@@ -25,7 +25,7 @@ export default {
       return this.calculateTotal();
     },
     deliveryFee() {
-      return this.calculatedTotal > 800 ? 0 : 100; // Update the delivery fee logic
+      return this.calculatedTotal > 800 ? 0 : 100; 
     },
     receivedTotal() {
       return parseFloat(this.$route.query.total) || 0;
@@ -103,7 +103,7 @@ export default {
 </script>
 
 <template>
-  <div class="pl-8 text-center h-screen flex flex-col place-items-center justify-center text-slate-500">
+  <div class="text-center max-h-screen flex flex-col place-items-center justify-center text-slate-500 py-24">
     <h1 class="text-3xl font-bold mb-4">
       Order Confirmation
     </h1>
@@ -112,17 +112,6 @@ export default {
         Thank you for placing your order with Lunar Scents!
       </p>
       <p v-if="cart.length > 0">Your order details:</p>
-      <div class="mt-4">
-        <!-- <div
-          v-for="product in cart"
-          :key="product.id"
-          class="border p-2 mb-2">
-          <h2 class="text-xl font-bold">
-            {{ product.name }}
-          </h2>
-          <p class="mt-2">Price: {{ product.price }}</p>
-        </div> -->
-      </div>
       <p
         v-if="cart.length > 0"
         class="text-xl font-bold mt-4">

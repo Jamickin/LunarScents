@@ -12,21 +12,18 @@
     </div>
 
     <div v-else style="min-height: 80vh">
-      <template
-          v-for="product in cart"
-          :key="product.id"
-      >
-        <div
-            class="bg-Glass rounded-lg transition-all duration-100 hover:scale-105 shadow-md p-8 mt-4 "
-        >
+
+      <template v-for="(product, productId) in groupedCart" :key="productId">
+        <div class="bg-Glass rounded-lg transition-all duration-100 hover:scale-105 shadow-md p-8 mt-4">
           <CheckoutBox
-              :name="product.name"
-              :image="product.image"
-              :price="product.price"
-              @removeFromCart="removeFromCart(product)"
-              @increaseQuantity="increaseQuantity(product)"
-          >
-          </CheckoutBox>
+            :name="product[0].name"
+            :image="product[0].image"
+            :price="product[0].price"
+            :quantity="product.length"
+            :description="product[0].description"
+            @removeFromCart="removeFromCart(product[0])"
+            @increaseQuantity="increaseQuantity(product[0])"
+          ></CheckoutBox>
         </div>
       </template>
 
@@ -105,6 +102,23 @@ export default {
       // parseFloat(product.price.replace("R", "")),
       const subtotal = cartItems.reduce((total, product) => total + product.price, 0);
       return [...cartItems];
+    },
+    groupedCart() {
+      const cartItems = this.$store.state.cart;
+      if (cartItems.length === 0) {
+        return {};
+      }
+
+      const grouped = {};
+      cartItems.forEach(product => {
+        if (!grouped[product.id]) {
+          grouped[product.id] = [product];
+        } else {
+          grouped[product.id].push(product);
+        }
+      });
+
+      return grouped;
     },
     cartTotal() {
       const cartItems = this.$store.state.cart;

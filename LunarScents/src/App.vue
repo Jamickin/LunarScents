@@ -13,6 +13,6 @@ import Stars from "./components/Stars.vue";
   >
     <RouterView/>
     <Stars/>
+    <Footer/>
   </main>
-  <Footer/>
 </template>
