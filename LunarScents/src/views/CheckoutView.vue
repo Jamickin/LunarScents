@@ -17,7 +17,7 @@
           :key="product.id"
       >
         <div
-            class="bg-Glass rounded-lg transition-all duration-100 hover:scale-105 shadow-md p-8  mt-4 "
+            class="bg-Glass rounded-lg transition-all duration-100 hover:scale-105 shadow-md p-8 mt-4 "
         >
           <CheckoutBox
               :name="product.name"
