@@ -109,11 +109,11 @@ export default {
 
 <style scoped>
 .menu-item {
-  @apply w-full sm:px-2 sm:py-1 flex place-items-center justify-center text-center transition-all duration-700 h-full font-bold sm:text-lg text-xs;
+  @apply w-full  flex place-items-center justify-center text-center transition-all duration-700 h-full font-bold sm:text-lg text-xs;
 }
 
 .menu-item:hover {
-  @apply shadow-2xl text-TertiaryHL;
+  @apply shadow-xl text-TertiaryHL;
 }
 
 p {

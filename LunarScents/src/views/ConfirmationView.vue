@@ -103,7 +103,7 @@ export default {
 </script>
 
 <template>
-  <div class="text-center max-h-screen flex flex-col place-items-center justify-center text-slate-500 py-24">
+  <div class="text-center max-h-screen flex flex-col place-items-center justify-center text-slate-500 py-36">
     <h1 class="text-3xl font-bold mb-4">
       Order Confirmation
     </h1>
