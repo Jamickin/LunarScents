@@ -41,7 +41,7 @@ export default {
     handleScroll() {
       const pageHeight = document.documentElement.scrollHeight;
       const footerHeight = this.$refs.footer.clientHeight;
-      const scrollThreshold = pageHeight - window.innerHeight - footerHeight - 10; 
+      const scrollThreshold = pageHeight - window.innerHeight - footerHeight; 
 
       if (window.scrollY >= scrollThreshold) {
         this.stickyFooter = true;

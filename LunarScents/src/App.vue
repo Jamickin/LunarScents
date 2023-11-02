@@ -8,11 +8,11 @@ import Stars from "./components/Stars.vue";
 <template>
   <SideBar/>
   <main
-      style="min-height: 90vh"
+      style="min-height: 100dvh"
       class="bg-gradient-to-b from-white to-Secondary sm:mt-12"
   >
     <RouterView/>
     <Stars/>
-    <Footer/>
   </main>
+  <Footer/>
 </template>
