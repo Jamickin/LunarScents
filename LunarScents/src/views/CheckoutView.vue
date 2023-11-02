@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 lg:px-0 py-10" ref="container">
+  <div class="container mx-auto px-4 lg:px-0 py-24" ref="container">
     <h1 class="text-3xl font-bold mb-6">Checkout</h1>
     <div
         v-if="cart.length === 0"

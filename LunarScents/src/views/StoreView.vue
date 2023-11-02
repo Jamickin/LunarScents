@@ -20,7 +20,7 @@
   </div>
   <div class="container relative text-slate-500 py-24">
     <div>
-      <Carousel/>
+      <!-- <Carousel/> -->
       <p
           class="w-full text-center px-12 font-bold text-lg bg-white rounded-b-2xl py-24">
         All of our products are made with the finest of
