@@ -1,8 +1,5 @@
 <template>
   <div
-      class="fixed flex justify-center place-items-center w-screen h-[600px]">
-  </div>
-  <div
       v-if="cart.length > 0"
       class="fixed w-full sm:hidden flex justify-center place-items-center text-center right-0 z-20 bg-Primary">
     <p class="text-black font-extrabold text-lg">
@@ -33,8 +30,7 @@
     >
     <template
   :key="'product_' + productIndex"
-  v-for="(product, productIndex) in products"
->
+  v-for="(product, productIndex) in products">
         <template v-if="product.id !== null">
           <Product
               :id="product.id"
@@ -47,7 +43,9 @@
         </template>
       </template>
     </div>
-  </div>
+    <iframe src="/images/LunarOils.pdf" width="100%" height="800" style="margin-bottom: 1rem;"></iframe>  
+    <a class="font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 " href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
+    </div>
 </template>
 
 <script>
