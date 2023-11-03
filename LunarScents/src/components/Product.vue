@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-neutral-50 rounded-2xl shadow-md pb-6 h-auto transition-all duration-100 hover:scale-105  flex flex-col justify-between">
+  <div class="bg-neutral-50 rounded-2xl hover:shadow-xl shadow-md pb-6 h-auto transition-all duration-100 hover:scale-105  flex flex-col justify-between">
     <img :src="img" :alt="name" class="mx-auto h-50 mb-4 rounded-t-2xl" />
     <div class="px-2">
       <h2 class="text-2xl font-bold text-black">{{ name }}</h2>

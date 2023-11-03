@@ -65,7 +65,7 @@
         ><br /><br />
 
         <button
-          class="w-full py-3 bg-Tertiary text-white rounded-md hover:bg-TertiaryHL hover:shadow-lg transition-all duration-300"
+          class="w-full py-3 bg-slate-500 text-white rounded-md hover:bg-TertiaryHL hover:shadow-lg transition-all duration-300"
           type="submit"
         >
           Send

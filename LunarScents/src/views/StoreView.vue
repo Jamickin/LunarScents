@@ -56,8 +56,8 @@
   </div>
     <iframe src="/images/LunarOils.pdf" width="100%" height="800" style="margin-bottom: 1rem;"></iframe>  
     <h1 class="my-6 text-xl font-extrabold">For Pure Essential-Oil orders, please refer to the contact page:</h1>
-    <a class="hover:scale-105 hover:opacity-100 opacity-90 transition-all active:scale-125 duration-300 font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 mr-4" href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
-    <router-link class="hover:scale-105 hover:opacity-100 opacity-90 transition-all active:scale-125 duration-300 font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 mr-4" to="/contact">CONTACT</router-link>
+    <a class=" mr-4 transition-all duration-300 opacity-90 hover:opacity-100 active:scale-110 bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white hover:scale-105" href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
+    <router-link class="transition-all duration-300 opacity-90 hover:opacity-100 active:scale-110 bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white hover:scale-105" to="/contact">CONTACT</router-link>
     </div>
 </template>
 
