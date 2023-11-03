@@ -2,8 +2,9 @@
   import { RouterLink } from "vue-router";
 </script>
 <template>
-  <div
-    class="flex sm:h-screen h-[400px] w-screen justify-center place-items-center sm:bg-fixed sm:bg-cover bg-contain homepic"></div>
+  <div class="bg-white">
+      <div class="flex sm:h-screen h-[400px] justify-center place-items-center sm:bg-fixed sm:bg-contain bg-contain homepic">
+  </div>
   <div
     class="flex flex-col justify-items-center place-items-center sm:h-[800px] h-screen pt-24">
     <div class="logo w-full h-full"></div>
@@ -19,12 +20,13 @@
         SHOP
       </RouterLink>
     </div>
-  </div>
+  </div></div>
+
 </template>
 
 <style scoped>
   .homepic {
-    background-image: url("/images/All.webp");
+    background-image: url("/images/HomePicWhite.webp");
     background-repeat: no-repeat;
   }
 

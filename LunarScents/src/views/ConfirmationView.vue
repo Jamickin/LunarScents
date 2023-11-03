@@ -35,12 +35,11 @@ export default {
       return `R${total.toFixed(2)}`;
     },
     generatedCode() {
-      const productCodes = this.cart.map((product) =>
-        product.name.substring(0, 3).toUpperCase()
-      );
-      const code = productCodes.join("");
-      return code;
-    },
+  const productCodes = this.cart.map((product) =>
+    product.name.substring(0, 3).toUpperCase()
+  );
+  return productCodes.join(".");
+},
     truncatedCode() {
       const code = this.generatedCode;
       return code.length > 5 ? `${code.substring(0, 5)}...` : code;

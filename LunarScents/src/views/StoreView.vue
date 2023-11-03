@@ -31,10 +31,10 @@
     <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12 px-8 lg:px-0"
     >
-      <template
-          :key="'product_' + productIndex"
-          v-for="(product, productIndex) in products"
-      >
+    <template
+  :key="'product_' + productIndex"
+  v-for="(product, productIndex) in products"
+>
         <template v-if="product.id !== null">
           <Product
               :id="product.id"
