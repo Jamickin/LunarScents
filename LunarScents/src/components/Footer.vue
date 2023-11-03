@@ -1,7 +1,7 @@
 <template>
-  <div
+ <div
     class="flex bg-neutral-50 flex-col text-xl font-extrabold text-slate-500 py-2 text-center place-items-center justify-center"
-    :class="{ 'sticky': stickyFooter }"
+    :class="{ 'sticky': stickyFooter, 'hidden' : isMobileConfirmationPage }"
     ref="footer"
   >
     <div>
@@ -29,10 +29,12 @@ export default {
   data() {
     return {
       stickyFooter: false,
+      isMobileConfirmationPage: false, 
     };
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    this.detectMobileConfirmationPage();
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -49,7 +51,17 @@ export default {
         this.stickyFooter = false;
       }
     },
+    detectMobileConfirmationPage() {
+      const isMobileDevice = window.innerWidth <= 768; 
+      const isConfirmationPage = window.location.pathname === '/confirmation'; // Adjust the path as needed
+      this.isMobileConfirmationPage = isMobileDevice && isConfirmationPage;
+      console.log(isConfirmationPage)
+      console.log(isMobileDevice)
+      console.log(this.isMobileConfirmationPage)
+
+    },
   },
+
 };
 </script>
 

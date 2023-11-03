@@ -11,15 +11,15 @@
       >
     </button>
     <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly">
-      <router-link to="/" class="menu-item">
+      <router-link to="/" @click="toggleMenu()" class="menu-item">
         <p>HOME</p>
       </router-link>
 
-      <router-link to="/about" class="menu-item">
+      <router-link to="about" @click="toggleMenu()" class="menu-item">
         <p>ABOUT</p>
       </router-link>
       
-      <router-link to="/store" class="menu-item">
+      <router-link to="store" @click="toggleMenu()" class="menu-item">
         <p>SHOP</p>
       </router-link>
     </div>
@@ -39,11 +39,11 @@
         <p>GALLERY</p>
       </router-link>  -->
 
-      <router-link to="/faq" class="menu-item">
+      <router-link to="faq" @click="toggleMenu()" class="menu-item">
         <p>FAQ</p>
       </router-link>
 
-      <router-link to="/contact" class="menu-item">
+      <router-link to="contact" @click="toggleMenu()" class="menu-item">
         <p>CONTACT</p>
       </router-link>
 
@@ -51,7 +51,7 @@
         <p>PROFILE</p>
       </router-link> -->
 
-      <router-link to="/checkout" class="menu-item">
+      <router-link to="checkout" @click="toggleMenu()" class="menu-item">
         <div class="flex place-items-center">
           <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
           xmlns="http://www.w3.org/2000/svg" stroke="#000000">
@@ -95,8 +95,12 @@ export default {
         this.isScrolling = true;
       } else {
         this.isScrolling = false;
+      };
+    },
+    toggleMenu() {
+      if (window.innerWidth < 640) {
+        this.isMenuOpen = !this.isMenuOpen;
       }
-      ;
     },
   },
   mounted() {

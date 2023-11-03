@@ -2,7 +2,7 @@
   import { RouterLink } from "vue-router";
 </script>
 <template>
-  <div class="bg-white">
+  <div class="bg-white pt-24">
       <div class="flex sm:h-screen h-[400px] justify-center place-items-center">
         <img class="sm:h-[800px]" src="/images/HomePicWhite.webp" alt="Home Page Picture">
       </div>
