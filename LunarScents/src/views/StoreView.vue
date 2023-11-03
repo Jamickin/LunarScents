@@ -45,6 +45,8 @@
     </div>
     <iframe src="/images/LunarOils.pdf" width="100%" height="800" style="margin-bottom: 1rem;"></iframe>  
     <a class="font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 " href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
+    <h1 class="my-6 text-xl">For Pure Essential-Oil orders, please refer to the contact page:</h1>
+    <router-link class="font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 " to="/contact">CONTACT</router-link>
     </div>
 </template>
 
