@@ -61,7 +61,8 @@
           v-model="userInfo.surname"
           type="text"
           placeholder="Surname"
-          class="w-full border rounded px-2 py-1" />
+          class="w-full border rounded px-2 py-1" 
+          required/>
       </div>
       <div class="mb-4">
         <input
@@ -140,7 +141,8 @@ export default {
       this.userInfo.name &&
       this.userInfo.email &&
       this.userInfo.number &&
-      this.userInfo.address
+      this.userInfo.address &&
+      this.userInfo.surname
     );
   },
     calculatedTotal() {
@@ -183,10 +185,9 @@ export default {
 
     submitForm() {
     if (this.isFormValid) {
-      // this.acceptInfoAndSendEmail();
+      this.acceptInfoAndSendEmail();
       this.closeInfoModal();
-
-    }
+    } else alert('Please fill in all the required fields. They are marked with red')
   },
     copyToClipboard() {
       const code = this.generatedCode;
