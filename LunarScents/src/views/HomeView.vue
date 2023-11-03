@@ -3,8 +3,9 @@
 </script>
 <template>
   <div class="bg-white">
-      <div class="flex sm:h-screen h-[400px] justify-center place-items-center sm:bg-fixed sm:bg-contain bg-contain homepic">
-  </div>
+      <div class="flex sm:h-screen h-[400px] justify-center place-items-center">
+        <img class="sm:h-[800px]" src="/images/HomePicWhite.webp" alt="Home Page Picture">
+      </div>
   <div
     class="flex flex-col justify-items-center place-items-center sm:h-[800px] h-screen pt-24">
     <div class="logo w-full h-full"></div>
@@ -20,7 +21,8 @@
         SHOP
       </RouterLink>
     </div>
-  </div></div>
+  </div>
+</div>
 
 </template>
 
