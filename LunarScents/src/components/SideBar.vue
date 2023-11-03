@@ -1,9 +1,9 @@
 
 <template>
   <div
-    class="sidebar transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex flex-col justify-evenly bg-white sm:bg-Primary place-items-center sm:flex-row z-50 sm:text-white shadow-md"
+    class="sidebar transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex flex-col justify-evenly bg-white sm:bg-Glass place-items-center sm:flex-row z-50 sm:text-white shadow-md"
       :class="{
-        // scrolling: isScrolling,
+         scrolling: isScrolling,
         'menu-open': isMenuOpen,
       }">
     <button @click="isMenuOpen = !isMenuOpen" class="transition-all duration-300 fixed left-16 top-0 sm:hidden block"
@@ -126,7 +126,7 @@ p {
 }
 
 .scrolling {
-  @apply bg-neutral-50 text-slate-500;
+  @apply bg-Primary
 }
 
 .menu-open {

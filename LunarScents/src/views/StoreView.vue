@@ -26,27 +26,38 @@
       </p>
     </div>
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12 px-8 lg:px-0"
-    >
-    <template
-  :key="'product_' + productIndex"
-  v-for="(product, productIndex) in products">
-        <template v-if="product.id !== null">
-          <Product
-              :id="product.id"
-              :name="product.name"
-              :img="product.image"
-              :description="product.description"
-              :price="product.price"
-              @addToCart="addToCart(product)"
-          ></Product>
-        </template>
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12 px-8 lg:px-0"
+  >
+    <template v-for="(product, productIndex) in products">
+      <template v-if="product.id !== null && productIndex < products.length - 1">
+        <Product
+          :key="`product_${productIndex}`"
+          :id="product.id"
+          :name="product.name"
+          :img="product.image"
+          :description="product.description"
+          :price="product.price"
+          @addToCart="addToCart(product)"
+        ></Product>
       </template>
-    </div>
+    </template>
+  </div>
+
+  <div class="my-12 px-8 lg:px-0" v-if="products.length > 0">
+    <Product 
+      :key="`product_${products.length - 1}`"
+      :id="products[products.length - 1].id"
+      :name="products[products.length - 1].name"
+      :img="products[products.length - 1].image"
+      :description="products[products.length - 1].description"
+      :price="products[products.length - 1].price"
+      @addToCart="addToCart(products[products.length - 1])"
+    ></Product>
+  </div>
     <iframe src="/images/LunarOils.pdf" width="100%" height="800" style="margin-bottom: 1rem;"></iframe>  
-    <a class="font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 " href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
-    <h1 class="my-6 text-xl">For Pure Essential-Oil orders, please refer to the contact page:</h1>
-    <router-link class="font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 " to="/contact">CONTACT</router-link>
+    <h1 class="my-6 text-xl font-extrabold">For Pure Essential-Oil orders, please refer to the contact page:</h1>
+    <a class="hover:scale-105 hover:opacity-100 opacity-90 transition-all active:scale-125 duration-300 font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 mr-4" href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
+    <router-link class="hover:scale-105 hover:opacity-100 opacity-90 transition-all active:scale-125 duration-300 font-extrabold text-TertiaryHL bg-slate-600 rounded-lg p-2 px-2 mr-4" to="/contact">CONTACT</router-link>
     </div>
 </template>
 
