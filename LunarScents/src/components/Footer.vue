@@ -1,8 +1,7 @@
 <template>
  <div
     class="flex bg-neutral-50 flex-col text-xl font-extrabold text-slate-500 py-2 text-center place-items-center justify-center"
-    :class="{ 'sticky': stickyFooter, 'hidden' : isMobileConfirmationPage }"
-    ref="footer"
+    :class="{ 'hidden' : isCheckoutPage }"
   >
     <div>
       Lunar Scents | Fragrance Inspired by the Cosmos
@@ -28,40 +27,18 @@
 export default {
   data() {
     return {
-      stickyFooter: false,
-      isMobileConfirmationPage: false, 
+      isCheckoutPage: false,
     };
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-    this.detectMobileConfirmationPage();
+    this.detectCheckoutPage();
   },
-  beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
+
   methods: {
-    handleScroll() {
-      const pageHeight = document.documentElement.scrollHeight;
-      const footerHeight = this.$refs.footer.clientHeight;
-      const scrollThreshold = pageHeight - window.innerHeight - footerHeight; 
-
-      if (window.scrollY >= scrollThreshold) {
-        this.stickyFooter = true;
-      } else {
-        this.stickyFooter = false;
-      }
-    },
-    detectMobileConfirmationPage() {
-      const isMobileDevice = window.innerWidth <= 768; 
-      const isConfirmationPage = window.location.pathname === '/confirmation'; // Adjust the path as needed
-      this.isMobileConfirmationPage = isMobileDevice && isConfirmationPage;
-      console.log(isConfirmationPage)
-      console.log(isMobileDevice)
-      console.log(this.isMobileConfirmationPage)
-
+    detectCheckoutPage() {
+      this.isCheckoutPage = window.location.pathname === '/checkout'; // Assign the value to the data property
     },
   },
-
 };
 </script>
 

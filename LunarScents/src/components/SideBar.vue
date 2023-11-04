@@ -1,4 +1,3 @@
-
 <template>
   <div
     class="sidebar transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex flex-col justify-evenly bg-white sm:bg-Glass place-items-center sm:flex-row z-50 sm:text-white shadow-md"
@@ -10,6 +9,7 @@
       :class="{'button-visible' : isMenuOpen}"><img src="/images/ArrowRight.svg" class="w-12 rotate-180"
       >
     </button>
+
     <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly">
       <router-link to="/" @click="toggleMenu()" class="menu-item">
         <p>HOME</p>
@@ -25,8 +25,8 @@
     </div>
 
     <div class="w-full h-12 relative justify-center hidden sm:flex">
-      <div class="absolute transition-all duration-300 rounded-b-full xl w-48 flex justify-center"
-          :class="{ 'h-48': !isScrolling, 'h-12': isScrolling, 'bg-none' : isScrolling, 'bg-[hsl(209,43%,73%)]': !isScrolling, 'shadow-none' : isScrolling, 'shadow-md': !isScrolling }"> 
+      <div class="absolute transition-all duration-300 rounded-b-full xl w-48 justify-center"
+          :class="{'hidden' : isCheckoutPage, 'flex' : !isCheckoutPage, 'h-48': !isScrolling, 'h-12': isScrolling, 'bg-none' : isScrolling, 'bg-[hsl(209,43%,73%)]': !isScrolling, 'shadow-none' : isScrolling, 'shadow-md': !isScrolling }"> 
             <img
             class="h-full"
               src="/images/Logo.webp"
@@ -35,10 +35,6 @@
     </div>
 
     <div class="flex sm:flex-row flex-col w-full h-full place-items-center justify-evenly">
-      <!-- <router-link to="/gallery" class="menu-item">
-        <p>GALLERY</p>
-      </router-link>  -->
-
       <router-link to="faq" @click="toggleMenu()" class="menu-item">
         <p>FAQ</p>
       </router-link>
@@ -46,10 +42,6 @@
       <router-link to="contact" @click="toggleMenu()" class="menu-item">
         <p>CONTACT</p>
       </router-link>
-
-      <!-- <router-link to="/profile" class="menu-item">
-        <p>PROFILE</p>
-      </router-link> -->
 
       <router-link to="checkout" @click="toggleMenu()" class="menu-item">
         <div class="flex place-items-center">
@@ -78,8 +70,11 @@ export default {
     return {
       isScrolling: false,
       isMenuOpen: false,
+      isCheckoutPage: false,
+
     };
   },
+
   computed: {
     cartItemCount() {
       return this.$store.state.cart.length;
@@ -97,17 +92,30 @@ export default {
         this.isScrolling = false;
       };
     },
+
     toggleMenu() {
       if (window.innerWidth < 640) {
         this.isMenuOpen = !this.isMenuOpen;
       }
     },
+
+    detectCheckoutPage() {
+      this.isCheckoutPage = window.location.pathname === '/checkout';
+    },
   },
+
+  watch: {
+    '$route': 'detectCheckoutPage',
+  },
+
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    this.detectCheckoutPage();
   },
+
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
+    this.detectCheckoutPage();
   },
 };
 </script>
@@ -145,5 +153,4 @@ p {
   left: 0;
   @apply rotate-180
 }
-
 </style>

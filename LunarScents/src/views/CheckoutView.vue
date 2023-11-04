@@ -43,7 +43,7 @@
           v-if="!orderPlaced"
           id="place-order-button"
           class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
-          @click="openInfoModal()"
+          @click="toggleModal()"
       >
         Place Order
       </button> 
@@ -137,7 +137,7 @@
           class="w-full border rounded px-2 py-1"></textarea>
       </div>
       <button
-        @click="navigateBack()"
+        @click="toggleModal()"
         class="bg-primary text-black px-4 py-2 rounded hover:bg-primary-dark">
         Cancel
       </button>
@@ -223,30 +223,21 @@ export default {
     },
 
     grandTotal() {    
-        // return this.cartTotal + 70.00;
-        return this.cartTotal;
+         return this.cartTotal + 70.00;
       }
     },
 
   methods: {
-    clearCart() {
-      this.clearCart();
-    },
-
     submitForm() {
       if (this.isFormValid) {
-        this.$refs.paymentForm.querySelector('button[type="submit"]').click(); // Trigger the form submission
+        this.$refs.paymentForm.querySelector('button[type="submit"]').click(); 
       } else {
         alert('Please fill in all the required fields. They are marked with red');
       }
     },
 
-    openInfoModal() {
-      this.infoModalOpen = true;
-    },
-
-    closeInfoModal() {
-      this.infoModalOpen = false;
+    toggleModal() {
+      this.infoModalOpen =! this.infoModalOpen
     },
 
     retrieveCart() {
@@ -272,23 +263,6 @@ export default {
       this.orderPlaced = false;
     },
 
-    scrollToPlaceOrderButton() {
-      this.$nextTick(() => {
-        const orderButton = document.getElementById("place-order-button");
-        if (orderButton) {
-          orderButton.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
-    },
-
-    placeOrderAndNavigate() {
-      const total = this.grandTotal;
-      this.$router.push({name: "confirmation", query: {total}});
-    },
-
     increaseQuantity(product) {
       const cartItem = this.$store.state.cart.find(
           (item) => item.id === product.id
@@ -302,12 +276,7 @@ export default {
   },
 
   mounted() {
-    this.isScrollingEnabled = false;
     this.retrieveCart();
-  },
-
-  created() {
-    this.scrollToPlaceOrderButton();
   },
 };
 </script>
