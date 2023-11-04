@@ -26,41 +26,19 @@
           ></CheckoutBox>
         </div>
       </template>
-
-      <div class="my-4">
-        <label class="mr-4" for="deliveryLocation">Delivery Location:</label>
-        <select
-            id="deliveryLocation"
-            v-model="selectedLocation"
-            class="rounded-lg p-2 border bg-Glass border-none"
-        >
-          <option value="">Select a location</option>
-          <option value="Pretoria">Pretoria</option>
-          <option value="Joburg">Joburg</option>
-        </select>
-      </div>
-
-      <template v-if="selectedLocation">
         <div class="flex sm:flex-row flex-col gap-4 bg-Glass p-8 rounded-2xl place-items-center justify-items-center">
           <p class="text-slate-900 font-bold text-xl">Cart Total: R{{ cartTotal }}.00</p>
-          <p class="text-slate-900 font-bold text-xl">Delivery Fee: {{ calculateDeliveryFee() }}</p>
+          <p class="text-slate-900 font-bold text-xl">Delivery Fee: R0.00</p>
           <p class="text-slate-900 font-bold text-xl">Grand Total: R{{ grandTotal }}.00</p>
         </div>
-      </template>
-      <template v-else>
-        <div class="flex sm:flex-row flex-col gap-4 bg-Glass p-8 rounded-2xl place-items-center justify-items-center">
-          Please select a location to view your total and confirm your purchase
-        </div>
-      </template>
-
       <button
           class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
-          @click="clearCartAndAdjustContainer"
+          @click="clearCart"
       >
         Clear Cart
       </button>
       <button
-          v-if="!orderPlaced && selectedLocation"
+          v-if="!orderPlaced"
           id="place-order-button"
           class="mt-4 bg-[#475569] text-white py-2 px-4 rounded hover:bg-primary-dark text-lg"
           @click="placeOrderAndNavigate"
@@ -77,22 +55,13 @@ import CheckoutBox from "@/components/CheckoutBox.vue";
 export default {
   name: 'CheckoutView',
   components: {CheckoutBox},
-  watch: {
-    cart: {
-      handler() {
-        // this.adjustContainerHeight();
-      },
-      deep: true,
-    },
-  },
+
   data() {
     return {
       orderPlaced: false,
-      deliveryLocation: "",
-      showDeliveryFee: false,
-      selectedLocation: null,
     };
   },
+
   computed: {
     cart() {
       const cartItems = this.$store.state.cart;
@@ -101,12 +70,12 @@ export default {
       }
       return [...cartItems];
     },
+
     groupedCart() {
       const cartItems = this.$store.state.cart;
       if (cartItems.length === 0) {
         return {};
       }
-
       const grouped = {};
       cartItems.forEach(product => {
         if (!grouped[product.id]) {
@@ -115,9 +84,9 @@ export default {
           grouped[product.id].push(product);
         }
       });
-
       return grouped;
     },
+
     cartTotal() {
       const cartItems = this.$store.state.cart;
       if (cartItems.length === 0) {
@@ -128,58 +97,40 @@ export default {
       }, 0);
     },
 
-    grandTotal() {
-      if (isNaN(this.cartTotal)) {
-        return "Please select a delivery location";
-      } else {
-        const deliveryFee = parseFloat(
-            this.calculateDeliveryFee().replace("R", "")
-        );
-        return this.cartTotal + deliveryFee;
+    grandTotal() {    
+        // return this.cartTotal + 70.00;
+        return this.cartTotal;
       }
     },
-  },
-  methods: {
-    calculateDeliveryFee() {
-      const pretoriaThreshold = 800;
-      const joburgThreshold = 1000;
-      const deliveryFeePretoria = 80;
-      const deliveryFeeJoburg = 100;
 
-      if (this.selectedLocation === "Pretoria") {
-        return this.cartTotal >= pretoriaThreshold
-            ? "R0.00"
-            : `R${deliveryFeePretoria.toFixed(2)}`;
-      } else if (this.selectedLocation === "Joburg") {
-        return this.cartTotal >= joburgThreshold
-            ? "R0.00"
-            : `R${deliveryFeeJoburg.toFixed(2)}`;
-      } else {
-        return "Please select a delivery location";
-      }
-    },
-    clearCartAndAdjustContainer() {
+  methods: {
+    clearCart() {
       this.clearCart();
     },
+
     retrieveCart() {
       const storedCart = localStorage.getItem("cart");
       if (storedCart) {
         this.$store.commit("setCart", JSON.parse(storedCart));
       }
     },
+
     saveCart() {
       const cart = JSON.stringify(this.cart);
       localStorage.setItem("cart", cart);
     },
+
     removeFromCart(product) {
       this.$store.commit("removeFromCart", product);
       this.saveCart();
     },
+
     clearCart() {
       this.$store.commit("clearCart");
       this.saveCart();
       this.orderPlaced = false;
     },
+
     scrollToPlaceOrderButton() {
       this.$nextTick(() => {
         const orderButton = document.getElementById("place-order-button");
@@ -191,10 +142,12 @@ export default {
         }
       });
     },
+
     placeOrderAndNavigate() {
       const total = this.grandTotal;
       this.$router.push({name: "confirmation", query: {total}});
     },
+
     increaseQuantity(product) {
       const cartItem = this.$store.state.cart.find(
           (item) => item.id === product.id
@@ -203,14 +156,15 @@ export default {
         const newCartItem = {...product};
         this.$store.commit("addToCart", newCartItem);
         this.saveCart();
-        console.log("Updated cart item:", cartItem);
       }
     },
   },
+
   mounted() {
     this.isScrollingEnabled = false;
     this.retrieveCart();
   },
+
   created() {
     this.scrollToPlaceOrderButton();
   },

@@ -55,7 +55,8 @@
     ></Product>
   </div>
     <iframe src="/images/LunarOils.pdf" width="100%" height="800" style="margin-bottom: 1rem;"></iframe>  
-    <h1 class="my-6 text-xl font-extrabold">For Pure Essential-Oil orders, please refer to the contact page:</h1>
+    <h1 class="mt-6 text-xl font-extrabold">For Pure Essential-Oil orders, please refer to the contact page:</h1>
+    <p class="mt-2 mb-6">Also note: Orders for Pure Essential Oils have a R200 minimum</p>
     <a class=" mr-4 transition-all duration-300 opacity-90 hover:opacity-100 active:scale-110 bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white hover:scale-105" href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
     <router-link class="transition-all duration-300 opacity-90 hover:opacity-100 active:scale-110 bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white hover:scale-105" to="/contact">CONTACT</router-link>
     </div>
