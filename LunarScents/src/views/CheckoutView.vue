@@ -49,16 +49,13 @@
       </button> 
     </div>
   </div>
-        <!-- <form action="https://www.payfast.co.za/eng/process" method="post">
-        <input type="hidden" name="merchant_id" value="23365764">
-        <input type="hidden" name="merchant_key" value="6rsiv5tziqj24"> -->
         <form
       v-if="cart.length > 0"
         ref="paymentForm"
-        action="https://sandbox.payfast.co.za​/eng/process" 
+        action="https://www.payfast.co.za/eng/process" 
         method="post">
-        <input type="hidden" name="merchant_id" value="10000100">
-        <input type="hidden" name="merchant_key" value="46f0cd694581a">
+        <input type="hidden" name="merchant_id" value="23365764">
+        <input type="hidden" name="merchant_key" value="6rsiv5tziqj24">
         <input type="hidden" name="return_url" value="https://www.lunarscents.co.za/store">
         <input type="hidden" name="cancel_url" value="https://www.lunarscents.co.za/checkout">
         <input type="hidden" name="notify_url" value="https://www.lunarscents.co.za/confirmation">
