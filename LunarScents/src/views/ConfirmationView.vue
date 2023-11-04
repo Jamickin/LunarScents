@@ -14,17 +14,17 @@
         class="text-xl font-bold mt-4">
         Grand Total: R{{ receivedTotal }}.00
       </p>
-       <button
+       <!-- <button
         v-if="cart.length > 0"
         @click="acceptInfoAndSendEmail()"
         class="animate-pulse bg-primary font-extrabold text-green-500 py-2 px-4 rounded hover:bg-primary-dark">
         Press this link to copy a code. It will open your
         preferred email app.<br />All you have to do is
         press send!
-      </button> 
-      <!-- <form action=" https://sandbox.payfast.co.za​/eng/process" method="post">
-        <input type="hidden" name="merchant_id" value="10000100">
-        <input type="hidden" name="merchant_key" value="46f0cd694581a">
+      </button>  -->
+      <form action="https://www.payfast.co.za/eng/process" method="post">
+        <input type="hidden" name="merchant_id" value="23365764">
+        <input type="hidden" name="merchant_key" value="6rsiv5tziqj24">
         <input type="hidden" name="return_url" value="https://www.lunarscents.com/home">
         <input type="hidden" name="cancel_url" value="https://www.lunarscents.com/shop">
         <input type="hidden" name="notify_url" value="https://www.lunarscents.com/checkout">
@@ -35,7 +35,7 @@
         <input type="hidden" name="email_address" :value="userInfo.email">
         <input type="hidden" name="cell_number" value="0823456789"> 
         <input type="submit">
-      </form> -->
+      </form>
     </div>
   </div>
   <div
@@ -185,7 +185,7 @@ export default {
 
     submitForm() {
     if (this.isFormValid) {
-      this.acceptInfoAndSendEmail();
+      // this.acceptInfoAndSendEmail();
       this.closeInfoModal();
     } else alert('Please fill in all the required fields. They are marked with red')
   },
