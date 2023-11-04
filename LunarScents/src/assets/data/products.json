@@ -25,14 +25,6 @@
   },
   {
     "id": 4,
-    "name": "Test",
-    "description": "This is a test Item",
-    "price": 20.00,
-    "image": "/images/Logo.webp",
-    "weight": 0
-  },
-  {
-    "id": 5,
     "name": "Gift Box",
     "description": "All of your favourite items in one place!",
     "price": 450.00,
