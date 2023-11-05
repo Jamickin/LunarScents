@@ -1,33 +1,6 @@
 
 <template>
   <div class="h-screen w-screen flex sm:flex-row flex-col sm:gap-40 justify-center place-items-center lg:px-44">
-    <!-- <div class="flex flex-col gap-4">
-      <a href="#" target="_blank">
-        <div
-          class="socials"
-        >
-          <img src="/images/FacebookLogo.svg" alt="Facebook" />
-          <p class="pl-4 text-lg font-semibold">Facebook</p>
-        </div>
-      </a>
-      <a href="#" target="_blank">
-        <div
-          class=" socials"
-        >
-          <img src="/images/InstaLogo.svg" alt="Instagram" />
-          <p class="pl-4 text-lg font-semibold">Instagram</p>
-        </div>
-      </a>
-      <a href="#" target="_blank">
-        <div
-          class="socials"
-        >
-          <img src="/images/WhatsappLogo.svg" alt="WhatsApp" />
-          <p class="pl-4 text-lg font-semibold">WhatsApp</p>
-        </div>
-      </a>
-    </div> -->
-
     <div>
       <form
         class="bg-Glass p-8 sm:p-16 rounded-xl my-8 sm:my-0"
@@ -89,7 +62,7 @@ export default {
   methods: {
     sendEmail() {
       const subject = "Contact Request from Lunar Scents";
-      const to = "andreaweichelt@gmail.com";
+      const to = "lunar.scents@outlook.com";
 
       const emailBody = `Name: ${this.formData.name}\nEmail: ${this.formData.email}\nMessage: ${this.formData.message}`;
 

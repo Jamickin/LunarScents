@@ -231,6 +231,7 @@ export default {
     submitForm() {
       if (this.isFormValid) {
         this.$refs.paymentForm.querySelector('button[type="submit"]').click(); 
+        this.clearCart();
       } else {
         alert('Please fill in all the required fields. They are marked with red');
       }
