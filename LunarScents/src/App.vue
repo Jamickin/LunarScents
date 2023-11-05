@@ -1,14 +1,13 @@
 <script setup>
 import {RouterView} from "vue-router";
-import SideBar from "./components/SideBar.vue";
+import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
 import Stars from "./components/Stars.vue";
 </script>
 
 <template>
-  <SideBar/>
+  <NavBar/>
   <main
-      style="min-height: 100dvh"
       class="bg-gradient-to-b from-white to-Secondary sm:mt-12"
   >
     <RouterView/>

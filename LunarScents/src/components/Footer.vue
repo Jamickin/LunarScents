@@ -14,9 +14,9 @@
         <a href="https://instagram.com/lunarscents.gifts?igshid=MzMyNGUyNmU2YQ==" target="_blank"
           ><img src="/images/InstaLogo.svg"
         /></a>
-        <a href="tel: +27 61 531 7233" target="_blank"
+        <!-- <a href="tel: +27 61 531 7233" target="_blank"
           ><img src="/images/WhatsappLogo.svg"
-        /></a>
+        /></a> -->
       </div>
     </div>
   </div>
