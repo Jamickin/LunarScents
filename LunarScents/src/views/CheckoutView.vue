@@ -47,6 +47,7 @@
           @click="toggleModal()"
       >
         Place Order
+        <!-- Create deliver or self-collection -->
       </button> 
     </div>
   </div>
@@ -61,13 +62,12 @@
         <input type="hidden" name="merchant_key" value="46f0cd694581a"> -->
         <input type="hidden" name="return_url" value="https://www.lunarscents.co.za/store">
         <input type="hidden" name="cancel_url" value="https://www.lunarscents.co.za/checkout">
-        <input type="hidden" name="notify_url" value="https://www.lunarscents.co.za/confirmation">
         <input type="hidden" name="amount" :value="grandTotal">
         <input type="hidden" name="item_name" :value="productCodes">
+        <input type="hidden" name="custom_str1" :value="userInfo.number">
         <input type="hidden" name="name_first" :value="userInfo.name">
         <input type="hidden" name="name_last" :value="userInfo.surname">
         <input type="hidden" name="email_address" :value="userInfo.email">
-        <input type="hidden" name="cell_number" :value="userInfo.number"> 
         <button
       type="submit"
       class="animate-pulse bg-primary font-extrabold text-green-500 py-2 px-4 rounded hover:bg-primary-dark"
