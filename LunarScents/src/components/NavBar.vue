@@ -71,7 +71,6 @@ export default {
       isScrolling: false,
       isMenuOpen: false,
       isCheckoutPage: false,
-
     };
   },
 
