@@ -12,6 +12,7 @@
           type="text"
           id="name"
           name="name"
+          placeholder="John Doe..."
           required
           class="w-full p-2 border rounded-md"
         /><br /><br />
@@ -22,6 +23,7 @@
           type="email"
           id="email"
           name="email"
+          placeholder="johndoe@john.com..."
           required
           class="w-full p-2 border rounded-md"
         /><br /><br />
@@ -31,6 +33,7 @@
           v-model="formData.message"
           id="message"
           name="message"
+          placeholder="I would like to order custom scents... or I would like to order essentail oils as described on your pdf..."
           rows="4"
           required
           class="w-full p-2 border rounded-md"
@@ -63,13 +66,10 @@ export default {
     sendEmail() {
       const subject = "Contact Request from Lunar Scents";
       const to = "lunar.scents@outlook.com";
-
       const emailBody = `Name: ${this.formData.name}\nEmail: ${this.formData.email}\nMessage: ${this.formData.message}`;
-
       const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(
         subject
       )}&body=${encodeURIComponent(emailBody)}`;
-
       window.open(mailtoUrl, "_blank");
     },
   },

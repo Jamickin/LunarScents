@@ -46,7 +46,7 @@ export default {
 
 <template>
   <div
-    class="max-w-3xl mx-auto flex flex-col h-screen justify-center items-center z-20 text-slate-500">
+    class="max-w-3xl mx-auto flex flex-col h-screen px-8 sm:px-0 justify-center items-center z-20 text-slate-500">
     <h1 class="text-3xl font-semibold mb-6">
       Frequently Asked Questions
     </h1>

@@ -2,12 +2,12 @@
   import { RouterLink } from "vue-router";
 </script>
 <template>
-  <div class="bg-white pt-24">
-      <div class="flex sm:h-screen h-[400px] justify-center place-items-center">
-        <img class="sm:h-[800px]" src="/images/HomePicWhite.webp" alt="Home Page Picture">
+  <div class="bg-white sm:pt-12 sm:-mt-0 -mt-20">
+      <div class="flex md:h-screen h-[400px] justify-center place-items-center">
+        <img class="md:h-[800px]" src="/images/HomePicWhite.webp" alt="Home Page Picture">
       </div>
   <div
-    class="flex flex-col justify-items-center place-items-center sm:h-[800px] h-screen pt-24">
+    class="flex flex-col justify-items-center place-items-center sm:h-[800px] h-screen sm:pt-24">
     <div class="logo w-full h-full"></div>
     <p
       class="text-center font-bold text-slate-600 sm:px-24 md:px-12 text-2xl pt-12">

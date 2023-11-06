@@ -25,6 +25,7 @@
             :description="product[0].description"
             @removeFromCart="removeFromCart(product[0])"
             @increaseQuantity="increaseQuantity(product[0])"
+            @removeAllOfType="removeAllOfType(product[0])"
           ></CheckoutBox>
         </div>
       </template>
@@ -273,6 +274,13 @@ export default {
       this.$store.commit("removeFromCart", product);
       this.saveCart();
     },
+
+    removeAllOfType(product) {
+    const cartItems = this.$store.state.cart;
+    const updatedCart = cartItems.filter(item => item.id !== product.id);
+    this.$store.commit("setCart", updatedCart);
+    this.saveCart();
+  },
 
     clearCart() {
       this.$store.commit("clearCart");

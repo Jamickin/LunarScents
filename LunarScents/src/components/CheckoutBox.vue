@@ -25,6 +25,12 @@
     >
       +
     </button>
+    <button
+      class="mt-2 ml-4 bg-red-500 text-white py-2 px-4 rounded hover:opacity-90 text-sm"
+      @click="removeAllOfType()"
+    >
+      Remove All
+    </button>
     <p class="mt-2 ml-4 text-primary font-bold text-lg">
       R{{ price }}
     </p>
@@ -37,7 +43,7 @@
 <script>
 export default {
   name: "CheckoutBox",
-  emits: ['removeFromCart', 'increaseQuantity'],
+  emits: ['removeFromCart', 'increaseQuantity', 'removeAllOfType'],
   props: {
     name: {
       type: String
@@ -61,6 +67,9 @@ export default {
     },
     increaseQuantity() {
       this.$emit('increaseQuantity');
+    },
+    removeAllOfType() {
+      this.$emit('removeAllOfType');
     },
   },
 }

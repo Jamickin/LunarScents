@@ -14,9 +14,6 @@
         <a href="https://instagram.com/lunarscents.gifts?igshid=MzMyNGUyNmU2YQ==" target="_blank"
           ><img src="/images/InstaLogo.svg"
         /></a>
-        <!-- <a href="tel: +27 61 531 7233" target="_blank"
-          ><img src="/images/WhatsappLogo.svg"
-        /></a> -->
       </div>
     </div>
   </div>
@@ -36,7 +33,13 @@ export default {
 
   methods: {
     detectCheckoutPage() {
-      this.isCheckoutPage = window.location.pathname === '/checkout'; // Assign the value to the data property
+      this.isCheckoutPage = window.location.pathname === '/checkout'; 
+    },
+  },
+  
+  watch: {
+    '$route'() {
+      this.detectCheckoutPage();
     },
   },
 };

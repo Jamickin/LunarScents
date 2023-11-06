@@ -13,10 +13,10 @@
       to review your purchase
     </p>
   </div>
-  <div class="container relative text-slate-500 py-24">
+  <div class="container relative text-slate-500 py-12 sm:py-24">
     <div>
       <p
-          class="w-full text-center px-12 font-bold text-lg bg-white rounded-b-2xl py-24">
+          class="w-full text-center px-12 font-bold text-lg bg-white rounded-b-2xl sm:py-24">
         All of our products are made with the finest of
         nature's ingredients. We urge you to take a stroll
         through our store and pick what you like!
@@ -55,10 +55,12 @@
     ></Product>
   </div>
     <iframe src="/images/LunarOils.pdf" width="100%" height="800" style="margin-bottom: 1rem;"></iframe>  
-    <h1 class="mt-6 text-xl font-extrabold">For Pure Essential-Oil orders, please refer to the contact page:</h1>
+    <div class="bg-neutral-50 rounded-2xl shadow-md p-6 h-auto">
+    <h1 class="text-xl font-extrabold">For Pure Essential-Oil orders, please refer to the contact page:</h1>
     <p class="mt-2 mb-6">Also note: Orders for Pure Essential Oils have a R200 minimum</p>
-    <a class=" mr-4 transition-all duration-300 opacity-90 hover:opacity-100 active:scale-110 bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white hover:scale-105" href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
-    <router-link class="transition-all duration-300 opacity-90 hover:opacity-100 active:scale-110 bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white hover:scale-105" to="/contact">CONTACT</router-link>
+    <a class=" mr-4 transition-all duration-300 opacity-90 hover:opacity-100  bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white" href="/images/LunarOils.pdf" download="your-pdf-filename.pdf">Download PDF</a>
+    <router-link class="transition-all duration-300 opacity-90 hover:opacity-100  bg-slate-500 hover:text-black p-2 hover:bg-TertiaryHL rounded-lg  mt-6 font-extrabold text-white" to="/contact">CONTACT</router-link>
+    </div>
     </div>
 </template>
 

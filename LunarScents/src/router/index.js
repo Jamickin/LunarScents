@@ -3,7 +3,6 @@ import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import StoreView from "../views/StoreView.vue";
 import CheckoutView from "../views/CheckoutView.vue";
-import ConfirmationView from "../views/ConfirmationView.vue";
 import FAQView from "../views/FAQView.vue";
 import ContactView from "../views/ContactView.vue";
 
@@ -33,11 +32,6 @@ const router = createRouter({
       path: "/checkout",
       name: "checkout",
       component: CheckoutView,
-    },
-    {
-      path: "/confirmation",
-      name: "confirmation",
-      component: ConfirmationView,
     },
     {
       path: "/faq",
