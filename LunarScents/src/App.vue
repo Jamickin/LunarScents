@@ -7,7 +7,7 @@ import Stars from "./components/Stars.vue";
 
 <template>
   <NavBar/>
-  <main
+  <main style="min-height: 90dvh;"
       class="bg-gradient-to-b from-white to-Secondary sm:mt-12"
   >
     <RouterView/>

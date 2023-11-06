@@ -30,7 +30,7 @@
       </template>
         <div class="flex sm:flex-row flex-col gap-4 bg-Glass p-8 rounded-b-xl place-items-center justify-items-center">
           <p class="text-slate-900 font-bold text-xl">Cart Total: R{{ cartTotal }}.00</p>
-          <p class="text-slate-900 font-bold text-xl">Delivery Fee: R0.00</p>
+          <p class="text-slate-900 font-bold text-xl">Delivery Fee: R70.00</p>
           <p class="text-slate-900 font-bold text-xl">Grand Total: R{{ grandTotal }}.00</p>
         </div>
       <button
@@ -52,15 +52,17 @@
         <form
       v-if="cart.length > 0"
         ref="paymentForm"
-        action="https://www.payfast.co.za/eng/process" 
+        action="https://www.payfast.co.za​/eng/process" 
         method="post">
         <input type="hidden" name="merchant_id" value="23365764">
         <input type="hidden" name="merchant_key" value="6rsiv5tziqj24">
+        <!-- <input type="hidden" name="merchant_id" value="10000100">
+        <input type="hidden" name="merchant_key" value="46f0cd694581a"> -->
         <input type="hidden" name="return_url" value="https://www.lunarscents.co.za/store">
         <input type="hidden" name="cancel_url" value="https://www.lunarscents.co.za/checkout">
         <input type="hidden" name="notify_url" value="https://www.lunarscents.co.za/confirmation">
         <input type="hidden" name="amount" :value="grandTotal">
-        <input type="hidden" name="item_name" value="OrderNumberHere">
+        <input type="hidden" name="item_name" :value="productCodes">
         <input type="hidden" name="name_first" :value="userInfo.name">
         <input type="hidden" name="name_last" :value="userInfo.surname">
         <input type="hidden" name="email_address" :value="userInfo.email">
@@ -180,21 +182,23 @@ export default {
       }
       return [...cartItems];
     },
+
     isFormValid() {
-    return (
-      this.userInfo.name &&
-      this.userInfo.email &&
-      this.userInfo.number &&
-      this.userInfo.address &&
-      this.userInfo.surname
-    );
-  },
+      return (
+        this.userInfo.name &&
+        this.userInfo.email &&
+        this.userInfo.number &&
+        this.userInfo.address &&
+        this.userInfo.surname
+      );
+    },
+
     isLastItem() {
-    return (productId) => {
-      const productIds = Object.keys(this.groupedCart);
-      return productId === productIds[productIds.length - 1];
-    };
-  },
+      return (productId) => {
+        const productIds = Object.keys(this.groupedCart);
+        return productId === productIds[productIds.length - 1];
+      };
+    },
 
     groupedCart() {
       const cartItems = this.$store.state.cart;
@@ -224,13 +228,25 @@ export default {
 
     grandTotal() {    
          return this.cartTotal + 70.00;
-      }
+      },
+
+    productCodes() {
+      const codeMap = {};
+      this.cart.forEach((product) => {
+        const productCode = product.name.substring(0, 3).toUpperCase();
+        codeMap[productCode] = (codeMap[productCode] || 0) + 1;
+      });
+      const codes = Object.entries(codeMap)
+        .map(([code, count]) => (count > 1 ? `${code}(${count})` : code))
+        .join(".");
+        return codes;
     },
+  },
 
   methods: {
     submitForm() {
       if (this.isFormValid) {
-        this.$refs.paymentForm.querySelector('button[type="submit"]').click(); 
+        this.$refs.paymentForm.querySelector('button[type="submit"]').click();
         this.clearCart();
       } else {
         alert('Please fill in all the required fields. They are marked with red');
@@ -274,12 +290,13 @@ export default {
         this.saveCart();
       }
     },
-  },
 
   mounted() {
     this.retrieveCart();
   },
-};
+}
+}
+
 </script>
 
 <style scoped>
