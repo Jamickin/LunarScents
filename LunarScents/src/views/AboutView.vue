@@ -1,6 +1,6 @@
 <template>
-  <div class="sm:px-12 px-8 sm:py-44 py-4 place-items-center text-slate-700 bg-white">
-    <div class="w-full h-1/2 flex sm:flex-row flex-col">
+  <div class="sm:px-12 px-8 sm:py-52 py-4 place-items-center text-slate-700 bg-white min-h-screen">
+    <div class="w-full h-1/2 flex sm:flex-row flex-col lg:place-items-center">
       <p class="text-center w-full text-xl pb-12 sm:pb-0">
         Hello, I'm Andrea, the heart and soul behind Lunar Scents. I'm thrilled to introduce you to the world of natural wellness and aromatherapy. Lunar Scents is not just a small essential oil business; it's a passion project born from a profound appreciation for the therapeutic and aromatic benefits of essential oils. I firmly hold the belief that nature has granted us everything we need for healing and well-being, waiting to be discovered and harnessed.
         <br /><br />
@@ -16,7 +16,7 @@
       </p>
       <img
         src="/images/pfpblack.webp"
-        class="aboutImage rounded-3xl sm:h-auto max-h-[300px] float-right ml-6"
+        class="aboutImage rounded-3xl sm:h-auto max-h-[300px] max-w-[300px] float-right ml-6"
         alt="Lunar Scents Image"
       />
     </div>
