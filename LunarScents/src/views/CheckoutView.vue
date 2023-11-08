@@ -13,10 +13,9 @@
 
     <div v-else style="min-height: 80vh">
 
-      <template v-for="(product, productId) in groupedCart" :key="productId">
+      <template v-for="(product) in groupedCart" :key="productId">
         <div 
-        :class="{ 'rounded-t-xl': isLastItem(productId), 'rounded-xl': !isLastItem(productId) }"
-         class="bg-Glass  p-8 mt-4">
+         class="bg-Glass p-8 mt-4">
           <CheckoutBox
             :name="product[0].name"
             :image="product[0].image"
@@ -30,10 +29,15 @@
         </div>
       </template>
         <div class="flex sm:flex-row flex-col gap-4 bg-Glass p-8 rounded-b-xl place-items-center justify-items-center">
-          <p class="text-slate-900 font-bold text-xl">Cart Total: R{{ cartTotal }}.00</p>
-          <p class="text-slate-900 font-bold text-xl">Delivery Fee: R70.00</p>
-          <p class="text-slate-900 font-bold text-xl">Grand Total: R{{ grandTotal }}.00</p>
+          <p class="text-slate-900 font-bold text-xl">Cart Total: <span class="text-TertiaryHL">R{{ cartTotal }}.00</span></p>
+          <p class="text-slate-900 font-bold text-xl">Delivery Fee: <span class="text-TertiaryHL">R{{ deliveryFee }}.00</span></p>
+          <p class="text-slate-900 font-bold text-xl">Grand Total: <span class="text-TertiaryHL">R{{ grandTotal }}.00</span></p>
+        <select v-model="deliveryOption" class="border p-2 bg-Glass border-none">
+          <option value="delivery">Delivery</option>
+          <option value="pickup">Pickup</option>
+        </select>
         </div>
+        <p class="font-bold" v-if="deliveryOption != 'delivery'">You've opted for Pick-Up. Delivery will not be charged, however you are responsible for the acquisition of said products!</p>
       <button
           class="mt-4 bg-[#475569] text-white py-2 px-4 mr-4 rounded hover:bg-primary-dark text-lg"
           @click="clearCart"
@@ -47,7 +51,6 @@
           @click="toggleModal()"
       >
         Place Order
-        <!-- Create deliver or self-collection -->
       </button> 
     </div>
   </div>
@@ -58,13 +61,12 @@
         method="post">
         <input type="hidden" name="merchant_id" value="23365764">
         <input type="hidden" name="merchant_key" value="6rsiv5tziqj24">
-        <!-- <input type="hidden" name="merchant_id" value="10000100">
-        <input type="hidden" name="merchant_key" value="46f0cd694581a"> -->
         <input type="hidden" name="return_url" value="https://www.lunarscents.co.za/store">
         <input type="hidden" name="cancel_url" value="https://www.lunarscents.co.za/checkout">
         <input type="hidden" name="amount" :value="grandTotal">
         <input type="hidden" name="item_name" :value="productCodes">
-        <input type="hidden" name="custom_str1" :value="userInfo.number">
+        <input type="hidden" name="custom_str1" :value="`Cell Number: ${userInfo.number}`">
+        <input type="hidden" name="custom_str2" :value="`Delivery Fee: R${deliveryFee}.00`">
         <input type="hidden" name="name_first" :value="userInfo.name">
         <input type="hidden" name="name_last" :value="userInfo.surname">
         <input type="hidden" name="email_address" :value="userInfo.email">
@@ -164,6 +166,7 @@ export default {
     return {
       orderPlaced: false,
       infoModalOpen: false,
+      deliveryOption: "delivery", 
       userInfo: {
         name: "",
         surname: "",
@@ -227,8 +230,12 @@ export default {
       }, 0);
     },
 
+    deliveryFee() {
+      return this.deliveryOption === "pickup" ? 0 : 70;
+    },
+
     grandTotal() {    
-         return this.cartTotal + 70.00;
+         return this.cartTotal + this.deliveryFee;
       },
 
     productCodes() {

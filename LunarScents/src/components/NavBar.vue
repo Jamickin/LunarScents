@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sidebar transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex flex-col justify-evenly bg-white sm:bg-Glass place-items-center sm:flex-row z-50 sm:text-white shadow-md"
+    class="sidebar transition-all duration-300 ease-in-out fixed top-0 left-0 sm:h-12 sm:w-screen h-screen flex flex-col justify-evenly bg-Primary place-items-center sm:flex-row z-50 sm:text-white shadow-md"
       :class="{
          scrolling: isScrolling,
         'menu-open': isMenuOpen,
