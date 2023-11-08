@@ -67,6 +67,7 @@
         <input type="hidden" name="item_name" :value="productCodes">
         <input type="hidden" name="custom_str1" :value="`Cell Number: ${userInfo.number}`">
         <input type="hidden" name="custom_str2" :value="`Delivery Fee: R${deliveryFee}.00`">
+        <input type="hidden" name="custom_str3" :value="`Extra Notes: ${userInfo.notes}`">
         <input type="hidden" name="name_first" :value="userInfo.name">
         <input type="hidden" name="name_last" :value="userInfo.surname">
         <input type="hidden" name="email_address" :value="userInfo.email">
@@ -103,6 +104,7 @@
           placeholder="Doe..."
           class="w-full border rounded px-2 py-1" 
           required/>
+          <span v-if="!userInfo.surname" class="text-red-600">Surname is required</span>
       </div>
       <div class="mb-4">
         <label for="number" class="block text-base mb-1 text-gray-700">Cell-Number:</label>
