@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.5.2",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
     "vue": "^3.3.2",

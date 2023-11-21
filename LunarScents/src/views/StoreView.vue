@@ -17,12 +17,9 @@
     <div>
       <p
           class="w-full text-center px-12 font-bold text-lg bg-white rounded-b-2xl sm:py-24">
-        All of our products are made with the finest of
-        nature's ingredients. We urge you to take a stroll
-        through our store and pick what you like!
+          All of our products are made with the finest of nature's ingredients. Transform your space into a lunar sanctuary of tranquillity with our thoughtfully crafted blends!
         <br>
-        Please note: We are experiencing growth and eagerly anticipate the addition of new products to our shop in the near
-        future!
+        Please note: We are growing and eagerly anticipate the addition of new products to our shop!
       </p>
     </div>
     <div
@@ -53,6 +50,13 @@
       :price="products[products.length - 1].price"
       @addToCart="addToCart(products[products.length - 1])"
     ></Product>
+    <div class="mt-12 mx-auto">
+  <button @click="toggleBoxModal" class="transition-all duration-300 opacity-90 hover:opacity-100 active:scale-110 bg-slate-500 text-white p-2 hover:bg-TertiaryHL rounded-lg font-extrabold hover:text-black hover:scale-105">
+    What's in the box?
+  </button>
+  <box-modal :is-open="isBoxModalOpen" @close="toggleBoxModal" />
+</div>
+
   </div>
     <iframe src="/images/LunarOils.pdf" width="100%" height="800" style="margin-bottom: 1rem;"></iframe>  
     <div class="bg-neutral-50 rounded-2xl shadow-md p-6 h-auto">
@@ -65,13 +69,22 @@
 </template>
 
 <script>
+import BoxModal from '@/components/BoxModal.vue';
 import Products from "@/assets/data/products.json";
 import Product from "@/components/Product.vue";
 import store from "@/store";
 
 export default {
+  data() {
+  return {
+    isBoxModalOpen: false,
+  };
+},
   name: 'StoreView',
-  components: {Product},
+  components: {
+    Product,
+    BoxModal
+  },
   computed: {
     products() {
       return this.$store.state.products;
@@ -86,7 +99,10 @@ export default {
     addToCart(product) {
       this.selectedProductImage = product.image;
       this.$store.commit("addToCart", product);
-    }
+    },
+    toggleBoxModal() {
+    this.isBoxModalOpen = !this.isBoxModalOpen;
+  },
   },
 
   mounted() {

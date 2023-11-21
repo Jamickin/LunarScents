@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Temple Tonic",
-    "description": "An enchanting blend of celestial florals and musk.",
+    "description": "A targeted blend of essential oils for quick relief from headaches and enhanced focus. Roll on temples, behind the ears, or wrists for an instant, refreshing boost.",
     "price": 50.00,
     "image": "/images/TonicStoreWhite.webp",
     "weight": 40
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "name": "Enchanted Forest Spray",
-    "description": "A refreshing mist infused with the essence of moonlight.",
+    "description": "Enchanted Forest Spritzer, a captivating blend of essential oils featuring the enchanting note of Ylang-Ylang. Elevate any space effortlessly as you spitz it as a room spray, bathroom spray, or linen spray.",
     "price": 80.00,
     "image": "/images/SprayStoreWhite.webp",
     "weight": 195
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "name": "Moonlit Blush Blend",
-    "description": "A beam of sunlight, raging against your senses.",
+    "description": "Moonlit Blush Blend, a 10ml fusion of exquisite musky sweet essential oil blend, designed to create a serene atmosphere. Ideal for use in a diffuser or burner, this enchanting blend enhances your space with a delicate and calming fragrance.",
     "price": 120.00,
     "image": "/images/MoonlitBlushBlendWhite.webp",
     "weight": 40
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "name": "Gift Box",
-    "description": "All of your favourite items in one place!",
+    "description": "Lunar Scents' exquisite gift box is filled with true aromatherapy treasures to take your senses on a captivating journey.",
     "price": 450.00,
     "image": "/images/HomePicWhite.webp",
     "weight": 620
