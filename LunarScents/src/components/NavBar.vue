@@ -12,7 +12,7 @@
 			:class="{ 'button-visible': isMenuOpen }"
 		>
 			<img
-				src="/images/ArrowRight.svg"
+				src="https://firebasestorage.googleapis.com/v0/b/lunar-scents.appspot.com/o/ArrowRight.svg?alt=media&token=ed5b4172-572d-40a7-bcb6-01c721fa1e25"
 				class="w-12 rotate-180"
 			/>
 		</button>
@@ -63,7 +63,7 @@
 			>
 				<img
 					class="h-full"
-					src="/images/Logo.webp"
+					src="https://firebasestorage.googleapis.com/v0/b/lunar-scents.appspot.com/o/Logo.webp?alt=media&token=b55c1898-426f-4aef-a2a5-df623852aa6f"
 				/>
 			</div>
 		</div>

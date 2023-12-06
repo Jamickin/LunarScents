@@ -1,34 +1,34 @@
 [
-  {
-    "id": 1,
-    "name": "Temple Tonic",
-    "description": "A targeted blend of essential oils for quick relief from headaches and enhanced focus. Roll on temples, behind the ears, or wrists for an instant, refreshing boost.",
-    "price": 50.00,
-    "image": "/images/TonicStoreWhite.webp",
-    "weight": 40
-  },
-  {
-    "id": 2,
-    "name": "Enchanted Forest Spray",
-    "description": "Enchanted Forest Spritzer, a captivating blend of essential oils featuring the enchanting note of Ylang-Ylang. Elevate any space effortlessly as you spitz it as a room spray, bathroom spray, or linen spray.",
-    "price": 80.00,
-    "image": "/images/SprayStoreWhite.webp",
-    "weight": 195
-  },
-  {
-    "id": 3,
-    "name": "Moonlit Blush Blend",
-    "description": "Moonlit Blush Blend, a 10ml fusion of exquisite musky sweet essential oil blend, designed to create a serene atmosphere. Ideal for use in a diffuser or burner, this enchanting blend enhances your space with a delicate and calming fragrance.",
-    "price": 120.00,
-    "image": "/images/MoonlitBlushBlendWhite.webp",
-    "weight": 40
-  },
-  {
-    "id": 4,
-    "name": "Gift Box",
-    "description": "Lunar Scents' exquisite gift box is filled with true aromatherapy treasures to take your senses on a captivating journey.",
-    "price": 450.00,
-    "image": "/images/HomePicWhite.webp",
-    "weight": 620
-  }
+	{
+		"id": 1,
+		"name": "Temple Tonic",
+		"description": "A targeted blend of essential oils for quick relief from headaches and enhanced focus. Roll on temples, behind the ears, or wrists for an instant, refreshing boost.",
+		"price": 50.0,
+		"image": "https://firebasestorage.googleapis.com/v0/b/lunar-scents.appspot.com/o/TonicStoreWhite.webp?alt=media&token=82361c18-1d5b-48a5-9714-5f1136598955",
+		"weight": 40
+	},
+	{
+		"id": 2,
+		"name": "Enchanted Forest Spray",
+		"description": "Enchanted Forest Spritzer, a captivating blend of essential oils featuring the enchanting note of Ylang-Ylang. Elevate any space effortlessly as you spitz it as a room spray, bathroom spray, or linen spray.",
+		"price": 80.0,
+		"image": "https://firebasestorage.googleapis.com/v0/b/lunar-scents.appspot.com/o/SprayStoreWhite.webp?alt=media&token=6c8644d6-7cbe-4021-8847-a4a76c58ff80",
+		"weight": 195
+	},
+	{
+		"id": 3,
+		"name": "Moonlit Blush Blend",
+		"description": "Moonlit Blush Blend, a 10ml fusion of exquisite musky sweet essential oil blend, designed to create a serene atmosphere. Ideal for use in a diffuser or burner, this enchanting blend enhances your space with a delicate and calming fragrance.",
+		"price": 120.0,
+		"image": "https://firebasestorage.googleapis.com/v0/b/lunar-scents.appspot.com/o/MoonlitBlushBlendWhite.webp?alt=media&token=d8ce9412-38a9-434d-80db-9b5b964d0eb3",
+		"weight": 40
+	},
+	{
+		"id": 4,
+		"name": "Gift Box",
+		"description": "Lunar Scents' exquisite gift box is filled with true aromatherapy treasures to take your senses on a captivating journey.",
+		"price": 450.0,
+		"image": "https://firebasestorage.googleapis.com/v0/b/lunar-scents.appspot.com/o/HomePicWhite.webp?alt=media&token=c9222729-f115-41b0-8947-34c0e0fc3531",
+		"weight": 620
+	}
 ]
